@@ -1,0 +1,20 @@
+{
+  "name": "java-ai-mcq-learning-platform",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "validate": "node scripts/validate-questions.mjs",
+    "build:banks": "node scripts/build-question-bank.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "vite": "^5.4.14"
+  }
+}

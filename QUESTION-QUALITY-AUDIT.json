@@ -1,0 +1,158 @@
+{
+  "auditedAt": "2026-11-16T13:57:33.059Z",
+  "counts": {
+    "core": 130,
+    "practical": 50,
+    "extension": 47
+  },
+  "topicCoverage": {
+    "jvm": {
+      "name": "JVM Architecture & Java Overview",
+      "questions": 9
+    },
+    "basics": {
+      "name": "Java Basics, Variables & Scope",
+      "questions": 8
+    },
+    "oop-foundations": {
+      "name": "Object-Oriented Programming Concepts",
+      "questions": 2
+    },
+    "types-operators": {
+      "name": "Data Types, Wrappers & Operators",
+      "questions": 19
+    },
+    "control-flow": {
+      "name": "Control Statements",
+      "questions": 8
+    },
+    "packages": {
+      "name": "Packages, Imports & Java Tools",
+      "questions": 12
+    },
+    "arrays": {
+      "name": "Arrays",
+      "questions": 12
+    },
+    "strings": {
+      "name": "String & StringBuilder",
+      "questions": 10
+    },
+    "methods-encapsulation": {
+      "name": "Methods, Constructors & Encapsulation",
+      "questions": 15
+    },
+    "inheritance": {
+      "name": "Inheritance, Abstract Classes & Interfaces",
+      "questions": 9
+    },
+    "polymorphism": {
+      "name": "Polymorphism, Casting & Overriding",
+      "questions": 9
+    },
+    "exceptions": {
+      "name": "Exception Handling",
+      "questions": 14
+    },
+    "enums-generics": {
+      "name": "Enums, Autoboxing, Generics & Collections Overview",
+      "questions": 12
+    },
+    "functional": {
+      "name": "Functional Programming & Lambda Expressions",
+      "questions": 10
+    },
+    "collections": {
+      "name": "Collection Framework & Operations",
+      "questions": 13
+    },
+    "streams": {
+      "name": "Streams & Stream API",
+      "questions": 14
+    },
+    "datetime": {
+      "name": "Java Date-Time API",
+      "questions": 7
+    },
+    "concurrency": {
+      "name": "Java Concurrency & Threads",
+      "questions": 20
+    },
+    "reflection": {
+      "name": "Reflection API",
+      "questions": 6
+    },
+    "nodejs": {
+      "name": "Introduction to Node.js",
+      "questions": 5
+    },
+    "spring": {
+      "name": "Introduction to Spring Framework",
+      "questions": 13
+    }
+  },
+  "difficultyCounts": {
+    "basic": 21,
+    "medium": 136,
+    "hard": 60,
+    "expert": 10
+  },
+  "typeCounts": {
+    "code": 50,
+    "concept": 177
+  },
+  "shortOptionWarningCount": 28,
+  "requestedCountConflicts": {
+    "headingsSum": 550,
+    "detailedBankTargetsSum": 650,
+    "statedOverallTarget": 600
+  },
+  "total": 227,
+  "checks": {
+    "uniqueIds": true,
+    "uniqueGlobalNumbers": true,
+    "validAnswerIndexes": true,
+    "fourOptionsPerQuestion": true,
+    "explanationsAndHintsPresent": true,
+    "validTopicAndReferenceLinks": true,
+    "codeSnippetsPresentForCodeQuestions": true,
+    "allSyllabusTopicsRepresented": true,
+    "lexicalSimilarityScreen": "No high-similarity prompt pairs were found by the lightweight Jaccard screen."
+  },
+  "warnings": [
+    "PRAC-0001: one or more options are very short",
+    "PRAC-0002: one or more options are very short",
+    "PRAC-0005: one or more options are very short",
+    "PRAC-0006: one or more options are very short",
+    "PRAC-0007: one or more options are very short",
+    "PRAC-0009: one or more options are very short",
+    "PRAC-0010: one or more options are very short",
+    "PRAC-0011: one or more options are very short",
+    "PRAC-0012: one or more options are very short",
+    "PRAC-0013: one or more options are very short",
+    "PRAC-0015: one or more options are very short",
+    "PRAC-0018: one or more options are very short",
+    "PRAC-0019: one or more options are very short",
+    "PRAC-0020: one or more options are very short",
+    "PRAC-0022: one or more options are very short",
+    "PRAC-0023: one or more options are very short",
+    "PRAC-0025: one or more options are very short",
+    "PRAC-0027: one or more options are very short",
+    "PRAC-0029: one or more options are very short",
+    "PRAC-0032: one or more options are very short",
+    "PRAC-0033: one or more options are very short",
+    "PRAC-0035: one or more options are very short",
+    "PRAC-0036: one or more options are very short",
+    "PRAC-0037: one or more options are very short",
+    "PRAC-0038: one or more options are very short",
+    "PRAC-0042: one or more options are very short",
+    "PRAC-0043: one or more options are very short",
+    "PRAC-0046: one or more options are very short"
+  ],
+  "errors": [],
+  "limitations": [
+    "Lexical similarity screening cannot prove semantic originality; human review is still required.",
+    "The delivered bank is a curated starter set and does not meet the requested 600/650-question target.",
+    "Compilation/runtime execution of every illustrative code snippet has not been performed by this validator."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "topicId": "existing-topic-id",
+  "difficulty": "basic | medium | hard | expert",
+  "type": "concept | scenario | code | debugging | application",
+  "question": "Write one precise question testing one learning objective.",
+  "options": [
+    "Plausible answer option A",
+    "Plausible answer option B",
+    "Plausible answer option C",
+    "Plausible answer option D"
+  ],
+  "correctAnswer": 0,
+  "rationale": "Explain the correct rule and reasoning.",
+  "wrongWhy": [
+    "Why the first incorrect option is wrong.",
+    "Why the second incorrect option is wrong.",
+    "Why the third incorrect option is wrong."
+  ],
+  "hint": "Offer a clue without revealing the answer.",
+  "code": "Optional Java 17 code snippet for code questions"
+}

@@ -1,0 +1,3252 @@
+[
+  {
+    "id": "CORE-0001",
+    "number": 1,
+    "bank": "core",
+    "topicId": "jvm",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "What does the Java compiler normally produce when it compiles a source file containing a class?",
+    "options": [
+      "A class file containing JVM bytecode that a compatible JVM can load and execute",
+      "A native executable permanently tied to the processor used during compilation",
+      "A JavaScript bundle that the browser translates into machine instructions",
+      "A compressed JAR archive containing every library the application may need"
+    ],
+    "correctAnswer": 0,
+    "explanation": "javac translates Java source into class-file bytecode. A JVM implementation for the target platform loads and executes that bytecode, which is the basis for Java portability.",
+    "optionExplanations": [
+      "Correct. javac translates Java source into class-file bytecode. A JVM implementation for the target platform loads and executes that bytecode, which is the basis for Java portability.",
+      "A normal javac invocation emits class files, not a platform-specific executable.",
+      "Java source is not translated into JavaScript by javac.",
+      "A JAR is an archive packaging format and is not the compiler output for every class by default."
+    ],
+    "hint": "Trace the usual source → compiler → class-file → runtime sequence.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "CORE-0002",
+    "number": 2,
+    "bank": "core",
+    "topicId": "jvm",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why can a Just-In-Time compiler improve the performance of a long-running Java application?",
+    "options": [
+      "It can compile frequently executed bytecode paths into optimised native machine code at runtime",
+      "It changes every object into a primitive value before the first method call",
+      "It removes the need for class loading and bytecode verification",
+      "It converts the entire application into Java source code before execution"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A JIT compiler can use runtime profiling information to optimise hot methods and compile them to native code. The JVM may continue to interpret less frequently executed bytecode.",
+    "optionExplanations": [
+      "Correct. A JIT compiler can use runtime profiling information to optimise hot methods and compile them to native code. The JVM may continue to interpret less frequently executed bytecode.",
+      "JIT compilation does not change the Java object model or make all objects primitive.",
+      "Class loading and verification remain part of JVM execution.",
+      "JIT compiles code to machine code, not back to Java source."
+    ],
+    "hint": "Think about what the runtime learns after the program has executed for a while.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "CORE-0003",
+    "number": 3,
+    "bank": "core",
+    "topicId": "jvm",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which statement most accurately distinguishes the JDK from the JVM?",
+    "options": [
+      "The JDK supplies development tools such as javac; the JVM is the execution engine for bytecode",
+      "The JVM contains the Java compiler, while the JDK contains only application libraries",
+      "The JDK is a virtual machine and the JVM is a source-code editor",
+      "The two names refer to the same component and are interchangeable in every context"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The JDK is the development kit and includes tools for building Java programs. The JVM provides the runtime mechanism that loads and executes bytecode.",
+    "optionExplanations": [
+      "Correct. The JDK is the development kit and includes tools for building Java programs. The JVM provides the runtime mechanism that loads and executes bytecode.",
+      "The roles are reversed: javac is a JDK tool, not a core JVM component.",
+      "Neither term refers to a source editor, and the JVM is not the JDK.",
+      "They are related but describe different layers of the Java platform."
+    ],
+    "hint": "Separate development-time tools from runtime execution.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "CORE-0004",
+    "number": 4,
+    "bank": "core",
+    "topicId": "jvm",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which memory area is shared by all Java threads and primarily stores objects and arrays?",
+    "options": [
+      "The heap, which stores allocated objects and arrays",
+      "Each thread stack, which stores only that thread’s method frames",
+      "The program counter register, which is maintained separately per thread",
+      "A local-variable slot table that belongs to one active method frame"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The heap is shared across threads and is where objects and arrays are allocated. Each thread has its own JVM stack and program counter.",
+    "optionExplanations": [
+      "Correct. The heap is shared across threads and is where objects and arrays are allocated. Each thread has its own JVM stack and program counter.",
+      "A Java stack is per-thread, not the shared object heap.",
+      "The program counter is per-thread and tracks the current instruction position.",
+      "Local variables are held in a method frame on a thread stack."
+    ],
+    "hint": "Look for the runtime area that stores objects regardless of which thread refers to them.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "CORE-0005",
+    "number": 5,
+    "bank": "core",
+    "topicId": "jvm",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "A method is called recursively many times. Which statement best describes the stack frames created by those calls?",
+    "options": [
+      "Each active invocation has its own frame on the calling thread’s JVM stack",
+      "All invocations share one mutable frame because the method has only one definition",
+      "Each invocation creates a new JVM process with an independent heap",
+      "The recursive calls are stored as additional class metadata in Metaspace"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A method invocation creates a frame containing its local variables, operand stack and bookkeeping. Recursive calls therefore have separate frames on the thread stack.",
+    "optionExplanations": [
+      "Correct. A method invocation creates a frame containing its local variables, operand stack and bookkeeping. Recursive calls therefore have separate frames on the thread stack.",
+      "A method definition is shared, but each invocation has its own execution frame.",
+      "A recursive call does not create a new operating-system process or JVM.",
+      "Metaspace stores class metadata, not active recursive call frames."
+    ],
+    "hint": "Distinguish a method’s single definition from its many simultaneous invocations.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "CORE-0006",
+    "number": 6,
+    "bank": "core",
+    "topicId": "basics",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which variable must be definitely assigned before it is read inside a method?",
+    "options": [
+      "A local variable declared inside the method or one of its blocks",
+      "An instance field of an object created with the new operator",
+      "A static field declared by a class",
+      "An element of a newly allocated int array"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java applies definite-assignment checks to local variables. Fields and array elements receive default values when their containing object or array is created.",
+    "optionExplanations": [
+      "Correct. Java applies definite-assignment checks to local variables. Fields and array elements receive default values when their containing object or array is created.",
+      "Instance fields receive default values before the constructor body completes.",
+      "Static fields receive default values during class initialisation.",
+      "Array elements receive their component type’s default value."
+    ],
+    "hint": "Compare compiler definite-assignment rules for locals with default initialisation of fields and array elements.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "CORE-0007",
+    "number": 7,
+    "bank": "core",
+    "topicId": "basics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "A method parameter is named count and the class also has an instance field named count. How can the method explicitly read the field?",
+    "options": [
+      "Use this.count to refer to the current object’s field",
+      "Use static count because every field is accessed through the class name",
+      "Use super.count because all fields are inherited from Object",
+      "Use local.count because parameters are stored as local variables"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When a local variable or parameter shadows an instance field, this.count explicitly selects the field belonging to the current object.",
+    "optionExplanations": [
+      "Correct. When a local variable or parameter shadows an instance field, this.count explicitly selects the field belonging to the current object.",
+      "static count is not a general field-selection syntax and would refer to a static field only if declared.",
+      "super selects an accessible superclass member, not the current class field in general.",
+      "local is not a Java keyword or implicit variable qualifier."
+    ],
+    "hint": "Use the receiver reference that denotes the current object.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "CORE-0008",
+    "number": 8,
+    "bank": "core",
+    "topicId": "basics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the main purpose of a JavaDoc comment beginning with /**?",
+    "options": [
+      "To document API declarations in a format that the javadoc tool can process",
+      "To mark a block that the Java compiler must execute before the main method",
+      "To suppress every compiler warning in the following class",
+      "To import all classes mentioned in the comment into the source file"
+    ],
+    "correctAnswer": 0,
+    "explanation": "JavaDoc comments are structured documentation comments associated with declarations. The javadoc tool extracts them into API documentation.",
+    "optionExplanations": [
+      "Correct. JavaDoc comments are structured documentation comments associated with declarations. The javadoc tool extracts them into API documentation.",
+      "Comments are not executable code or initialisation blocks.",
+      "JavaDoc does not act as a general warning-suppression annotation.",
+      "A comment cannot change imports or type resolution."
+    ],
+    "hint": "Identify the comment syntax specifically intended for generated API documentation.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "CORE-0009",
+    "number": 9,
+    "bank": "core",
+    "topicId": "oop-foundations",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "In Java, what is the relationship between a class and an object?",
+    "options": [
+      "A class defines a type and construction blueprint; an object is a runtime instance of that class",
+      "An object is the source file from which a class is compiled",
+      "A class is a single runtime variable that stores one object reference",
+      "A class and an object are identical terms for a package declaration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A class describes fields and methods for a type. An object is a particular runtime instance with identity and state.",
+    "optionExplanations": [
+      "Correct. A class describes fields and methods for a type. An object is a particular runtime instance with identity and state.",
+      "An object is not a source file; a source file contains declarations.",
+      "A class is a type definition, not a variable.",
+      "Packages group related types and are distinct from both classes and objects."
+    ],
+    "hint": "Think of a class as the type definition and an object as one created instance.",
+    "referenceId": "ref-oop"
+  },
+  {
+    "id": "CORE-0010",
+    "number": 10,
+    "bank": "core",
+    "topicId": "oop-foundations",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which design choice most directly supports encapsulation of an object’s internal state?",
+    "options": [
+      "Keep fields private and expose controlled operations that preserve valid state",
+      "Make every field public so callers can change internal state without restrictions",
+      "Store all fields as global static variables shared by unrelated objects",
+      "Replace methods with comments that describe how callers should modify fields"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Encapsulation limits direct access to representation and allows methods to enforce invariants when state changes.",
+    "optionExplanations": [
+      "Correct. Encapsulation limits direct access to representation and allows methods to enforce invariants when state changes.",
+      "Public mutable fields expose representation and bypass validation.",
+      "Static global state is shared and does not encapsulate each object’s state.",
+      "Comments do not enforce access control or invariants."
+    ],
+    "hint": "Look for controlled access rather than unrestricted access.",
+    "referenceId": "ref-oop"
+  },
+  {
+    "id": "CORE-0011",
+    "number": 11,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which set contains all eight Java primitive types?",
+    "options": [
+      "boolean, byte, short, int, long, char, float and double",
+      "Boolean, Byte, Short, Integer, Long, Character, Float and Double",
+      "String, int, long, char, decimal, real, boolean and object",
+      "byte, short, int, long, float, double, String and void"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java has eight primitive types. The capitalised types in option B are wrapper classes, while String and Object are reference types.",
+    "optionExplanations": [
+      "Correct. Java has eight primitive types. The capitalised types in option B are wrapper classes, while String and Object are reference types.",
+      "These are wrapper classes rather than primitive types.",
+      "String, decimal and object are not Java primitive types.",
+      "String is a reference type and void is not a value type that can be declared for a variable."
+    ],
+    "hint": "Recall the eight primitive keywords, including the less frequently used byte, short and char.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0012",
+    "number": 12,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What happens when an int expression divides one int value by another and the result is assigned to a double?",
+    "options": [
+      "Integer division happens first, so the fractional part is already discarded before assignment",
+      "The compiler automatically converts both operands to double before performing division",
+      "The division always throws ArithmeticException when the quotient is not a whole number",
+      "The result is stored as a rational number with an exact numerator and denominator"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The operand types determine the division operation. With two int operands, Java performs integer division and truncates toward zero; assigning that result to double cannot restore the fraction.",
+    "optionExplanations": [
+      "Correct. The operand types determine the division operation. With two int operands, Java performs integer division and truncates toward zero; assigning that result to double cannot restore the fraction.",
+      "Assignment conversion happens after the division; it does not retroactively promote operands.",
+      "A non-integral quotient does not cause ArithmeticException.",
+      "Java primitive numeric division does not produce a rational-number object."
+    ],
+    "hint": "Check the types of the operands before considering the destination variable.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0013",
+    "number": 13,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why is an explicit cast sometimes required when assigning a double value to an int?",
+    "options": [
+      "The conversion is narrowing and can discard the fractional part or overflow the int range",
+      "The conversion is always lossless but Java requires casts only for style consistency",
+      "An int variable can store only positive values whereas double supports negatives",
+      "Java does not permit any conversion between floating-point and integral types"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A double has a wider range and fractional precision than int. Narrowing requires an explicit cast because information may be lost.",
+    "optionExplanations": [
+      "Correct. A double has a wider range and fractional precision than int. Narrowing requires an explicit cast because information may be lost.",
+      "The conversion is not guaranteed to be lossless.",
+      "int supports negative values.",
+      "Java permits floating-point-to-integral casts, with defined truncation and range behaviour."
+    ],
+    "hint": "Compare the precision and range of the source and destination types.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0014",
+    "number": 14,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "A program unboxes an Integer reference whose value is null. What is the result?",
+    "options": [
+      "A NullPointerException occurs when Java attempts to obtain the primitive int value",
+      "The primitive int receives zero because all wrapper references default to zero",
+      "The compiler replaces the null reference with Integer.valueOf(0)",
+      "The unboxing operation is skipped and the variable remains a nullable primitive"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Unboxing calls the wrapper’s primitive-value conversion. A null wrapper has no value to unbox, so a NullPointerException is thrown.",
+    "optionExplanations": [
+      "Correct. Unboxing calls the wrapper’s primitive-value conversion. A null wrapper has no value to unbox, so a NullPointerException is thrown.",
+      "A null reference is not an Integer object with the value zero.",
+      "Java does not silently substitute zero for a null wrapper.",
+      "Primitive variables cannot hold null."
+    ],
+    "hint": "Ask what object the unboxing conversion would need to read from.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0015",
+    "number": 15,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which comparison should normally be used to compare the character content of two String objects?",
+    "options": [
+      "equals, because it compares the character sequence according to String content semantics",
+      "==, because it always compares the characters in two separate String objects",
+      "compareTo, because it returns true only when two strings are identical",
+      "hashCode, because equal strings must have different hash codes"
+    ],
+    "correctAnswer": 0,
+    "explanation": "String.equals compares content. == checks whether two references identify the same object. compareTo provides lexicographic ordering and returns an int.",
+    "optionExplanations": [
+      "Correct. String.equals compares content. == checks whether two references identify the same object. compareTo provides lexicographic ordering and returns an int.",
+      "== compares reference identity for String references.",
+      "compareTo returns an integer ordering result, not a boolean equality result.",
+      "Equal strings must have equal hash codes, not different ones."
+    ],
+    "hint": "Distinguish object identity from value equality.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0016",
+    "number": 16,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the key evaluation difference between the boolean operators && and &?",
+    "options": [
+      "&& short-circuits when the left operand determines the result; boolean & evaluates both operands",
+      "& short-circuits while && always evaluates both operands",
+      "&& works only with integer bit patterns while & works only with booleans",
+      "The operators are identical in evaluation and differ only in visual style"
+    ],
+    "correctAnswer": 0,
+    "explanation": "For boolean operands, && performs conditional evaluation. Boolean & evaluates both sides. The same symbols also have bitwise uses on integral types.",
+    "optionExplanations": [
+      "Correct. For boolean operands, && performs conditional evaluation. Boolean & evaluates both sides. The same symbols also have bitwise uses on integral types.",
+      "This reverses the short-circuit behaviour.",
+      "The boolean forms accept boolean operands; bitwise forms operate on integral values.",
+      "The evaluation semantics are different and can affect side effects or exceptions."
+    ],
+    "hint": "Consider whether the right-hand expression must always run.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0017",
+    "number": 17,
+    "bank": "core",
+    "topicId": "control-flow",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which loop guarantees that its body executes at least once?",
+    "options": [
+      "do-while, because its condition is tested after the loop body",
+      "while, because its condition is tested after the first iteration",
+      "for, because its update expression always runs before the first iteration",
+      "foreach, because every array must contain at least one element"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A do-while loop evaluates its condition after executing the body, so the body runs at least once even when the condition is initially false.",
+    "optionExplanations": [
+      "Correct. A do-while loop evaluates its condition after executing the body, so the body runs at least once even when the condition is initially false.",
+      "A while loop tests the condition before entering the body.",
+      "A for loop tests its condition before the first body execution.",
+      "Arrays and collections may be empty, so enhanced for may execute zero times."
+    ],
+    "hint": "Compare when each loop form first checks its condition.",
+    "referenceId": "ref-control"
+  },
+  {
+    "id": "CORE-0018",
+    "number": 18,
+    "bank": "core",
+    "topicId": "control-flow",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Inside a nested loop, what does an unlabeled break statement terminate?",
+    "options": [
+      "The nearest enclosing loop or switch statement",
+      "Every enclosing loop and the method that contains them",
+      "Only the current iteration, then execution continues with the next iteration",
+      "The JVM process after flushing all output streams"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An unlabeled break exits the nearest enclosing loop or switch. A labelled break can transfer control out of a labelled enclosing statement.",
+    "optionExplanations": [
+      "Correct. An unlabeled break exits the nearest enclosing loop or switch. A labelled break can transfer control out of a labelled enclosing statement.",
+      "An ordinary break does not automatically exit all nested loops or the method.",
+      "Skipping the current iteration is the role of continue.",
+      "break is a language control-transfer statement, not a process termination command."
+    ],
+    "hint": "Find the closest enclosing breakable statement.",
+    "referenceId": "ref-control"
+  },
+  {
+    "id": "CORE-0019",
+    "number": 19,
+    "bank": "core",
+    "topicId": "control-flow",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What can happen in a traditional Java switch statement when a matching case completes without break, return or another transfer?",
+    "options": [
+      "Execution can fall through into subsequent case sections until a transfer or the switch end",
+      "The compiler always inserts an implicit break after every case label",
+      "The next case label is treated as a nested if statement and never executed",
+      "The entire switch is re-evaluated using the next case expression"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Traditional switch statements permit fall-through. Control continues into following statements unless an explicit transfer exits the switch.",
+    "optionExplanations": [
+      "Correct. Traditional switch statements permit fall-through. Control continues into following statements unless an explicit transfer exits the switch.",
+      "The compiler does not add an implicit break to traditional switch statements.",
+      "Case labels are labels within one switch body, not nested if statements.",
+      "The selector expression is not re-evaluated for each subsequent case."
+    ],
+    "hint": "Remember the historical fall-through behaviour of colon-style case labels.",
+    "referenceId": "ref-control"
+  },
+  {
+    "id": "CORE-0020",
+    "number": 20,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "What does an import declaration do in a Java source file?",
+    "options": [
+      "It allows an accessible type or static member to be referred to by a shorter name",
+      "It copies the imported class bytecode into the current source file",
+      "It creates a new package containing the imported class",
+      "It automatically downloads the imported library from the internet during compilation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Imports affect name resolution in source code. They do not copy bytecode, create packages or retrieve dependencies.",
+    "optionExplanations": [
+      "Correct. Imports affect name resolution in source code. They do not copy bytecode, create packages or retrieve dependencies.",
+      "Imports are source-level declarations and do not copy class files.",
+      "A package is declared separately and is not created by an import.",
+      "Dependency retrieval is handled by build tools or other distribution mechanisms, not import declarations."
+    ],
+    "hint": "Think about source-code naming rather than packaging or dependency management.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0021",
+    "number": 21,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which package is implicitly available to Java source code without an explicit import?",
+    "options": [
+      "java.lang, which contains common types such as String and Math",
+      "java.util, which contains collections such as ArrayList and HashMap",
+      "java.io, which contains streams and file APIs",
+      "java.time, which contains LocalDate and Instant"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Types in java.lang are automatically available by simple name. Types in packages such as java.util, java.io and java.time normally require imports or qualified names.",
+    "optionExplanations": [
+      "Correct. Types in java.lang are automatically available by simple name. Types in packages such as java.util, java.io and java.time normally require imports or qualified names.",
+      "java.util is not implicitly imported.",
+      "java.io is not implicitly imported.",
+      "java.time is not implicitly imported."
+    ],
+    "hint": "Recall which standard package contains Object, String, Math and System.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0022",
+    "number": 22,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "For an array whose length is 5, which index range is valid?",
+    "options": [
+      "0 through 4 inclusive, because Java array indexing starts at zero",
+      "1 through 5 inclusive, because length is the highest valid index",
+      "0 through 5 inclusive, because the length field is also an element",
+      "-1 through 3 inclusive, because the final slot is reserved for metadata"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An array of length n has valid indices from 0 to n-1. The length field reports the number of elements, not the last index.",
+    "optionExplanations": [
+      "Correct. An array of length n has valid indices from 0 to n-1. The length field reports the number of elements, not the last index.",
+      "Java arrays are zero-indexed.",
+      "The length value is one greater than the largest valid index.",
+      "Negative indexes are not valid array element positions."
+    ],
+    "hint": "Use length minus one as the final valid index.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0023",
+    "number": 23,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a jagged two-dimensional Java array?",
+    "options": [
+      "An array whose elements are references to row arrays that may have different lengths",
+      "A single rectangular memory block where every row must have the same length",
+      "An array that stores only primitive values and cannot contain references",
+      "A matrix whose row and column indices both start at one"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java multidimensional arrays are arrays of arrays. Each row is a separate array and can be allocated with a different length or left null.",
+    "optionExplanations": [
+      "Correct. Java multidimensional arrays are arrays of arrays. Each row is a separate array and can be allocated with a different length or left null.",
+      "Java does not require all rows to have equal lengths.",
+      "An array of arrays may contain references to arrays, not only primitives.",
+      "Java array indexing starts at zero."
+    ],
+    "hint": "Think of the outer array as holding references to independently sized row arrays.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0024",
+    "number": 24,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the most reliable precondition for using Arrays.binarySearch on an array?",
+    "options": [
+      "The array must already be sorted according to the ordering used by the search",
+      "The array must contain no duplicate values",
+      "The array must have a length that is a power of two",
+      "The array must contain only primitive values and no objects"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Binary search relies on ordered data so it can discard half of the remaining search interval at each step. The API does not require a power-of-two length or unique values.",
+    "optionExplanations": [
+      "Correct. Binary search relies on ordered data so it can discard half of the remaining search interval at each step. The API does not require a power-of-two length or unique values.",
+      "Duplicates are permitted; the method may return one matching position.",
+      "Array length need not be a power of two.",
+      "Object arrays can be searched when their ordering is appropriate."
+    ],
+    "hint": "Binary search chooses a half based on ordering, so the input must have an ordering.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0025",
+    "number": 25,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Why does calling String.toUpperCase() not change the original String object?",
+    "options": [
+      "String is immutable, so the method returns a new String result instead of modifying the receiver",
+      "The method changes only the String pool and never returns a value",
+      "The JVM prohibits every String method from allocating another object",
+      "String objects are mutable, but Java copies them before every method call"
+    ],
+    "correctAnswer": 0,
+    "explanation": "String is immutable. Operations that appear to transform text return a result and leave the original String unchanged.",
+    "optionExplanations": [
+      "Correct. String is immutable. Operations that appear to transform text return a result and leave the original String unchanged.",
+      "toUpperCase returns a String value.",
+      "The JVM can allocate new strings; immutability is the key property.",
+      "Java does not automatically copy every String before every method call."
+    ],
+    "hint": "Check whether the API mutates the receiver or returns a transformed value.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0026",
+    "number": 26,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the main reason to use StringBuilder for repeated text appends inside a loop?",
+    "options": [
+      "It mutates a character sequence and can avoid creating a new String for each append step",
+      "It makes every append operation automatically thread-safe across all threads",
+      "It stores text in a fixed-length array that cannot grow after construction",
+      "It compares string contents faster than String.equals in every situation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "StringBuilder is mutable and designed for efficient sequential text construction. It is not synchronised; StringBuffer is the synchronised alternative.",
+    "optionExplanations": [
+      "Correct. StringBuilder is mutable and designed for efficient sequential text construction. It is not synchronised; StringBuffer is the synchronised alternative.",
+      "StringBuilder methods are not synchronised.",
+      "A StringBuilder can expand its capacity.",
+      "StringBuilder is not a replacement for String content comparison."
+    ],
+    "hint": "Look for mutability and reduced intermediate allocations.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0027",
+    "number": 27,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Two distinct String objects contain the characters \"Java\". Which statement is guaranteed?",
+    "options": [
+      "Their equals method returns true, even if their references are not identical",
+      "Their == comparison must return true because equal strings are interned automatically",
+      "Their hashCode values must be different because the objects are distinct",
+      "Their compareTo result must be positive because they are separate instances"
+    ],
+    "correctAnswer": 0,
+    "explanation": "String.equals is based on character content. Distinct instances may compare equal while == is false. Equal strings have equal hash codes.",
+    "optionExplanations": [
+      "Correct. String.equals is based on character content. Distinct instances may compare equal while == is false. Equal strings have equal hash codes.",
+      "Not every String construction is required to reuse the same reference.",
+      "Equal objects must have equal hash codes under the equals/hashCode contract.",
+      "compareTo returns zero for equal character sequences."
+    ],
+    "hint": "Separate content equality from object identity.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0028",
+    "number": 28,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which statement about Java argument passing is correct?",
+    "options": [
+      "Java always passes values; for an object parameter, the copied value is a reference to the same object",
+      "Java passes objects by reference, so a method can reassign the caller’s variable directly",
+      "Java passes primitive arguments by value but object arguments by reference",
+      "Java copies every object deeply before passing it to a method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java is pass-by-value for all parameters. When the value is an object reference, the callee receives a copy of that reference and can mutate the same object, but cannot reassign the caller’s variable.",
+    "optionExplanations": [
+      "Correct. Java is pass-by-value for all parameters. When the value is an object reference, the callee receives a copy of that reference and can mutate the same object, but cannot reassign the caller’s variable.",
+      "Reassigning a parameter does not reassign the caller’s variable.",
+      "The language uses pass-by-value consistently for primitive and reference values.",
+      "The object itself is not automatically deep-copied."
+    ],
+    "hint": "Ask whether the parameter receives the object or a copy of the reference value.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0029",
+    "number": 29,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which change alone cannot create a valid overload of an existing Java method?",
+    "options": [
+      "Changing only the return type while keeping the method name and parameter types identical",
+      "Adding a parameter while keeping the method name the same",
+      "Changing a parameter type while keeping the method name the same",
+      "Changing the number of parameters while keeping the method name the same"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Overload resolution uses the method name and parameter list. Return type alone does not distinguish overloads, because a call expression may not use the result.",
+    "optionExplanations": [
+      "Correct. Overload resolution uses the method name and parameter list. Return type alone does not distinguish overloads, because a call expression may not use the result.",
+      "A different parameter count can create a distinct signature.",
+      "A different parameter type can create a distinct signature.",
+      "A different number of parameters can create a distinct signature."
+    ],
+    "hint": "Method selection is based on the signature, not just the declared result type.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0030",
+    "number": 30,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "When does the compiler provide an implicit default no-argument constructor?",
+    "options": [
+      "When the class declares no constructor of its own",
+      "Whenever the class has at least one public method",
+      "Whenever the class extends another class and overrides a method",
+      "Whenever a constructor has been declared with one or more parameters"
+    ],
+    "correctAnswer": 0,
+    "explanation": "If no constructor is declared, the compiler supplies a default no-argument constructor. Declaring any constructor suppresses this implicit constructor.",
+    "optionExplanations": [
+      "Correct. If no constructor is declared, the compiler supplies a default no-argument constructor. Declaring any constructor suppresses this implicit constructor.",
+      "Methods do not determine whether a default constructor is generated.",
+      "Inheritance and overriding do not cause a default constructor to be added.",
+      "A parameterised constructor is a declared constructor and suppresses the implicit default."
+    ],
+    "hint": "Check whether the class itself declares any constructor.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0031",
+    "number": 31,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Which combination is most appropriate when designing an immutable class that contains a mutable Date supplied by a caller?",
+    "options": [
+      "Use private final state, copy the Date on input, and return a copy rather than the internal Date",
+      "Use a public Date field and document that callers should not modify it",
+      "Use a final Date field and return the same reference from every getter",
+      "Use a static mutable Date so every instance observes the same value"
+    ],
+    "correctAnswer": 0,
+    "explanation": "final prevents reassignment of the field but does not make the referenced Date immutable. Defensive copies prevent callers from changing internal state through retained or returned references.",
+    "optionExplanations": [
+      "Correct. final prevents reassignment of the field but does not make the referenced Date immutable. Defensive copies prevent callers from changing internal state through retained or returned references.",
+      "Documentation alone does not enforce immutability.",
+      "A final reference still refers to a mutable Date object.",
+      "Static mutable state is shared and remains mutable."
+    ],
+    "hint": "A final reference does not freeze the object it refers to.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0032",
+    "number": 32,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the relationship expressed by class ElectricCar extends Car?",
+    "options": [
+      "ElectricCar is a subtype of Car and can inherit accessible instance members from Car",
+      "Car becomes an object field stored inside every ElectricCar automatically",
+      "ElectricCar inherits every private constructor and all private fields as accessible members",
+      "Car and ElectricCar become unrelated classes that share only a package name"
+    ],
+    "correctAnswer": 0,
+    "explanation": "extends declares class inheritance. The subclass is a subtype and inherits accessible members, but constructors are not inherited and private members are not directly accessible by name.",
+    "optionExplanations": [
+      "Correct. extends declares class inheritance. The subclass is a subtype and inherits accessible members, but constructors are not inherited and private members are not directly accessible by name.",
+      "Inheritance is not automatic composition of a Car field.",
+      "Constructors are not inherited; private members are not directly accessible to subclass code.",
+      "The classes are related by inheritance, not merely by package membership."
+    ],
+    "hint": "Interpret extends as a type relationship, not a field declaration.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0033",
+    "number": 33,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why can a concrete subclass of an abstract class still fail to compile?",
+    "options": [
+      "It has not implemented all inherited abstract methods with compatible signatures",
+      "It inherits a concrete method from its abstract superclass",
+      "It declares a constructor with the same name as the superclass",
+      "It uses an interface in addition to its superclass"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A non-abstract subclass must provide implementations for inherited abstract methods, unless an implementation is already inherited from a suitable concrete superclass.",
+    "optionExplanations": [
+      "Correct. A non-abstract subclass must provide implementations for inherited abstract methods, unless an implementation is already inherited from a suitable concrete superclass.",
+      "Concrete methods do not create an obligation to implement them.",
+      "A constructor must use the subclass name; superclass construction is handled through super.",
+      "A class can implement interfaces while extending one class."
+    ],
+    "hint": "A concrete type must fulfil every remaining abstract contract.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0034",
+    "number": 34,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about Java interfaces is correct?",
+    "options": [
+      "A class can implement multiple interfaces, allowing it to satisfy several type contracts",
+      "A class can extend multiple classes if each superclass is abstract",
+      "An interface can be instantiated directly with the new operator",
+      "An interface can declare only fields and cannot declare methods"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java supports single class inheritance but multiple interface implementation. Interfaces define contracts and may also include default, static and private helper methods.",
+    "optionExplanations": [
+      "Correct. Java supports single class inheritance but multiple interface implementation. Interfaces define contracts and may also include default, static and private helper methods.",
+      "Java classes have only one direct superclass.",
+      "An interface is not directly instantiated.",
+      "Interfaces can declare abstract and several kinds of concrete methods."
+    ],
+    "hint": "Separate the single-superclass rule from the multiple-interface rule.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0035",
+    "number": 35,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "A variable is declared as Animal but refers to a Dog object. Which type determines which overridden instance method body runs?",
+    "options": [
+      "The runtime class of the object, Dog, determines dynamic dispatch",
+      "The declared reference type, Animal, always determines the method body",
+      "The package containing the variable determines the method body",
+      "The type of the variable name determines the method body at runtime"
+    ],
+    "correctAnswer": 0,
+    "explanation": "For overridden instance methods, dynamic dispatch selects the most specific implementation available in the runtime class. The declared reference type still controls compile-time member accessibility.",
+    "optionExplanations": [
+      "Correct. For overridden instance methods, dynamic dispatch selects the most specific implementation available in the runtime class. The declared reference type still controls compile-time member accessibility.",
+      "The reference type does not select the overriding implementation.",
+      "Package membership does not drive virtual method dispatch.",
+      "A variable name has no type semantics beyond its declaration."
+    ],
+    "hint": "Separate compile-time member lookup from runtime virtual dispatch.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0036",
+    "number": 36,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "A downcast from a Base reference to Derived compiles but the referenced object is actually a Base instance. What happens when the cast executes?",
+    "options": [
+      "A ClassCastException is thrown because the runtime object is not a Derived instance",
+      "The object is converted into a Derived instance by adding the missing fields",
+      "The cast always succeeds because Derived inherits from Base",
+      "The reference becomes null without an exception"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A downcast is checked at runtime. It succeeds only if the actual object is compatible with the target type; otherwise ClassCastException is thrown.",
+    "optionExplanations": [
+      "Correct. A downcast is checked at runtime. It succeeds only if the actual object is compatible with the target type; otherwise ClassCastException is thrown.",
+      "Casting does not transform the runtime object or add subclass state.",
+      "The inheritance relationship makes the cast syntactically possible, not always safe at runtime.",
+      "A failed cast throws rather than silently returning null."
+    ],
+    "hint": "The compiler sees the declared type; the runtime checks the actual object.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0037",
+    "number": 37,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "How are fields and overridden instance methods resolved when a superclass reference points to a subclass object?",
+    "options": [
+      "An overridden instance method uses runtime dispatch, while field access is resolved from the declared reference type",
+      "Both field access and method calls always use the runtime object type",
+      "Both field access and method calls always use the declared reference type",
+      "Neither fields nor methods can be accessed through a superclass reference"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java dynamically dispatches overridden instance methods. Field hiding is not polymorphic in the same way; the field selected is based on the compile-time reference type.",
+    "optionExplanations": [
+      "Correct. Java dynamically dispatches overridden instance methods. Field hiding is not polymorphic in the same way; the field selected is based on the compile-time reference type.",
+      "Fields are not dynamically dispatched.",
+      "Overridden instance methods do use the runtime type.",
+      "A superclass reference can access members declared in its type, including virtual methods."
+    ],
+    "hint": "Remember that field hiding differs from method overriding.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0038",
+    "number": 38,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which category must generally be caught or declared by a Java method?",
+    "options": [
+      "Checked exceptions, such as IOException, unless the method handles them",
+      "Every RuntimeException subclass, even if it is never thrown",
+      "Every Error subclass, including virtual-machine errors",
+      "All Throwable instances regardless of their inheritance branch"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Checked exceptions are subject to compile-time catch-or-declare rules. RuntimeException and Error subclasses are unchecked.",
+    "optionExplanations": [
+      "Correct. Checked exceptions are subject to compile-time catch-or-declare rules. RuntimeException and Error subclasses are unchecked.",
+      "RuntimeException subclasses are unchecked.",
+      "Error subclasses are unchecked and generally are not meant for application recovery.",
+      "The catch-or-declare rule applies to checked exceptions, not all Throwable values indiscriminately."
+    ],
+    "hint": "Identify the checked branch of the Throwable hierarchy.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0039",
+    "number": 39,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why must a catch clause for FileNotFoundException appear before a later catch clause for IOException?",
+    "options": [
+      "FileNotFoundException is a subclass of IOException, so the broader catch would otherwise make the specific catch unreachable",
+      "Java always requires catch clauses to appear in alphabetical order",
+      "IOException is a subclass of FileNotFoundException, so it must be caught first",
+      "The compiler executes catch clauses in parallel and needs a priority order"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A catch for a superclass catches instances of its subclasses. Placing it first would prevent the more specific catch from ever being selected and makes the later clause unreachable.",
+    "optionExplanations": [
+      "Correct. A catch for a superclass catches instances of its subclasses. Placing it first would prevent the more specific catch from ever being selected and makes the later clause unreachable.",
+      "Catch ordering is based on exception hierarchy, not alphabetic order.",
+      "The inheritance direction is the reverse: FileNotFoundException extends IOException.",
+      "Catch clauses are considered in source order, not executed in parallel."
+    ],
+    "hint": "Order handlers from narrower exception types to broader ones.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0040",
+    "number": 40,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement correctly distinguishes throw from throws?",
+    "options": [
+      "throw raises a specific exception object; throws declares exception types in a method signature",
+      "throw declares possible failures; throws creates and raises an exception instance",
+      "throw handles an exception; throws suppresses the exception permanently",
+      "The two keywords are interchangeable and have identical syntax"
+    ],
+    "correctAnswer": 0,
+    "explanation": "throw is an executable statement that transfers control by throwing a Throwable. throws is part of a method or constructor declaration and documents declared exceptions, especially checked ones.",
+    "optionExplanations": [
+      "Correct. throw is an executable statement that transfers control by throwing a Throwable. throws is part of a method or constructor declaration and documents declared exceptions, especially checked ones.",
+      "This reverses the two keyword roles.",
+      "Neither keyword is itself an exception handler or suppression command.",
+      "They have different grammatical positions and meanings."
+    ],
+    "hint": "One keyword performs the action; the other appears in a declaration.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0041",
+    "number": 41,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "In try-with-resources, both the try body and close() throw exceptions. Which exception is normally propagated as primary?",
+    "options": [
+      "The exception thrown by the try body; the close exception is recorded as suppressed",
+      "The exception thrown by close(); the body exception is discarded",
+      "Both exceptions are combined into a new RuntimeException with no cause",
+      "Neither exception propagates because resource closing always swallows failures"
+    ],
+    "correctAnswer": 0,
+    "explanation": "When the body throws and resource closing also fails, the body exception remains primary. The close failure is attached as a suppressed exception and can be inspected with getSuppressed().",
+    "optionExplanations": [
+      "Correct. When the body throws and resource closing also fails, the body exception remains primary. The close failure is attached as a suppressed exception and can be inspected with getSuppressed().",
+      "The close failure does not normally replace the body failure.",
+      "Java preserves the primary and suppressed exceptions rather than fabricating an unrelated wrapper.",
+      "try-with-resources does not silently swallow close failures."
+    ],
+    "hint": "Remember that the original operation failure remains the primary failure.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0042",
+    "number": 42,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "What is the most appropriate use of an enum?",
+    "options": [
+      "Represent a fixed, finite set of named values such as workflow states or directions",
+      "Represent an unbounded collection of user-created records at runtime",
+      "Represent a mutable key/value table that supports arbitrary keys",
+      "Represent a method that can return different primitive types on every call"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An enum provides a type-safe set of predefined constants. It can also hold fields and methods, but the set of enum instances is fixed by the declaration.",
+    "optionExplanations": [
+      "Correct. An enum provides a type-safe set of predefined constants. It can also hold fields and methods, but the set of enum instances is fixed by the declaration.",
+      "An enum is not a general dynamic record collection.",
+      "A Map is used for arbitrary key/value associations.",
+      "Java methods have one declared return type, not a new primitive type per invocation."
+    ],
+    "hint": "Look for a domain with a fixed set of legal values.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0043",
+    "number": 43,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the primary benefit of declaring a variable as List<String> rather than a raw List?",
+    "options": [
+      "The compiler can enforce String element types and callers can retrieve values without manual casts",
+      "The list becomes immutable and rejects every add operation at runtime",
+      "The list stores strings in a special compact memory region unavailable to raw lists",
+      "The generic type is guaranteed to be available as a separate runtime class for reflection"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Generics provide compile-time type safety and reduce casts. They do not make collections immutable or guarantee a separately reified parameterised class at runtime.",
+    "optionExplanations": [
+      "Correct. Generics provide compile-time type safety and reduce casts. They do not make collections immutable or guarantee a separately reified parameterised class at runtime.",
+      "A List<String> remains mutable unless wrapped or designed otherwise.",
+      "Generics do not dictate a special memory region for element storage.",
+      "Java generics use type erasure for most runtime representation."
+    ],
+    "hint": "Focus on compile-time checking and eliminating casts.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0044",
+    "number": 44,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why is new T() not allowed in an ordinary generic class method when T has no additional bound or constructor metadata?",
+    "options": [
+      "Type erasure means the runtime does not generally know which concrete T constructor should be invoked",
+      "Generic type parameters can refer only to primitive types",
+      "Every type parameter is automatically converted into an interface with no constructors",
+      "Java allows construction of T only when T is a String"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Generic type parameters are erased. The compiler cannot emit a normal constructor call for an unknown T without a construction mechanism such as a supplied factory or constructor reference.",
+    "optionExplanations": [
+      "Correct. Generic type parameters are erased. The compiler cannot emit a normal constructor call for an unknown T without a construction mechanism such as a supplied factory or constructor reference.",
+      "Generic type arguments are reference types, not primitive types directly.",
+      "Erasure does not turn every type parameter into an interface.",
+      "There is no special String-only construction rule."
+    ],
+    "hint": "Ask what concrete constructor the bytecode would need to call.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0045",
+    "number": 45,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about Map and Collection in the Java Collections Framework is correct?",
+    "options": [
+      "Map is part of the framework but does not extend the Collection interface",
+      "Map extends List because each key/value pair is stored at an integer index",
+      "Map is a subtype of Set because keys are unique",
+      "Collection extends Map so every List is also a key/value association"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Map models key/value associations and is separate from the Collection hierarchy. It can expose collection views such as keySet, values and entrySet.",
+    "optionExplanations": [
+      "Correct. Map models key/value associations and is separate from the Collection hierarchy. It can expose collection views such as keySet, values and entrySet.",
+      "A map is not indexed by list position and does not extend List.",
+      "Unique keys do not make Map a subtype of Set.",
+      "Collection and Map are separate top-level abstractions."
+    ],
+    "hint": "Remember that Map does not inherit from Collection.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0046",
+    "number": 46,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which description best fits a Predicate<T> functional interface?",
+    "options": [
+      "It accepts a value of type T and produces a boolean test result",
+      "It accepts a value of type T and transforms it into a value of type R",
+      "It supplies a value of type T without accepting an input",
+      "It accepts a value of type T and returns no result"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Predicate<T> represents a boolean-valued test. Function<T,R> transforms, Supplier<T> supplies and Consumer<T> consumes without returning a result.",
+    "optionExplanations": [
+      "Correct. Predicate<T> represents a boolean-valued test. Function<T,R> transforms, Supplier<T> supplies and Consumer<T> consumes without returning a result.",
+      "This describes Function<T,R>.",
+      "This describes Supplier<T>.",
+      "This describes Consumer<T>."
+    ],
+    "hint": "Match the interface to its input and output shape.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0047",
+    "number": 47,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which property must a local variable have before it can be captured by a lambda expression?",
+    "options": [
+      "It must be final or effectively final in the enclosing scope",
+      "It must be declared static and public",
+      "It must be an instance of a serializable class",
+      "It must be reassigned at least once before the lambda is created"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A lambda may capture a local variable only when it is final or effectively final. This avoids ambiguity about the captured local value and its lifetime.",
+    "optionExplanations": [
+      "Correct. A lambda may capture a local variable only when it is final or effectively final. This avoids ambiguity about the captured local value and its lifetime.",
+      "Local variables do not need to be static or public.",
+      "Serialization is not a general requirement for lambda capture.",
+      "Reassignment would make the variable not effectively final."
+    ],
+    "hint": "Check whether the local variable is reassigned after initialisation.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0048",
+    "number": 48,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the main purpose of the @FunctionalInterface annotation?",
+    "options": [
+      "It asks the compiler to verify that the interface satisfies the functional-interface rule",
+      "It makes every method in the interface static",
+      "It converts any interface into a class that can be instantiated",
+      "It forces all implementations to use a lambda expression"
+    ],
+    "correctAnswer": 0,
+    "explanation": "@FunctionalInterface is an optional annotation that documents intent and causes a compile-time error if the interface does not meet the single-abstract-method rule.",
+    "optionExplanations": [
+      "Correct. @FunctionalInterface is an optional annotation that documents intent and causes a compile-time error if the interface does not meet the single-abstract-method rule.",
+      "It does not change method staticness.",
+      "An interface remains an interface and is not instantiated directly.",
+      "Implementations can use classes, method references or lambdas where suitable."
+    ],
+    "hint": "Think of it as a compile-time contract check, not a runtime transformation.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0049",
+    "number": 49,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which collection is the natural choice when the application needs unique elements and sorted iteration?",
+    "options": [
+      "TreeSet, which maintains elements in their natural or supplied comparator order",
+      "ArrayList, which allows duplicates and preserves positional insertion order",
+      "HashSet, which provides no general iteration-order guarantee",
+      "LinkedList, which allows duplicates and is primarily a List and Deque implementation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "TreeSet implements NavigableSet and maintains sorted order while enforcing uniqueness. A comparator or natural ordering determines the order.",
+    "optionExplanations": [
+      "Correct. TreeSet implements NavigableSet and maintains sorted order while enforcing uniqueness. A comparator or natural ordering determines the order.",
+      "ArrayList does not enforce uniqueness or automatically sort.",
+      "HashSet enforces uniqueness but does not promise sorted iteration.",
+      "LinkedList allows duplicates and does not sort elements automatically."
+    ],
+    "hint": "Match both requirements: uniqueness and sorted iteration.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0050",
+    "number": 50,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why can indexed access to a LinkedList be slower than indexed access to an ArrayList?",
+    "options": [
+      "LinkedList generally traverses nodes from an end, while ArrayList can index directly into its backing array",
+      "ArrayList must scan every element to find an index, while LinkedList uses direct array addressing",
+      "LinkedList stores all elements in a sorted tree and must rebalance after each read",
+      "The Java language forbids direct index access on LinkedList"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ArrayList supports constant-time indexed access through its backing array. LinkedList must traverse links to reach an index, so indexed access is linear.",
+    "optionExplanations": [
+      "Correct. ArrayList supports constant-time indexed access through its backing array. LinkedList must traverse links to reach an index, so indexed access is linear.",
+      "This reverses the usual access characteristics.",
+      "LinkedList is node-based rather than tree-based.",
+      "LinkedList implements List and supports get(index), though it may be slower."
+    ],
+    "hint": "Consider the underlying storage representation.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0051",
+    "number": 51,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the main risk of structurally modifying an ArrayList directly inside an enhanced for loop over that same list?",
+    "options": [
+      "The iterator can detect concurrent structural modification and throw ConcurrentModificationException",
+      "The list automatically copies itself and changes the loop variable to the new list",
+      "The loop becomes thread-safe because the list is being modified by one thread",
+      "Every element is silently converted to null before the next iteration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The enhanced for loop uses an Iterator. Structural modification outside the iterator’s supported remove operation can trigger fail-fast detection and ConcurrentModificationException.",
+    "optionExplanations": [
+      "Correct. The enhanced for loop uses an Iterator. Structural modification outside the iterator’s supported remove operation can trigger fail-fast detection and ConcurrentModificationException.",
+      "The list does not automatically make a copy to isolate the loop.",
+      "Single-threaded code can still violate iterator modification rules.",
+      "Modification does not automatically null every element."
+    ],
+    "hint": "Think about which iterator the enhanced for loop uses internally.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0052",
+    "number": 52,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why are intermediate Stream operations such as filter and map described as lazy?",
+    "options": [
+      "They build a pipeline description and generally do not process elements until a terminal operation is invoked",
+      "They execute immediately but store every intermediate result in a permanent collection",
+      "They run only when a stream is converted into an array of primitive values",
+      "They are evaluated by the compiler before the Java program starts"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Intermediate operations are lazy. A terminal operation triggers traversal and pipeline evaluation, often allowing operations to be fused without materialising intermediate collections.",
+    "optionExplanations": [
+      "Correct. Intermediate operations are lazy. A terminal operation triggers traversal and pipeline evaluation, often allowing operations to be fused without materialising intermediate collections.",
+      "Intermediate operations do not generally execute immediately or create permanent collections.",
+      "Streams can terminate in many ways, not only primitive arrays.",
+      "Stream elements are processed at runtime, not precomputed by the compiler."
+    ],
+    "hint": "Ask what event starts traversal of the stream source.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0053",
+    "number": 53,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "When is flatMap more appropriate than map?",
+    "options": [
+      "When each input element is transformed into zero or more elements that should be flattened into one stream",
+      "When each input must be transformed into exactly one value of a different type",
+      "When a stream must be sorted in reverse order without a comparator",
+      "When a terminal operation must be postponed until a later method call"
+    ],
+    "correctAnswer": 0,
+    "explanation": "map produces one mapped result for each input. flatMap maps each input to a stream and flattens those streams into a single output stream.",
+    "optionExplanations": [
+      "Correct. map produces one mapped result for each input. flatMap maps each input to a stream and flattens those streams into a single output stream.",
+      "This is the normal use case for map.",
+      "Sorting is handled by sorted with an ordering.",
+      "Laziness and terminal operations are separate concepts."
+    ],
+    "hint": "Consider whether each source element expands into a nested stream.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0054",
+    "number": 54,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "Why should a reduction operation used with a parallel stream generally be associative?",
+    "options": [
+      "The stream may combine partial results in different groupings, and associativity keeps the result consistent",
+      "Associativity guarantees that every element is processed on the same thread",
+      "Associativity prevents the stream from invoking its terminal operation",
+      "Associativity forces all elements to be sorted before reduction"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Parallel reduction may partition data and combine partial results in a different grouping. An associative operation yields the same result regardless of grouping (subject to the operation’s identity and semantics).",
+    "optionExplanations": [
+      "Correct. Parallel reduction may partition data and combine partial results in a different grouping. An associative operation yields the same result regardless of grouping (subject to the operation’s identity and semantics).",
+      "Associativity does not pin work to one thread.",
+      "A terminal operation is still required to evaluate a stream pipeline.",
+      "Reduction does not inherently sort elements."
+    ],
+    "hint": "Think about regrouping partial results during parallel execution.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0055",
+    "number": 55,
+    "bank": "core",
+    "topicId": "datetime",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which java.time type represents a calendar date without a time or time zone?",
+    "options": [
+      "LocalDate, which stores year, month and day fields",
+      "Instant, which represents a point on the UTC timeline",
+      "ZonedDateTime, which combines date-time with a time zone",
+      "Duration, which represents a time-based amount"
+    ],
+    "correctAnswer": 0,
+    "explanation": "LocalDate represents a date only. Instant is timeline-based, ZonedDateTime includes a zone, and Duration measures an amount of time.",
+    "optionExplanations": [
+      "Correct. LocalDate represents a date only. Instant is timeline-based, ZonedDateTime includes a zone, and Duration measures an amount of time.",
+      "Instant is a moment on the timeline, not a calendar-only date.",
+      "ZonedDateTime includes time and zone information.",
+      "Duration represents an amount, not a date."
+    ],
+    "hint": "Choose the type whose name and data model are date-only.",
+    "referenceId": "ref-datetime"
+  },
+  {
+    "id": "CORE-0056",
+    "number": 56,
+    "bank": "core",
+    "topicId": "datetime",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which type is usually more appropriate for measuring an elapsed number of hours than for adding one calendar month?",
+    "options": [
+      "Duration, because it represents a time-based amount",
+      "Period, because it represents date-based years, months and days",
+      "LocalDate, because it stores a number of nanoseconds",
+      "DateTimeFormatter, because it parses elapsed time values"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Duration measures time-based amounts, often seconds and nanoseconds. Period represents calendar-based years, months and days. A month has a variable number of days, so the types are not interchangeable.",
+    "optionExplanations": [
+      "Correct. Duration measures time-based amounts, often seconds and nanoseconds. Period represents calendar-based years, months and days. A month has a variable number of days, so the types are not interchangeable.",
+      "Period is date-based and better suited to calendar units.",
+      "LocalDate has no time-of-day or nanosecond amount.",
+      "DateTimeFormatter formats and parses; it is not an amount type."
+    ],
+    "hint": "Separate timeline duration from calendar period.",
+    "referenceId": "ref-datetime"
+  },
+  {
+    "id": "CORE-0057",
+    "number": 57,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "What is the practical difference between calling Thread.start() and calling the same object’s run() method directly?",
+    "options": [
+      "start() requests execution on a new thread; run() called directly is an ordinary call on the current thread",
+      "run() creates a new thread while start() only invokes the method synchronously",
+      "Both methods always create a new operating-system thread",
+      "start() can be called repeatedly on the same Thread object to create additional threads"
+    ],
+    "correctAnswer": 0,
+    "explanation": "start() transitions a Thread from NEW and arranges for the JVM to invoke run on a new thread of execution. A direct run() call does not start a new thread. A Thread instance cannot be started more than once.",
+    "optionExplanations": [
+      "Correct. start() transitions a Thread from NEW and arranges for the JVM to invoke run on a new thread of execution. A direct run() call does not start a new thread. A Thread instance cannot be started more than once.",
+      "This reverses the behaviour.",
+      "A direct call does not create a new thread.",
+      "A Thread instance may be started only once."
+    ],
+    "hint": "Think about which method asks the runtime to schedule a new thread.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0058",
+    "number": 58,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which set lists the actual values in the Java Thread.State enum?",
+    "options": [
+      "NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING and TERMINATED",
+      "CREATED, READY, RUNNING, PAUSED, STOPPED and FINISHED",
+      "NEW, STARTED, SLEEPING, LOCKED, WAITING and DEAD",
+      "READY, RUNNING, BLOCKED, SUSPENDED, EXITED and JOINED"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Thread.State defines six states: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING and TERMINATED. RUNNABLE covers both executing and eligible-to-run conditions.",
+    "optionExplanations": [
+      "Correct. Thread.State defines six states: NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING and TERMINATED. RUNNABLE covers both executing and eligible-to-run conditions.",
+      "These are not the Java enum identifiers.",
+      "SLEEPING and DEAD are not Thread.State enum values.",
+      "These names mix informal scheduling concepts with non-enum terms."
+    ],
+    "hint": "Memorise the six enum constants, especially RUNNABLE rather than RUNNING.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0059",
+    "number": 59,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does entering and later leaving a synchronized block on the same monitor provide?",
+    "options": [
+      "Mutual exclusion for that monitor and a happens-before relationship from unlock to a later lock",
+      "A guarantee that the entire application runs on a single thread forever",
+      "Automatic rollback of every field changed inside the block if an exception occurs",
+      "A guarantee that no other thread can ever read the object again"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A monitor allows one thread at a time to hold the lock. Unlocking a monitor happens-before a subsequent lock of that same monitor, supporting visibility of prior writes.",
+    "optionExplanations": [
+      "Correct. A monitor allows one thread at a time to hold the lock. Unlocking a monitor happens-before a subsequent lock of that same monitor, supporting visibility of prior writes.",
+      "Synchronization does not make the whole application single-threaded.",
+      "A synchronized block is not a transaction and does not roll back state.",
+      "Other threads can read data; synchronization governs lock access and visibility when correctly used."
+    ],
+    "hint": "Recall both mutual exclusion and memory visibility guarantees.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0060",
+    "number": 60,
+    "bank": "core",
+    "topicId": "reflection",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which reflection method returns fields declared directly by a class, including non-public fields?",
+    "options": [
+      "getDeclaredFields(), which returns fields declared by that class",
+      "getFields(), which returns every declared field at all access levels",
+      "getInterfaces(), which returns the class’s data members",
+      "getSuperclass(), which returns the class’s constructor parameters"
+    ],
+    "correctAnswer": 0,
+    "explanation": "getDeclaredFields returns fields declared directly in the class, including those with non-public access. getFields returns public fields, including inherited public fields.",
+    "optionExplanations": [
+      "Correct. getDeclaredFields returns fields declared directly in the class, including those with non-public access. getFields returns public fields, including inherited public fields.",
+      "getFields is limited to public fields and includes inherited public members.",
+      "getInterfaces returns implemented interfaces, not fields.",
+      "getSuperclass returns the direct superclass Class object."
+    ],
+    "hint": "Pay attention to the distinction between getFields and getDeclaredFields.",
+    "referenceId": "ref-reflection"
+  },
+  {
+    "id": "CORE-0061",
+    "number": 61,
+    "bank": "core",
+    "topicId": "reflection",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a common reason frameworks use reflection during object construction or configuration?",
+    "options": [
+      "They can inspect class metadata and discover constructors, fields, methods or annotations at runtime",
+      "They can change Java source code after javac has compiled it without loading classes",
+      "They can guarantee access to every private member regardless of module boundaries",
+      "They can convert a Java object into a JVM process without invoking constructors"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Frameworks can discover metadata at runtime to instantiate objects, inject dependencies, map fields or process annotations. Access remains subject to runtime and module rules.",
+    "optionExplanations": [
+      "Correct. Frameworks can discover metadata at runtime to instantiate objects, inject dependencies, map fields or process annotations. Access remains subject to runtime and module rules.",
+      "Reflection inspects loaded class metadata; it is not a source-code rewriting mechanism.",
+      "Private access is not universally guaranteed, especially with module encapsulation.",
+      "A Java object and a JVM process are different concepts."
+    ],
+    "hint": "Think about how a framework can learn about a class without hard-coding each class name.",
+    "referenceId": "ref-reflection"
+  },
+  {
+    "id": "CORE-0062",
+    "number": 62,
+    "bank": "core",
+    "topicId": "nodejs",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Which statement correctly distinguishes Node.js from Java?",
+    "options": [
+      "Node.js is a JavaScript runtime; Java is a separate programming language commonly executed on a JVM",
+      "Node.js is the latest name for the Java Virtual Machine",
+      "Node.js is a Java package used to compile .java source files",
+      "JavaScript and Java are the same language with different file extensions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Node.js executes JavaScript outside the browser, while Java is a distinct language with its own class-file and JVM platform. Similar names do not imply shared language identity.",
+    "optionExplanations": [
+      "Correct. Node.js executes JavaScript outside the browser, while Java is a distinct language with its own class-file and JVM platform. Similar names do not imply shared language identity.",
+      "Node.js is not a JVM implementation.",
+      "Node.js is not a Java package or compiler.",
+      "Java and JavaScript are separate languages."
+    ],
+    "hint": "Do not infer language identity from the word Java in the runtime name.",
+    "referenceId": "ref-node"
+  },
+  {
+    "id": "CORE-0063",
+    "number": 63,
+    "bank": "core",
+    "topicId": "nodejs",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a typical way to start the Node.js REPL?",
+    "options": [
+      "Run the node command without a script filename to enter the interactive prompt",
+      "Run javac with the --repl option to open a JavaScript shell",
+      "Open the JavaDoc browser and enter JavaScript expressions in its search box",
+      "Run the JVM with a .class file and replace Java statements with JavaScript"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The Node.js REPL is an interactive Read-Eval-Print Loop and is commonly started by running node without a script path.",
+    "optionExplanations": [
+      "Correct. The Node.js REPL is an interactive Read-Eval-Print Loop and is commonly started by running node without a script path.",
+      "javac compiles Java; it does not provide the Node REPL.",
+      "JavaDoc is documentation tooling.",
+      "A .class file is JVM bytecode, not a Node.js REPL input."
+    ],
+    "hint": "The REPL belongs to the Node executable, not to the Java toolchain.",
+    "referenceId": "ref-node"
+  },
+  {
+    "id": "CORE-0064",
+    "number": 64,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "What does Inversion of Control mean in the context of the Spring Framework?",
+    "options": [
+      "The framework or container manages object creation and lifecycle rather than application code constructing every dependency itself",
+      "The framework reverses every Java boolean value before invoking a component",
+      "The JVM transfers control to the operating system whenever a method returns",
+      "A controller must instantiate every repository and service with the new operator"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Inversion of Control shifts responsibility for wiring and lifecycle management to a container. Dependency Injection is a common technique used to realise IoC.",
+    "optionExplanations": [
+      "Correct. Inversion of Control shifts responsibility for wiring and lifecycle management to a container. Dependency Injection is a common technique used to realise IoC.",
+      "IoC is an architectural control-flow concept, not boolean inversion.",
+      "This is unrelated to method return or OS scheduling.",
+      "Manual construction of every dependency is the opposite of container-managed wiring."
+    ],
+    "hint": "Look for which part of the system creates and connects collaborating objects.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0065",
+    "number": 65,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which description best fits constructor injection in Spring?",
+    "options": [
+      "A component declares required dependencies as constructor parameters and the container supplies them",
+      "A component searches the entire classpath and creates dependencies with reflection in every method call",
+      "A component stores all dependencies in public static fields so no container is needed",
+      "A component receives its dependencies only after its first HTTP response is sent"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Constructor injection makes required collaborators explicit and lets the Spring container supply them when creating the bean. It improves testability and supports immutable dependencies.",
+    "optionExplanations": [
+      "Correct. Constructor injection makes required collaborators explicit and lets the Spring container supply them when creating the bean. It improves testability and supports immutable dependencies.",
+      "Dependency discovery and creation is handled by the container, not every method call.",
+      "Public static global state is not constructor injection.",
+      "Dependencies are normally supplied during object creation, not after an HTTP response."
+    ],
+    "hint": "Think about dependency values being passed at object construction time.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0066",
+    "number": 66,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the central role of DispatcherServlet in Spring MVC?",
+    "options": [
+      "It acts as the front controller that coordinates request mapping and dispatches to the appropriate handler",
+      "It compiles Java source code into JVM bytecode before every web request",
+      "It manages Java thread stack memory and garbage collection",
+      "It stores every application entity in a relational database table"
+    ],
+    "correctAnswer": 0,
+    "explanation": "DispatcherServlet is Spring MVC’s front controller. It delegates to handler mappings, adapters, controllers and other strategies to process a request and build a response.",
+    "optionExplanations": [
+      "Correct. DispatcherServlet is Spring MVC’s front controller. It delegates to handler mappings, adapters, controllers and other strategies to process a request and build a response.",
+      "Compilation is performed by the Java build toolchain.",
+      "Thread stacks and garbage collection are JVM responsibilities.",
+      "Persistence is handled by data access components, not the DispatcherServlet."
+    ],
+    "hint": "Think about the central coordinator in the HTTP request path.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0067",
+    "number": 67,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "A controller contains complex business calculations and persistence logic. Which refactoring best aligns with common Spring layering?",
+    "options": [
+      "Keep the controller focused on request handling and move business rules into a service component",
+      "Move all business logic into static methods in DispatcherServlet",
+      "Place database credentials and SQL statements in the controller’s public fields",
+      "Replace dependency injection with repeated manual object construction in each endpoint"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A controller should coordinate web concerns. Service components encapsulate business logic, while repository or data-access components handle persistence. This separation improves testing and maintainability.",
+    "optionExplanations": [
+      "Correct. A controller should coordinate web concerns. Service components encapsulate business logic, while repository or data-access components handle persistence. This separation improves testing and maintainability.",
+      "DispatcherServlet is framework infrastructure, not an application business-logic holder.",
+      "Public fields expose configuration and couple persistence to web concerns.",
+      "Repeated manual construction defeats container-managed dependency injection."
+    ],
+    "hint": "Separate HTTP concerns, business rules and persistence responsibilities.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0068",
+    "number": 68,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the key characteristic of the char primitive in Java?",
+    "options": [
+      "It stores a single 16-bit UTF-16 code unit and is not a general variable-length text string",
+      "It stores an entire Unicode paragraph as a dynamically sized object",
+      "It stores only ASCII characters and cannot represent code units above 127",
+      "It is a wrapper class and therefore can hold null directly"
+    ],
+    "correctAnswer": 0,
+    "explanation": "char is a 16-bit unsigned integral primitive representing a UTF-16 code unit. Some Unicode code points require a surrogate pair of two char values, so a char is not necessarily one complete user-perceived character.",
+    "optionExplanations": [
+      "Correct. char is a 16-bit unsigned integral primitive representing a UTF-16 code unit. Some Unicode code points require a surrogate pair of two char values, so a char is not necessarily one complete user-perceived character.",
+      "A char holds one code unit, not an entire text sequence.",
+      "Java char is not restricted to 7-bit ASCII.",
+      "Character is the wrapper class; char is primitive and cannot be null."
+    ],
+    "hint": "Think in terms of UTF-16 code units rather than grapheme clusters.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0069",
+    "number": 69,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does the expression 5 / 2 * 2 evaluate to when all literals are int?",
+    "options": [
+      "4, because integer division is evaluated before multiplication and truncates 2.5 to 2",
+      "5, because multiplication cancels the division before truncation",
+      "5.0, because Java automatically promotes arithmetic expressions to double",
+      "2, because multiplication is ignored after integer division"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The operators / and * have equal precedence and are left-associative. Java evaluates (5 / 2) first, producing 2, then multiplies by 2 to produce 4.",
+    "optionExplanations": [
+      "Correct. The operators / and * have equal precedence and are left-associative. Java evaluates (5 / 2) first, producing 2, then multiplies by 2 to produce 4.",
+      "The expression is not algebraically rearranged to preserve the original fraction.",
+      "No floating-point operand is present.",
+      "The multiplication is still evaluated after the division."
+    ],
+    "hint": "Apply precedence and associativity before doing the arithmetic.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0070",
+    "number": 70,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about the conditional operator ?: is correct?",
+    "options": [
+      "It evaluates a boolean condition and chooses one of two expressions, producing a value",
+      "It executes both branches and combines their output into an array",
+      "It can be used only as a replacement for a switch statement with integer selectors",
+      "It changes the type of the variable declared before the condition"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The conditional operator uses a boolean test and evaluates either the second or third operand. The selected expression contributes the result of the overall expression.",
+    "optionExplanations": [
+      "Correct. The conditional operator uses a boolean test and evaluates either the second or third operand. The selected expression contributes the result of the overall expression.",
+      "Only one branch expression is evaluated.",
+      "The operator is not restricted to switch-like integer selection.",
+      "The operator does not mutate a variable’s declared type."
+    ],
+    "hint": "Read it as condition ? value-if-true : value-if-false.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0071",
+    "number": 71,
+    "bank": "core",
+    "topicId": "control-flow",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "When does continue in a traditional for loop proceed to the update expression?",
+    "options": [
+      "After skipping the remainder of the current body, control proceeds to the update and then the next condition check",
+      "It exits the loop and proceeds to the first statement after the loop",
+      "It jumps directly to the first statement in the loop body without checking the condition",
+      "It behaves exactly like break when used inside a nested loop"
+    ],
+    "correctAnswer": 0,
+    "explanation": "For a traditional for loop, continue skips the remaining body statements and proceeds to the update expression, then checks the loop condition again.",
+    "optionExplanations": [
+      "Correct. For a traditional for loop, continue skips the remaining body statements and proceeds to the update expression, then checks the loop condition again.",
+      "That is the behaviour of break, not continue.",
+      "The condition is evaluated before the next iteration.",
+      "continue and break have different control-transfer semantics."
+    ],
+    "hint": "Remember the for-loop sequence: initialisation, condition, body, update.",
+    "referenceId": "ref-control"
+  },
+  {
+    "id": "CORE-0072",
+    "number": 72,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which access level is indicated when a class member has no explicit access modifier?",
+    "options": [
+      "Package-private access, meaning code in the same package can access it subject to the member rules",
+      "Private access, meaning only the declaring class can access it",
+      "Protected access, meaning only subclasses can access it",
+      "Public access, meaning every module can access it without restrictions"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A member with no access modifier has package-private access. It is accessible to code in the same package, subject to other language and module rules.",
+    "optionExplanations": [
+      "Correct. A member with no access modifier has package-private access. It is accessible to code in the same package, subject to other language and module rules.",
+      "private must be written explicitly.",
+      "protected must be written explicitly and also permits subclass access.",
+      "public must be written explicitly and is still subject to type/module accessibility."
+    ],
+    "hint": "No modifier is a distinct access level, not the same as private.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0073",
+    "number": 73,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why can two classes with the same simple name coexist in a Java application?",
+    "options": [
+      "They can be declared in different packages and identified by distinct fully qualified names",
+      "The Java compiler silently renames one class when a duplicate simple name appears",
+      "Every class name is automatically prefixed with the current operating-system username",
+      "Java permits duplicate class names only when both classes are interfaces"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Packages provide namespaces. For example, com.example.alpha.User and com.example.beta.User are distinct fully qualified types even though their simple names match.",
+    "optionExplanations": [
+      "Correct. Packages provide namespaces. For example, com.example.alpha.User and com.example.beta.User are distinct fully qualified types even though their simple names match.",
+      "The compiler does not silently rename classes to resolve collisions.",
+      "Operating-system identity is unrelated to type naming.",
+      "The rule applies to classes and interfaces generally."
+    ],
+    "hint": "Compare the complete package-qualified names.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0074",
+    "number": 74,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does assigning one array variable to another do in Java?",
+    "options": [
+      "It copies the array reference, so both variables refer to the same array object",
+      "It automatically clones every element into a new independent array",
+      "It converts the array into an immutable List",
+      "It copies only the array length and leaves both arrays uninitialised"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Array assignment copies the reference value. Both variables then refer to the same array, so a mutation through either reference is visible through the other.",
+    "optionExplanations": [
+      "Correct. Array assignment copies the reference value. Both variables then refer to the same array, so a mutation through either reference is visible through the other.",
+      "An explicit clone or copy operation is needed for a separate array object.",
+      "Array assignment does not change the declared array type.",
+      "The array remains initialised and shared."
+    ],
+    "hint": "Distinguish copying a reference from copying the referenced object.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0075",
+    "number": 75,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does String.compareTo return when two strings have equal character content?",
+    "options": [
+      "Zero, indicating that neither string is lexicographically before the other",
+      "True, because compareTo is a boolean equality method",
+      "A positive value equal to the length of the first string",
+      "A unique identity number for each String object"
+    ],
+    "correctAnswer": 0,
+    "explanation": "compareTo returns an integer ordering result. A return value of zero indicates that the strings are equal according to their lexicographic comparison.",
+    "optionExplanations": [
+      "Correct. compareTo returns an integer ordering result. A return value of zero indicates that the strings are equal according to their lexicographic comparison.",
+      "The method returns int, not boolean.",
+      "The result is not defined as the first string length.",
+      "compareTo does not return an object identity value."
+    ],
+    "hint": "A zero comparison result indicates ordering equality.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0076",
+    "number": 76,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Which statement about a static method is correct?",
+    "options": [
+      "It belongs to the class and cannot directly use this to refer to a particular object",
+      "It is invoked only after an instance constructor has completed",
+      "It can directly access every instance field without receiving an object reference",
+      "It is dynamically overridden in exactly the same way as an instance method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A static method is associated with the class rather than a particular instance. It has no this reference and must use an object reference to access instance members. Static methods are hidden, not dynamically overridden.",
+    "optionExplanations": [
+      "Correct. A static method is associated with the class rather than a particular instance. It has no this reference and must use an object reference to access instance members. Static methods are hidden, not dynamically overridden.",
+      "A static method can be called without constructing an instance.",
+      "Instance members require an object reference from a static context.",
+      "Static methods use compile-time method selection rather than virtual dispatch."
+    ],
+    "hint": "Ask whether the method has a current object receiver.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0077",
+    "number": 77,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What happens when a subclass declares a method with the same signature as a static method in its superclass?",
+    "options": [
+      "The subclass method hides the superclass static method rather than overriding it dynamically",
+      "The subclass method overrides the superclass method using runtime virtual dispatch",
+      "The compiler always rejects the declaration as a duplicate method",
+      "The superclass method is converted into an abstract instance method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Static methods are resolved using the compile-time type and can be hidden by a static method with a compatible signature in a subclass. This differs from overriding instance methods.",
+    "optionExplanations": [
+      "Correct. Static methods are resolved using the compile-time type and can be hidden by a static method with a compatible signature in a subclass. This differs from overriding instance methods.",
+      "Static methods are not dynamically dispatched as overrides.",
+      "A compatible static declaration is allowed as method hiding.",
+      "The superclass method is not changed by the subclass declaration."
+    ],
+    "hint": "Check whether the method is static in both classes.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0078",
+    "number": 78,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does a subclass constructor normally do if it does not write an explicit constructor invocation as its first statement?",
+    "options": [
+      "The compiler inserts an implicit super() call when the superclass has an accessible no-argument constructor",
+      "The JVM skips superclass initialisation and starts directly in the subclass constructor",
+      "The compiler inserts this() with every possible constructor signature",
+      "The compiler always calls the superclass constructor that has the largest number of parameters"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A constructor without an explicit this(...) or super(...) invocation implicitly invokes super(). Compilation fails if the superclass has no accessible no-argument constructor.",
+    "optionExplanations": [
+      "Correct. A constructor without an explicit this(...) or super(...) invocation implicitly invokes super(). Compilation fails if the superclass has no accessible no-argument constructor.",
+      "Superclass construction is part of normal object initialisation.",
+      "An implicit super() call is not a recursive this() call.",
+      "The compiler cannot guess a parameterised constructor."
+    ],
+    "hint": "The implicit constructor invocation is a no-argument super call.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0079",
+    "number": 79,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the role of the default method in a Java interface?",
+    "options": [
+      "It provides an inherited implementation that implementing classes may use or override",
+      "It creates a constructor that runs before every implementing class constructor",
+      "It forces every implementing class to declare the same method again",
+      "It makes the interface directly instantiable with new"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A default method supplies an implementation in an interface. Implementing classes inherit it and may override it, subject to conflict-resolution rules.",
+    "optionExplanations": [
+      "Correct. A default method supplies an implementation in an interface. Implementing classes inherit it and may override it, subject to conflict-resolution rules.",
+      "Interfaces do not declare constructors.",
+      "A default method exists to provide a body, so re-declaration is not universally required.",
+      "Interfaces remain non-instantiable directly."
+    ],
+    "hint": "Look for the keyword default and the method body it supplies.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0080",
+    "number": 80,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "What happens if a class inherits two unrelated interface default methods with the same signature and provides no override?",
+    "options": [
+      "The class must resolve the conflict by overriding the method",
+      "The JVM chooses whichever interface was loaded first",
+      "The method is silently treated as abstract and the class remains concrete",
+      "The two default methods are concatenated into one implementation"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A class inheriting conflicting unrelated defaults must resolve the conflict explicitly, typically by overriding the method and optionally calling a selected InterfaceName.super method.",
+    "optionExplanations": [
+      "Correct. A class inheriting conflicting unrelated defaults must resolve the conflict explicitly, typically by overriding the method and optionally calling a selected InterfaceName.super method.",
+      "The language does not depend on class-loading order to resolve source-level ambiguity.",
+      "A concrete class cannot leave the conflict unresolved.",
+      "Method bodies are never concatenated automatically."
+    ],
+    "hint": "The implementing class must make the design choice explicit.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0081",
+    "number": 81,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about finally is most accurate?",
+    "options": [
+      "It normally executes as control leaves the try statement, even when an exception is thrown",
+      "It executes only when no exception occurs in the try block",
+      "It executes only when a matching catch block returns normally",
+      "It is guaranteed to execute even after abrupt JVM or operating-system termination"
+    ],
+    "correctAnswer": 0,
+    "explanation": "finally normally runs during control transfer out of try/catch, including exceptional paths. It is not guaranteed after process termination or severe runtime failure, and abrupt completion in finally can override earlier control flow.",
+    "optionExplanations": [
+      "Correct. finally normally runs during control transfer out of try/catch, including exceptional paths. It is not guaranteed after process termination or severe runtime failure, and abrupt completion in finally can override earlier control flow.",
+      "finally is not limited to normal completion.",
+      "It is not dependent on a catch returning normally.",
+      "No Java construct can guarantee execution after process termination."
+    ],
+    "hint": "Think of normal language-level exit paths, not process destruction.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0082",
+    "number": 82,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why should a method generally avoid returning from a finally block?",
+    "options": [
+      "A return in finally can suppress a pending exception or replace a return value from try or catch",
+      "A return in finally always causes the JVM to deadlock",
+      "A return in finally is illegal Java syntax in all circumstances",
+      "A return in finally automatically closes every object reachable from the method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Abrupt completion of finally can override earlier completion of the try/catch statement. This can hide failures and make behaviour difficult to reason about.",
+    "optionExplanations": [
+      "Correct. Abrupt completion of finally can override earlier completion of the try/catch statement. This can hide failures and make behaviour difficult to reason about.",
+      "A return in finally does not inherently deadlock the JVM.",
+      "The construct is legal, though discouraged.",
+      "Returning does not recursively close all reachable objects."
+    ],
+    "hint": "Consider what exception or value was already pending when finally runs.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0083",
+    "number": 83,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does the Enum.valueOf method require as its name argument?",
+    "options": [
+      "The exact declared identifier of an enum constant, including matching case",
+      "The ordinal position of the enum constant as a decimal string",
+      "The fully qualified class name of an unrelated Java type",
+      "A display label returned by the enum’s toString method in every case"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Enum.valueOf looks up a constant using its exact declared name. The lookup is case-sensitive and throws IllegalArgumentException when no matching constant exists.",
+    "optionExplanations": [
+      "Correct. Enum.valueOf looks up a constant using its exact declared name. The lookup is case-sensitive and throws IllegalArgumentException when no matching constant exists.",
+      "The method is name-based, not ordinal-based.",
+      "The class name is not the constant name.",
+      "toString may be overridden and need not return the declared identifier."
+    ],
+    "hint": "Compare the provided value to the enum constant identifier, character for character.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0084",
+    "number": 84,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does Consumer<T> represent in java.util.function?",
+    "options": [
+      "An operation that accepts a T and returns no result",
+      "An operation that accepts no input and supplies a T",
+      "An operation that accepts T and returns a boolean test",
+      "An operation that transforms T into a different result type R"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Consumer<T> has an accept(T) method that consumes an input and returns void. Supplier, Predicate and Function have different input/output shapes.",
+    "optionExplanations": [
+      "Correct. Consumer<T> has an accept(T) method that consumes an input and returns void. Supplier, Predicate and Function have different input/output shapes.",
+      "This describes Supplier<T>.",
+      "This describes Predicate<T>.",
+      "This describes Function<T,R>."
+    ],
+    "hint": "Remember that Consumer accepts an input but produces no return value.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0085",
+    "number": 85,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a common benefit of using a method reference such as System.out::println?",
+    "options": [
+      "It expresses delegation to an existing compatible method more concisely than an equivalent lambda",
+      "It performs reflection and bypasses the method’s declared access level",
+      "It automatically starts a new thread for the referenced method",
+      "It allows the method to accept any parameter type without compile-time checking"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A method reference is concise syntax for a functional-interface implementation that delegates to an existing method. The target functional interface still constrains parameter and return types.",
+    "optionExplanations": [
+      "Correct. A method reference is concise syntax for a functional-interface implementation that delegates to an existing method. The target functional interface still constrains parameter and return types.",
+      "Method references do not bypass access control.",
+      "They do not create threads.",
+      "Type compatibility is checked by the compiler."
+    ],
+    "hint": "Method references are shorthand, not dynamic unchecked invocation.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0086",
+    "number": 86,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which Map view provides key/value pairs suitable for iterating over both keys and values?",
+    "options": [
+      "entrySet(), which returns a Set of Map.Entry key/value pairs",
+      "keySet(), which returns a List of values and keys interleaved",
+      "values(), which returns a Set of immutable key/value pairs",
+      "iterator(), which every Map implementation exposes directly"
+    ],
+    "correctAnswer": 0,
+    "explanation": "entrySet returns a Set view of Map.Entry objects, which expose getKey and getValue. keySet returns keys and values returns mapped values.",
+    "optionExplanations": [
+      "Correct. entrySet returns a Set view of Map.Entry objects, which expose getKey and getValue. keySet returns keys and values returns mapped values.",
+      "keySet contains keys only, not interleaved pairs.",
+      "values returns values only and is a Collection view.",
+      "Map itself does not define a direct iterator method."
+    ],
+    "hint": "Select the view that holds one Entry per key/value mapping.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0087",
+    "number": 87,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the usual complexity of contains on a HashSet when hash distribution is good?",
+    "options": [
+      "Expected constant time, because hashing narrows the search to a bucket",
+      "Guaranteed linear time, because every element must always be compared",
+      "Guaranteed logarithmic time, because HashSet is always implemented as a balanced tree",
+      "Constant time in every possible case, regardless of collisions or hostile inputs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HashSet lookup is expected O(1) with good hash distribution. Heavy collisions can degrade performance, and modern implementations may treeify certain bins under conditions.",
+    "optionExplanations": [
+      "Correct. HashSet lookup is expected O(1) with good hash distribution. Heavy collisions can degrade performance, and modern implementations may treeify certain bins under conditions.",
+      "A hash set normally does not scan every element.",
+      "HashSet is not simply a balanced tree implementation.",
+      "Expected constant time is not an unconditional worst-case guarantee."
+    ],
+    "hint": "Use expected complexity and account for hash collisions.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0088",
+    "number": 88,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does Stream.distinct use to determine duplicate object elements in an ordinary object stream?",
+    "options": [
+      "The elements’ equals and hashCode contracts to identify equal values",
+      "The elements’ memory addresses only, regardless of equals",
+      "The elements’ toString output and lexicographic ordering",
+      "The number of times each element has been mapped in the pipeline"
+    ],
+    "correctAnswer": 0,
+    "explanation": "For reference streams, distinct identifies duplicates according to Object equality semantics, which rely on equals and hashCode. Classes should implement those methods consistently.",
+    "optionExplanations": [
+      "Correct. For reference streams, distinct identifies duplicates according to Object equality semantics, which rely on equals and hashCode. Classes should implement those methods consistently.",
+      "Reference identity is not the general distinct criterion.",
+      "toString is not used as a uniqueness contract.",
+      "Mapping count is unrelated to value equality."
+    ],
+    "hint": "Connect stream distinct to the equality contract used by hash-based collections.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0089",
+    "number": 89,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why can a stream not normally be reused after a terminal operation?",
+    "options": [
+      "A stream represents a one-use pipeline; after terminal evaluation it is consumed",
+      "A terminal operation permanently locks the source collection against all future reads",
+      "The JVM deletes the source collection as soon as a stream completes",
+      "A stream can be reused only if its source contains primitive values"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Streams are designed for one traversal. After a terminal operation, attempting to reuse the same stream generally causes IllegalStateException. A new stream can be created from the source if it supports it.",
+    "optionExplanations": [
+      "Correct. Streams are designed for one traversal. After a terminal operation, attempting to reuse the same stream generally causes IllegalStateException. A new stream can be created from the source if it supports it.",
+      "A terminal stream operation does not lock or delete the source collection.",
+      "The source collection remains available.",
+      "Primitive streams are also one-use."
+    ],
+    "hint": "Recreate a pipeline from the source rather than reusing a consumed stream.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0090",
+    "number": 90,
+    "bank": "core",
+    "topicId": "datetime",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the difference between LocalDateTime and ZonedDateTime?",
+    "options": [
+      "ZonedDateTime includes zone rules and identifies a regional time context; LocalDateTime has no zone or offset",
+      "LocalDateTime always stores UTC while ZonedDateTime stores local daylight time only",
+      "ZonedDateTime contains only a calendar date and no time of day",
+      "LocalDateTime is mutable while ZonedDateTime is immutable"
+    ],
+    "correctAnswer": 0,
+    "explanation": "LocalDateTime contains local date and time fields without a zone or offset. ZonedDateTime includes a ZoneId and resolves the local date-time in that zone’s rules. Both are immutable.",
+    "optionExplanations": [
+      "Correct. LocalDateTime contains local date and time fields without a zone or offset. ZonedDateTime includes a ZoneId and resolves the local date-time in that zone’s rules. Both are immutable.",
+      "LocalDateTime has no UTC guarantee.",
+      "ZonedDateTime includes a time component.",
+      "Both types are immutable."
+    ],
+    "hint": "Look for the presence of ZoneId and zone rules.",
+    "referenceId": "ref-datetime"
+  },
+  {
+    "id": "CORE-0091",
+    "number": 91,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does Thread.join() allow one thread to do?",
+    "options": [
+      "Wait until another thread has terminated before continuing",
+      "Acquire the intrinsic monitor of every object used by another thread",
+      "Start a previously terminated thread for another run",
+      "Interrupt all threads in the current thread group"
+    ],
+    "correctAnswer": 0,
+    "explanation": "join waits for the target thread to terminate (or for a timeout when using a timed overload). It does not restart the target thread or interrupt unrelated threads.",
+    "optionExplanations": [
+      "Correct. join waits for the target thread to terminate (or for a timeout when using a timed overload). It does not restart the target thread or interrupt unrelated threads.",
+      "join is not a general monitor-acquisition operation.",
+      "A Thread object cannot be started again after termination.",
+      "interrupt is a separate operation and normally affects one target thread."
+    ],
+    "hint": "Think of join as waiting for thread completion.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0092",
+    "number": 92,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the purpose of Thread.interrupt()?",
+    "options": [
+      "It requests interruption by setting the target thread’s interrupt status and may unblock interruptible waits",
+      "It forcibly terminates the target thread immediately at an arbitrary instruction",
+      "It pauses the target thread permanently until another thread calls start again",
+      "It rolls back all changes made by the target thread since its last checkpoint"
+    ],
+    "correctAnswer": 0,
+    "explanation": "interrupt is a cooperative cancellation signal. It sets interrupt status and causes certain blocking methods to throw InterruptedException. Code should handle or propagate interruption appropriately.",
+    "optionExplanations": [
+      "Correct. interrupt is a cooperative cancellation signal. It sets interrupt status and causes certain blocking methods to throw InterruptedException. Code should handle or propagate interruption appropriately.",
+      "Java does not provide safe arbitrary forced termination through interrupt.",
+      "The thread is not restarted by start after interruption.",
+      "Interrupt does not perform transactional rollback."
+    ],
+    "hint": "Treat interruption as a signal that the task should respond to cooperatively.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0093",
+    "number": 93,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the usual purpose of marking a worker thread as a daemon thread?",
+    "options": [
+      "It indicates a background service thread that does not by itself keep the JVM alive after all user threads finish",
+      "It makes the thread execute at a higher operating-system priority than every user thread",
+      "It guarantees that the thread is interrupted when it accesses shared state",
+      "It prevents the thread from calling synchronized methods"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The JVM may exit when only daemon threads remain. Daemon status is typically configured before start and is suitable for background support work, not tasks that must complete before shutdown.",
+    "optionExplanations": [
+      "Correct. The JVM may exit when only daemon threads remain. Daemon status is typically configured before start and is suitable for background support work, not tasks that must complete before shutdown.",
+      "Daemon status is not a priority guarantee.",
+      "Daemon status does not automatically interrupt a thread.",
+      "Daemon threads can use synchronization."
+    ],
+    "hint": "Think about JVM shutdown behaviour when no non-daemon threads remain.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0094",
+    "number": 94,
+    "bank": "core",
+    "topicId": "reflection",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does Class.getSuperclass() return for a class directly extending Object?",
+    "options": [
+      "The Class object representing Object",
+      "An array containing every implemented interface",
+      "The Class object representing the current class itself",
+      "The package name as a String"
+    ],
+    "correctAnswer": 0,
+    "explanation": "getSuperclass returns the direct superclass as a Class object. For a class directly extending Object, that result represents Object. Interfaces and primitive types have special behaviours.",
+    "optionExplanations": [
+      "Correct. getSuperclass returns the direct superclass as a Class object. For a class directly extending Object, that result represents Object. Interfaces and primitive types have special behaviours.",
+      "Implemented interfaces are returned by getInterfaces.",
+      "The current class metadata is returned by getClass or a class literal.",
+      "The package name is available through package-related metadata methods."
+    ],
+    "hint": "It returns one parent type, not the interface list.",
+    "referenceId": "ref-reflection"
+  },
+  {
+    "id": "CORE-0095",
+    "number": 95,
+    "bank": "core",
+    "topicId": "nodejs",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does Node.js’s event-driven, non-blocking I/O model aim to support?",
+    "options": [
+      "Handling many I/O-bound operations without dedicating one JavaScript thread to wait synchronously for each operation",
+      "Running every JavaScript callback simultaneously on a separate CPU core by default",
+      "Eliminating asynchronous callbacks and promises from server applications",
+      "Executing Java bytecode directly inside the V8 JavaScript engine"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Node.js uses an event loop and asynchronous I/O facilities to manage many concurrent I/O operations efficiently. JavaScript callbacks are normally executed on the event-loop thread unless work is delegated to other facilities.",
+    "optionExplanations": [
+      "Correct. Node.js uses an event loop and asynchronous I/O facilities to manage many concurrent I/O operations efficiently. JavaScript callbacks are normally executed on the event-loop thread unless work is delegated to other facilities.",
+      "Node.js does not create one JavaScript thread per callback by default.",
+      "Asynchronous APIs remain a core part of Node.js.",
+      "V8 executes JavaScript, not JVM bytecode."
+    ],
+    "hint": "Focus on I/O concurrency and the event loop rather than one thread per request.",
+    "referenceId": "ref-node"
+  },
+  {
+    "id": "CORE-0096",
+    "number": 96,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a Spring bean scope?",
+    "options": [
+      "A rule that determines the lifecycle and sharing behaviour of a bean instance, such as singleton or prototype",
+      "A rule that determines the Java visibility modifier of every bean field",
+      "A setting that changes the JVM heap into a separate region for each controller",
+      "A declaration that makes the bean a Java enum constant"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Bean scope controls how the container creates and shares bean instances. Singleton is the default per bean definition per container; prototype requests a new instance from the container each time. Web scopes add request/session contexts.",
+    "optionExplanations": [
+      "Correct. Bean scope controls how the container creates and shares bean instances. Singleton is the default per bean definition per container; prototype requests a new instance from the container each time. Web scopes add request/session contexts.",
+      "Scope does not determine Java member visibility.",
+      "Bean scope does not partition JVM heap memory.",
+      "A Spring bean is not converted into an enum."
+    ],
+    "hint": "Think about one shared object versus a newly created object per lookup/request.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0097",
+    "number": 97,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "How does Spring Boot differ from the Spring Framework?",
+    "options": [
+      "Spring Boot builds on Spring with opinionated auto-configuration, starters and convenient application packaging",
+      "Spring Boot is a separate language that replaces Java for web applications",
+      "The Spring Framework is only an IDE, while Boot is a database engine",
+      "Spring Boot removes the need for the JVM and compiles Java into browser JavaScript"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Spring Boot simplifies creating and running Spring applications with auto-configuration, starter dependencies and embedded-server conventions. It uses the Spring Framework rather than replacing it.",
+    "optionExplanations": [
+      "Correct. Spring Boot simplifies creating and running Spring applications with auto-configuration, starter dependencies and embedded-server conventions. It uses the Spring Framework rather than replacing it.",
+      "Spring Boot is not a programming language.",
+      "Spring Framework and Boot are application framework technologies, not IDE/database roles.",
+      "Boot still runs as a Java application on a JVM."
+    ],
+    "hint": "Think of Boot as an opinionated layer that simplifies Spring application setup.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "CORE-0098",
+    "number": 98,
+    "bank": "core",
+    "topicId": "basics",
+    "difficulty": "basic",
+    "type": "concept",
+    "question": "Why is an instance field of type boolean false before the constructor assigns another value?",
+    "options": [
+      "Fields receive their type’s default value when an object is created, and false is the default for boolean",
+      "All Java variables are automatically set to false before use",
+      "The constructor always assigns false to every boolean field after running",
+      "Boolean fields are reference types and default to null"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Instance fields are default-initialised before constructor code runs. The default for boolean is false; the wrapper Boolean is a reference type and defaults to null.",
+    "optionExplanations": [
+      "Correct. Instance fields are default-initialised before constructor code runs. The default for boolean is false; the wrapper Boolean is a reference type and defaults to null.",
+      "Local variables are not automatically initialised in the same way.",
+      "The default value is supplied by object initialisation, not a constructor assignment.",
+      "boolean is primitive; Boolean is the wrapper type."
+    ],
+    "hint": "Distinguish primitive boolean from the Boolean wrapper class.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "CORE-0099",
+    "number": 99,
+    "bank": "core",
+    "topicId": "basics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does declaring an instance field final guarantee?",
+    "options": [
+      "The field can be assigned only once under Java’s definite-assignment rules, but a referenced object may still be mutable",
+      "The field’s referenced object becomes deeply immutable automatically",
+      "The field is shared by every instance of the class",
+      "The field can be assigned repeatedly as long as the values are equal"
+    ],
+    "correctAnswer": 0,
+    "explanation": "final prevents the variable or reference from being reassigned after its permitted initialisation. If it refers to a mutable object, that object’s internal state may still change.",
+    "optionExplanations": [
+      "Correct. final prevents the variable or reference from being reassigned after its permitted initialisation. If it refers to a mutable object, that object’s internal state may still change.",
+      "final does not recursively freeze the referenced object.",
+      "A field must also be static to belong to the class rather than each instance.",
+      "The final field cannot be repeatedly assigned after initialisation."
+    ],
+    "hint": "A final reference is not the same as an immutable object.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "CORE-0100",
+    "number": 100,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is binary numeric promotion used for?",
+    "options": [
+      "To convert numeric operands to a common promoted type before many arithmetic operations",
+      "To convert every numeric expression to a two-character String before evaluation",
+      "To choose which overloaded method is called after the method body has run",
+      "To turn all primitive values into wrapper objects permanently"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Binary numeric promotion determines a common numeric type for many arithmetic operations, such as promoting byte and short operands to int and handling mixed numeric types.",
+    "optionExplanations": [
+      "Correct. Binary numeric promotion determines a common numeric type for many arithmetic operations, such as promoting byte and short operands to int and handling mixed numeric types.",
+      "Numeric operators do not convert operands into strings by default.",
+      "Overload resolution happens at compile time, not after the method body.",
+      "Promotion does not permanently box every primitive."
+    ],
+    "hint": "Consider what type the operands have before the arithmetic operation.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0101",
+    "number": 101,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why can an expression involving byte values produce an int result?",
+    "options": [
+      "Java promotes byte and short operands to int for many arithmetic operations",
+      "The byte type is an alias for Integer and is converted to a wrapper object",
+      "The JVM cannot execute arithmetic on values smaller than 32 bits",
+      "All arithmetic expressions in Java are evaluated using double precision"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Unary numeric promotion and binary numeric promotion commonly promote byte, short and char operands to int. This is why assigning an arithmetic result back to byte may require a cast.",
+    "optionExplanations": [
+      "Correct. Unary numeric promotion and binary numeric promotion commonly promote byte, short and char operands to int. This is why assigning an arithmetic result back to byte may require a cast.",
+      "byte is a primitive and not an alias for Integer.",
+      "The language’s type-promotion rules explain the result; it is not a CPU limitation.",
+      "Integer arithmetic is not universally evaluated as double."
+    ],
+    "hint": "Remember that small integral types are promoted to int in arithmetic.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0102",
+    "number": 102,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the result type of the expression 1 + 2L?",
+    "options": [
+      "long, because the int operand is promoted to long before addition",
+      "int, because the left operand appears first in the expression",
+      "double, because mixed numeric operands always become double",
+      "Integer, because arithmetic automatically boxes the result"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The long operand causes the int operand to be widened to long. The addition is performed as long arithmetic and produces a long value.",
+    "optionExplanations": [
+      "Correct. The long operand causes the int operand to be widened to long. The addition is performed as long arithmetic and produces a long value.",
+      "Operand order does not force the result type to the first operand.",
+      "Mixed integral operands are not automatically promoted to double.",
+      "Primitive arithmetic does not automatically box its result."
+    ],
+    "hint": "The wider integral operand determines the promoted integral type.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0103",
+    "number": 103,
+    "bank": "core",
+    "topicId": "types-operators",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "Which statement about NaN comparisons in Java floating-point arithmetic is correct?",
+    "options": [
+      "NaN is unequal to every value, including itself, so NaN == NaN is false",
+      "NaN compares equal to itself because it represents a single invalid number",
+      "NaN is always greater than positive infinity",
+      "NaN can occur only when an integer division by zero is performed"
+    ],
+    "correctAnswer": 0,
+    "explanation": "IEEE 754 NaN semantics apply to Java float and double: equality comparisons involving NaN are false, including NaN == NaN. Use Float.isNaN or Double.isNaN to test for it.",
+    "optionExplanations": [
+      "Correct. IEEE 754 NaN semantics apply to Java float and double: equality comparisons involving NaN are false, including NaN == NaN. Use Float.isNaN or Double.isNaN to test for it.",
+      "NaN is deliberately not equal to itself under floating-point comparison.",
+      "NaN is not ordered greater than infinity; ordered comparisons are false.",
+      "Integer division by zero throws ArithmeticException; floating-point operations can produce NaN."
+    ],
+    "hint": "Remember the special equality rule for Not-a-Number.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "CORE-0104",
+    "number": 104,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does an on-demand import such as import java.util.* make available?",
+    "options": [
+      "Accessible types in java.util by simple name, but not types in its subpackages automatically",
+      "Every class in java.util and every nested package beneath it recursively",
+      "Only static methods declared by classes in java.util",
+      "All Java libraries installed anywhere on the computer"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A package wildcard import makes accessible types in that package available by simple name. It does not recursively import subpackages and does not automatically import static members.",
+    "optionExplanations": [
+      "Correct. A package wildcard import makes accessible types in that package available by simple name. It does not recursively import subpackages and does not automatically import static members.",
+      "Java package imports are not recursive.",
+      "Static imports use import static.",
+      "An import does not search every library installed on the machine."
+    ],
+    "hint": "A package wildcard does not include its subpackages.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0105",
+    "number": 105,
+    "bank": "core",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the effect of a static import?",
+    "options": [
+      "It allows accessible static members to be referred to without qualifying them with the declaring type",
+      "It converts an instance field into a static field at runtime",
+      "It imports every static field from every package in the application",
+      "It makes a method execute during class loading without being called"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A static import affects source-level name resolution for static members. It does not change whether the member is static or trigger it to execute.",
+    "optionExplanations": [
+      "Correct. A static import affects source-level name resolution for static members. It does not change whether the member is static or trigger it to execute.",
+      "The declaration of a member determines whether it is static.",
+      "A static import names a particular type or wildcard package/type scope.",
+      "Importing a name does not invoke it."
+    ],
+    "hint": "Compare import Type with import static Type.member.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "CORE-0106",
+    "number": 106,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does the length member of an array represent?",
+    "options": [
+      "The fixed number of element slots in the array, available as a field without parentheses",
+      "The index of the last element, available through a length() method",
+      "The number of non-null elements currently stored in the array",
+      "The number of bytes allocated for the array object"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Array length is a final field containing the number of slots. It is accessed as array.length, not array.length(). It does not count only non-null elements.",
+    "optionExplanations": [
+      "Correct. Array length is a final field containing the number of slots. It is accessed as array.length, not array.length(). It does not count only non-null elements.",
+      "The final index is length - 1 and there is no array length() method.",
+      "Null reference elements still count as array slots.",
+      "The field reports element count, not memory size in bytes."
+    ],
+    "hint": "Recall the syntax array.length and what it counts.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0107",
+    "number": 107,
+    "bank": "core",
+    "topicId": "arrays",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a possible state of a newly created int[][] array when only the outer dimension is specified?",
+    "options": [
+      "The outer array exists, but each row reference is initially null until a row array is assigned",
+      "Every row is automatically allocated with the same number of columns",
+      "Every row contains an int value of zero but has no array object",
+      "The declaration is invalid because Java requires all dimensions at creation time"
+    ],
+    "correctAnswer": 0,
+    "explanation": "new int[3][] creates an outer array with three references to int[] rows. Those references are initially null until each row is allocated or assigned.",
+    "optionExplanations": [
+      "Correct. new int[3][] creates an outer array with three references to int[] rows. Those references are initially null until each row is allocated or assigned.",
+      "The inner dimension is not specified, so row arrays are not created automatically.",
+      "The outer elements are references to arrays rather than int elements directly.",
+      "Java permits partial dimension allocation for multidimensional arrays."
+    ],
+    "hint": "Separate the outer array allocation from allocation of each row.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "CORE-0108",
+    "number": 108,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does String.isBlank() test?",
+    "options": [
+      "Whether the string is empty or contains only whitespace code points as defined by the method",
+      "Whether the string has exactly zero characters and nothing else",
+      "Whether the string contains at least one space character anywhere",
+      "Whether the string has been interned in the String pool"
+    ],
+    "correctAnswer": 0,
+    "explanation": "isBlank returns true for an empty string or a string containing only whitespace code points. It differs from isEmpty, which checks only length zero.",
+    "optionExplanations": [
+      "Correct. isBlank returns true for an empty string or a string containing only whitespace code points. It differs from isEmpty, which checks only length zero.",
+      "isEmpty tests whether the sequence has length zero.",
+      "A string containing a space and letters is not blank.",
+      "Interning is unrelated to blankness."
+    ],
+    "hint": "Compare isBlank with isEmpty.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0109",
+    "number": 109,
+    "bank": "core",
+    "topicId": "strings",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why is repeated String concatenation in a large loop often less efficient than StringBuilder?",
+    "options": [
+      "Each concatenation may create a new immutable String and copy prior content, while a builder can append into mutable storage",
+      "StringBuilder stores its content in the JVM stack and avoids all memory allocation",
+      "The Java compiler is forbidden from optimising any String concatenation expression",
+      "String concatenation is always O(1), while StringBuilder append is always O(n squared)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Because String is immutable, repeated concatenation may create intermediate strings and recopy accumulated content. StringBuilder reuses mutable capacity and is generally a better choice for iterative construction.",
+    "optionExplanations": [
+      "Correct. Because String is immutable, repeated concatenation may create intermediate strings and recopy accumulated content. StringBuilder reuses mutable capacity and is generally a better choice for iterative construction.",
+      "StringBuilder is an object and uses heap memory; it does not avoid all allocations.",
+      "The compiler can optimise some concatenation expressions.",
+      "The stated complexity comparison is not generally correct."
+    ],
+    "hint": "Think about how much accumulated text must be copied on each iteration.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "CORE-0110",
+    "number": 110,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about constructor overloading is correct?",
+    "options": [
+      "A class may declare multiple constructors with different parameter lists to support different initialisation paths",
+      "A class may declare only one constructor because constructor names must be unique",
+      "Constructors are inherited by subclasses and can be overridden like instance methods",
+      "A constructor must declare a return type of void"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Constructors can be overloaded by parameter list, allowing objects to be initialised in different ways. They are not inherited or overridden and have no return type.",
+    "optionExplanations": [
+      "Correct. Constructors can be overloaded by parameter list, allowing objects to be initialised in different ways. They are not inherited or overridden and have no return type.",
+      "Different parameter lists distinguish constructors.",
+      "Constructors are not inherited or overridden.",
+      "A constructor declaration has the class name and no return type."
+    ],
+    "hint": "Constructors use the class name and can have distinct parameter lists.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0111",
+    "number": 111,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does this() do when used as the first statement of a constructor?",
+    "options": [
+      "It delegates construction to another constructor in the same class",
+      "It invokes the superclass constructor with no arguments",
+      "It calls the current object’s toString method before construction",
+      "It allocates a second object of the same class"
+    ],
+    "correctAnswer": 0,
+    "explanation": "this(...) is a constructor invocation that delegates to another constructor in the same class. It must be the first statement in the constructor body. super(...) invokes a superclass constructor.",
+    "optionExplanations": [
+      "Correct. this(...) is a constructor invocation that delegates to another constructor in the same class. It must be the first statement in the constructor body. super(...) invokes a superclass constructor.",
+      "super(...) is the superclass constructor invocation.",
+      "toString is an ordinary method, not constructor delegation.",
+      "this(...) does not allocate a second object."
+    ],
+    "hint": "Distinguish this(...) from super(...).",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0112",
+    "number": 112,
+    "bank": "core",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which order describes Java’s ordinary access modifiers from most restrictive to least restrictive?",
+    "options": [
+      "private, package-private, protected, public",
+      "public, protected, package-private, private",
+      "protected, private, public, package-private",
+      "package-private, public, private, protected"
+    ],
+    "correctAnswer": 0,
+    "explanation": "private limits ordinary member access to the declaring top-level class context, package-private allows same-package access, protected adds subclass access, and public is the broadest. Module and enclosing-type rules still apply.",
+    "optionExplanations": [
+      "Correct. private limits ordinary member access to the declaring top-level class context, package-private allows same-package access, protected adds subclass access, and public is the broadest. Module and enclosing-type rules still apply.",
+      "This is the reverse order.",
+      "The ordering places private and public incorrectly.",
+      "The ordering places package-private before public and other levels incorrectly."
+    ],
+    "hint": "Move from one class, to one package, to subclasses and broad accessibility.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "CORE-0113",
+    "number": 113,
+    "bank": "core",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Can Java constructors be overridden by a subclass?",
+    "options": [
+      "No, because constructors are not inherited and are not instance methods",
+      "Yes, provided the subclass uses the same constructor parameter list",
+      "Yes, but only when the superclass constructor is protected",
+      "Only abstract superclass constructors can be overridden"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Constructors initialise an instance and are not inherited. A subclass declares its own constructors and may invoke superclass constructors with this(...) or super(...).",
+    "optionExplanations": [
+      "Correct. Constructors initialise an instance and are not inherited. A subclass declares its own constructors and may invoke superclass constructors with this(...) or super(...).",
+      "Matching parameter lists do not create constructor overriding.",
+      "Access level affects constructor accessibility, not inheritance.",
+      "Abstract classes can declare constructors, but those constructors are not overridden."
+    ],
+    "hint": "Overriding applies to inherited instance methods, not constructors.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "CORE-0114",
+    "number": 114,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Which method is not dynamically dispatched through an object reference in the same way as an overridden instance method?",
+    "options": [
+      "A static method, which is hidden and selected according to compile-time type",
+      "An ordinary public instance method that is overridden in a subclass",
+      "An abstract instance method implemented by the runtime subclass",
+      "A protected instance method overridden with a compatible signature"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Static methods belong to classes and are hidden rather than dynamically overridden. Ordinary instance methods use virtual dispatch where applicable.",
+    "optionExplanations": [
+      "Correct. Static methods belong to classes and are hidden rather than dynamically overridden. Ordinary instance methods use virtual dispatch where applicable.",
+      "This is a normal override and uses dynamic dispatch.",
+      "Abstract instance methods are implemented by concrete subclasses and dispatched dynamically.",
+      "Protected visibility does not prevent virtual dispatch."
+    ],
+    "hint": "Check the static modifier.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0115",
+    "number": 115,
+    "bank": "core",
+    "topicId": "polymorphism",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of the @Override annotation?",
+    "options": [
+      "To ask the compiler to verify that a method actually overrides or implements an inherited method",
+      "To force the JVM to execute the method before every superclass method",
+      "To make a private method visible to subclasses",
+      "To convert an overloaded method into an abstract method"
+    ],
+    "correctAnswer": 0,
+    "explanation": "@Override documents intent and enables compile-time verification that the declaration overrides a superclass method or implements an interface method. It does not change visibility or dispatch.",
+    "optionExplanations": [
+      "Correct. @Override documents intent and enables compile-time verification that the declaration overrides a superclass method or implements an interface method. It does not change visibility or dispatch.",
+      "The annotation does not change invocation order.",
+      "It does not widen private access.",
+      "Overloading and abstractness are not changed by the annotation."
+    ],
+    "hint": "Think compile-time checking of the declared override relationship.",
+    "referenceId": "ref-polymorphism"
+  },
+  {
+    "id": "CORE-0116",
+    "number": 116,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a multi-catch clause in Java?",
+    "options": [
+      "A single catch block that handles multiple exception types separated by the | character",
+      "A try statement that allows only multiple finally blocks",
+      "A catch block that catches every Throwable and automatically retries it",
+      "A method declaration that lists multiple return types separated by commas"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Multi-catch allows one catch block to handle multiple unrelated exception types, written with |. The alternatives cannot be in a subtype relationship that makes one redundant.",
+    "optionExplanations": [
+      "Correct. Multi-catch allows one catch block to handle multiple unrelated exception types, written with |. The alternatives cannot be in a subtype relationship that makes one redundant.",
+      "Multi-catch concerns multiple exception alternatives in one catch, not multiple finally blocks.",
+      "It does not automatically retry exceptions or catch all Throwable values.",
+      "Method return types are not declared as a comma-separated list."
+    ],
+    "hint": "Look for the vertical bar between exception type alternatives.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0117",
+    "number": 117,
+    "bank": "core",
+    "topicId": "exceptions",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why should a custom exception usually include a message or meaningful context?",
+    "options": [
+      "It helps callers and maintainers understand the failure condition without reconstructing it from unrelated state",
+      "It allows the compiler to select a catch block using the message text",
+      "It ensures the exception is always unchecked even when it extends Exception",
+      "It automatically writes the exception into a persistent database log"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Exception messages provide diagnostic context. Catch matching is based on the exception type, not the message, and logging is a separate concern.",
+    "optionExplanations": [
+      "Correct. Exception messages provide diagnostic context. Catch matching is based on the exception type, not the message, and logging is a separate concern.",
+      "Catch selection is based on type compatibility.",
+      "Checked versus unchecked depends on the inheritance hierarchy.",
+      "An exception message does not automatically persist to a database."
+    ],
+    "hint": "Messages aid diagnosis; they do not control exception type semantics.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "CORE-0118",
+    "number": 118,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is autoboxing?",
+    "options": [
+      "An automatic conversion from a primitive value to its corresponding wrapper object when a reference is expected",
+      "An automatic conversion from any object to a primitive regardless of its class",
+      "A process that stores all wrapper objects permanently in the String pool",
+      "A mechanism that makes wrapper objects mutable after construction"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Autoboxing converts a primitive such as int to its corresponding wrapper Integer where a reference is required. The reverse conversion is unboxing.",
+    "optionExplanations": [
+      "Correct. Autoboxing converts a primitive such as int to its corresponding wrapper Integer where a reference is required. The reverse conversion is unboxing.",
+      "Not every object can be converted to every primitive.",
+      "Wrapper objects are not stored in the String pool.",
+      "Wrapper classes are immutable."
+    ],
+    "hint": "Autoboxing moves from primitive to wrapper.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0119",
+    "number": 119,
+    "bank": "core",
+    "topicId": "enums-generics",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "Why can List<Integer> not be assigned to a variable of type List<Number>?",
+    "options": [
+      "Generic types are invariant, so List<Integer> is not a subtype of List<Number>",
+      "Integer is not a subtype of Number",
+      "Lists cannot contain instances of wrapper classes",
+      "Number is a primitive type and cannot be used as a type argument"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Integer extends Number, but Java generic types are invariant by default. If List<Integer> were a List<Number>, a Double could be inserted through the wider reference. Wildcards can express covariance for reading.",
+    "optionExplanations": [
+      "Correct. Integer extends Number, but Java generic types are invariant by default. If List<Integer> were a List<Number>, a Double could be inserted through the wider reference. Wildcards can express covariance for reading.",
+      "Integer is a subtype of Number.",
+      "Collections can contain wrapper objects.",
+      "Number is an abstract reference class and may be a generic type argument."
+    ],
+    "hint": "The element subtype relationship does not automatically carry to parameterised collections.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "CORE-0120",
+    "number": 120,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which description best fits a Queue?",
+    "options": [
+      "A collection abstraction designed for holding elements prior to processing, often using FIFO ordering",
+      "A mapping from unique keys to arbitrary values",
+      "A sorted collection that always stores elements in reverse alphabetical order",
+      "A random-access list that guarantees constant-time retrieval by numeric index"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Queue models elements awaiting processing. Many queue implementations use FIFO order, though priority queues and other implementations may apply different ordering policies.",
+    "optionExplanations": [
+      "Correct. Queue models elements awaiting processing. Many queue implementations use FIFO order, though priority queues and other implementations may apply different ordering policies.",
+      "This describes Map.",
+      "Queue ordering is not necessarily reverse alphabetical.",
+      "Random access is a List characteristic, not the Queue contract."
+    ],
+    "hint": "Think of elements waiting to be processed.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0121",
+    "number": 121,
+    "bank": "core",
+    "topicId": "collections",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What additional ordering guarantee does LinkedHashMap commonly provide over HashMap?",
+    "options": [
+      "It maintains a predictable encounter order, typically insertion order unless configured for access order",
+      "It sorts keys by natural order and rejects null values",
+      "It stores every key and value in an immutable linked list",
+      "It guarantees that each operation is logarithmic in the number of entries"
+    ],
+    "correctAnswer": 0,
+    "explanation": "LinkedHashMap maintains a linked encounter order, normally insertion order. It can also be configured for access order, useful for cache-like policies.",
+    "optionExplanations": [
+      "Correct. LinkedHashMap maintains a linked encounter order, normally insertion order. It can also be configured for access order, useful for cache-like policies.",
+      "TreeMap is the sorted-map implementation.",
+      "LinkedHashMap remains mutable and does not use immutable lists as its storage contract.",
+      "Its expected operation costs are generally similar to HashMap."
+    ],
+    "hint": "Look for stable iteration order rather than sorted key order.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "CORE-0122",
+    "number": 122,
+    "bank": "core",
+    "topicId": "functional",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the difference between Function<T,R> and UnaryOperator<T>?",
+    "options": [
+      "UnaryOperator<T> is a specialised Function<T,T> whose input and result types are the same",
+      "Function<T,R> accepts two values while UnaryOperator<T> accepts none",
+      "UnaryOperator<T> always returns boolean while Function<T,R> returns void",
+      "They are unrelated interfaces with no inheritance relationship"
+    ],
+    "correctAnswer": 0,
+    "explanation": "UnaryOperator<T> extends Function<T,T> and represents an operation whose input and output types are the same.",
+    "optionExplanations": [
+      "Correct. UnaryOperator<T> extends Function<T,T> and represents an operation whose input and output types are the same.",
+      "Function has one input and one output type parameter.",
+      "Predicate returns boolean and Consumer returns void.",
+      "UnaryOperator is a specialised Function."
+    ],
+    "hint": "The same type appears as both the input and output.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "CORE-0123",
+    "number": 123,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does anyMatch do on a stream?",
+    "options": [
+      "It returns true when at least one element satisfies the predicate and may short-circuit",
+      "It returns true only when every element satisfies the predicate",
+      "It transforms each element into a new element and returns another stream",
+      "It counts the number of elements that satisfy the predicate"
+    ],
+    "correctAnswer": 0,
+    "explanation": "anyMatch is a terminal boolean operation that can stop as soon as one element satisfies the predicate. allMatch and count provide different semantics.",
+    "optionExplanations": [
+      "Correct. anyMatch is a terminal boolean operation that can stop as soon as one element satisfies the predicate. allMatch and count provide different semantics.",
+      "allMatch requires every element to satisfy the predicate.",
+      "map transforms elements and returns a stream.",
+      "count returns the number of stream elements, not a boolean."
+    ],
+    "hint": "The word any means at least one.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0124",
+    "number": 124,
+    "bank": "core",
+    "topicId": "streams",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does findFirst return from a stream?",
+    "options": [
+      "An Optional describing the first element in encounter order, or empty when there is none",
+      "The first element wrapped in a new List regardless of whether the stream is empty",
+      "A boolean stating whether any element passed a predicate",
+      "A sorted copy of the entire stream in a new array"
+    ],
+    "correctAnswer": 0,
+    "explanation": "findFirst is a short-circuiting terminal operation that returns Optional<T>. It respects encounter order when one is defined and returns Optional.empty for an empty stream.",
+    "optionExplanations": [
+      "Correct. findFirst is a short-circuiting terminal operation that returns Optional<T>. It respects encounter order when one is defined and returns Optional.empty for an empty stream.",
+      "A List is not the return type.",
+      "anyMatch is the predicate-based boolean operation.",
+      "findFirst does not sort or return every element."
+    ],
+    "hint": "Think optional presence of one selected element.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "CORE-0125",
+    "number": 125,
+    "bank": "core",
+    "topicId": "datetime",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why does LocalDate.plusDays(1) return a new LocalDate instead of changing the original?",
+    "options": [
+      "java.time date-time classes are immutable, so operations return a new value representing the adjusted date",
+      "LocalDate objects are shared global constants and cannot be changed by any program",
+      "The method is static and creates a date in another thread",
+      "The operation always changes the default system time zone"
+    ],
+    "correctAnswer": 0,
+    "explanation": "java.time types are immutable. plusDays computes and returns a new temporal value while the original object remains unchanged.",
+    "optionExplanations": [
+      "Correct. java.time types are immutable. plusDays computes and returns a new temporal value while the original object remains unchanged.",
+      "LocalDate values are ordinary immutable objects, not only global constants.",
+      "plusDays is an instance operation and does not start another thread.",
+      "Date arithmetic does not change the system time zone."
+    ],
+    "hint": "Check whether the API is immutable or mutable.",
+    "referenceId": "ref-datetime"
+  },
+  {
+    "id": "CORE-0126",
+    "number": 126,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What additional locking behaviour does a synchronized static method use?",
+    "options": [
+      "It synchronizes on the Class object associated with the declaring class",
+      "It synchronizes on every instance of the class at the same time",
+      "It synchronizes on the current thread object only",
+      "It uses no monitor because static methods cannot be synchronized"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A synchronized instance method uses the receiver object as its monitor. A synchronized static method uses the Class object for the declaring class. These are distinct locks.",
+    "optionExplanations": [
+      "Correct. A synchronized instance method uses the receiver object as its monitor. A synchronized static method uses the Class object for the declaring class. These are distinct locks.",
+      "A class lock is not every instance lock.",
+      "The monitor is the Class object, not Thread.currentThread().",
+      "Static methods may be synchronized."
+    ],
+    "hint": "Compare the receiver lock for instance methods with the Class lock for static methods.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0127",
+    "number": 127,
+    "bank": "core",
+    "topicId": "concurrency",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "Why is synchronizing on a publicly accessible String literal usually a poor lock choice?",
+    "options": [
+      "The string may be interned and shared unexpectedly, allowing unrelated code to contend for the same monitor",
+      "String objects cannot be used as monitors in Java",
+      "A synchronized block accepts only primitive values as lock objects",
+      "The compiler automatically changes String locks to ReentrantLock instances"
+    ],
+    "correctAnswer": 0,
+    "explanation": "String literals may be interned and shared. Synchronizing on a public or externally visible String can create accidental lock sharing and deadlock risks. Use a private final lock object when an explicit monitor is needed.",
+    "optionExplanations": [
+      "Correct. String literals may be interned and shared. Synchronizing on a public or externally visible String can create accidental lock sharing and deadlock risks. Use a private final lock object when an explicit monitor is needed.",
+      "Any object reference can be used as a monitor.",
+      "Primitives cannot be used as intrinsic monitor locks.",
+      "The compiler does not replace monitor locks with ReentrantLock."
+    ],
+    "hint": "Choose a private lock object whose identity is controlled by the class.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "CORE-0128",
+    "number": 128,
+    "bank": "core",
+    "topicId": "reflection",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which Class method reports the interfaces directly implemented by a class?",
+    "options": [
+      "getInterfaces(), which returns Class objects for directly implemented interfaces",
+      "getSuperclass(), which returns every interface in the inheritance hierarchy",
+      "getDeclaredFields(), which returns the interface names as fields",
+      "getPackageName(), which returns an array of interface types"
+    ],
+    "correctAnswer": 0,
+    "explanation": "getInterfaces returns the interfaces directly implemented by the class or extended by the interface. getSuperclass returns the direct superclass.",
+    "optionExplanations": [
+      "Correct. getInterfaces returns the interfaces directly implemented by the class or extended by the interface. getSuperclass returns the direct superclass.",
+      "getSuperclass returns one superclass, not interfaces.",
+      "getDeclaredFields returns fields.",
+      "getPackageName returns a String."
+    ],
+    "hint": "The method name directly indicates the metadata being queried.",
+    "referenceId": "ref-reflection"
+  },
+  {
+    "id": "CORE-0129",
+    "number": 129,
+    "bank": "core",
+    "topicId": "nodejs",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the basic REPL interaction cycle?",
+    "options": [
+      "Read an input expression, evaluate it, print the result and wait for the next input",
+      "Compile a Java class, install it on a server and restart the JVM",
+      "Read a file, encrypt it, store it in a database and terminate Node",
+      "Resolve an HTTP request, render an HTML page and close the browser tab"
+    ],
+    "correctAnswer": 0,
+    "explanation": "REPL stands for Read-Eval-Print Loop. It is an interactive environment for evaluating expressions and inspecting results one at a time.",
+    "optionExplanations": [
+      "Correct. REPL stands for Read-Eval-Print Loop. It is an interactive environment for evaluating expressions and inspecting results one at a time.",
+      "This describes a build/deployment workflow, not a REPL.",
+      "This is unrelated to the Node interactive prompt.",
+      "This describes a web request lifecycle rather than a REPL."
+    ],
+    "hint": "Expand the acronym REPL.",
+    "referenceId": "ref-node"
+  },
+  {
+    "id": "CORE-0130",
+    "number": 130,
+    "bank": "core",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which Spring module area is most directly associated with web application support and Spring MVC?",
+    "options": [
+      "The web module area, which provides web infrastructure and MVC support",
+      "The core container only, which is responsible for browser DOM rendering",
+      "The JVM bytecode module, which handles HTTP routing",
+      "The Java compiler module, which resolves controller URLs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Spring’s web modules support web applications, including the Spring MVC web framework. The core container manages objects and dependencies, while the JVM and compiler have different responsibilities.",
+    "optionExplanations": [
+      "Correct. Spring’s web modules support web applications, including the Spring MVC web framework. The core container manages objects and dependencies, while the JVM and compiler have different responsibilities.",
+      "The core container does not render browser DOM.",
+      "The JVM does not provide Spring MVC HTTP routing.",
+      "javac does not resolve web URLs."
+    ],
+    "hint": "Connect Spring MVC to Spring’s web infrastructure modules.",
+    "referenceId": "ref-spring"
+  }
+]

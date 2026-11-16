@@ -1,0 +1,1177 @@
+[
+  {
+    "id": "EXT-0001",
+    "number": 181,
+    "bank": "extension",
+    "topicId": "jvm",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of a Java classpath in a traditional class-based application?",
+    "options": [
+      "It tells the launcher and class loader where to locate user classes and libraries",
+      "It selects the garbage collector and heap size for every JVM process",
+      "It controls the order in which Java statements execute inside a method",
+      "It stores compiled machine instructions inside the CPU cache"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The classpath identifies locations such as directories and JAR files from which classes and resources can be found. It is separate from runtime memory and scheduling options.",
+    "optionExplanations": [
+      "Correct. The classpath identifies locations such as directories and JAR files from which classes and resources can be found. It is separate from runtime memory and scheduling options.",
+      "Heap and collector settings are configured with JVM options, not the classpath.",
+      "Control flow is defined by program statements and language semantics.",
+      "The classpath does not manage CPU caches."
+    ],
+    "hint": "Think about class and resource discovery at launch/runtime.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "EXT-0002",
+    "number": 182,
+    "bank": "extension",
+    "topicId": "jvm",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the main goal of garbage collection in a managed Java runtime?",
+    "options": [
+      "Reclaim heap memory occupied by objects that are no longer reachable from live roots",
+      "Delete every object immediately after its constructor finishes",
+      "Free local variables from a thread stack while the method is still executing",
+      "Guarantee that application code never retains an object longer than necessary"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Garbage collectors reclaim memory for unreachable heap objects. Reachability is determined from roots such as active stack references, static references and runtime references. GC does not guarantee that logically unwanted but reachable objects are reclaimed.",
+    "optionExplanations": [
+      "Correct. Garbage collectors reclaim memory for unreachable heap objects. Reachability is determined from roots such as active stack references, static references and runtime references. GC does not guarantee that logically unwanted but reachable objects are reclaimed.",
+      "Objects can remain alive after construction if reachable.",
+      "Local variable frames are managed through method execution, not ordinary heap garbage collection.",
+      "A memory leak can occur when an application unintentionally keeps references."
+    ],
+    "hint": "Focus on reachability rather than whether the program still wants an object.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "EXT-0003",
+    "number": 183,
+    "bank": "extension",
+    "topicId": "types-operators",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What does the Java var keyword mean when used for a local variable declaration?",
+    "options": [
+      "The compiler infers the local variable’s static type from its initializer; the variable remains statically typed",
+      "The variable can change its type whenever a new value is assigned",
+      "The variable becomes an untyped dynamic object stored in the heap",
+      "The variable is implicitly declared as Object regardless of its initializer"
+    ],
+    "correctAnswer": 0,
+    "explanation": "var enables local-variable type inference. The compiler determines one static type from the initializer, and later assignments must be compatible with that type.",
+    "optionExplanations": [
+      "Correct. var enables local-variable type inference. The compiler determines one static type from the initializer, and later assignments must be compatible with that type.",
+      "Java does not make var variables dynamically typed.",
+      "The compiler infers a concrete static type rather than an untyped object.",
+      "The type is not always Object; it is inferred from the initializer."
+    ],
+    "hint": "Type inference is a compile-time feature, not dynamic typing.",
+    "referenceId": "ref-types"
+  },
+  {
+    "id": "EXT-0004",
+    "number": 184,
+    "bank": "extension",
+    "topicId": "inheritance",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of a Java record?",
+    "options": [
+      "To declare a compact data-carrier class with generated component fields, accessors and value-oriented methods",
+      "To declare a thread-safe mutable database table that can be edited without methods",
+      "To replace interfaces with multiple class inheritance",
+      "To store arbitrary binary files inside a JVM class loader"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Records are concise data-carrier classes. The compiler generates component fields, accessors, canonical constructor and value-oriented equals, hashCode and toString methods. Records are shallowly immutable: referenced objects may still be mutable.",
+    "optionExplanations": [
+      "Correct. Records are concise data-carrier classes. The compiler generates component fields, accessors, canonical constructor and value-oriented equals, hashCode and toString methods. Records are shallowly immutable: referenced objects may still be mutable.",
+      "A record is a Java type declaration, not a database table.",
+      "Records do not introduce multiple class inheritance.",
+      "Class loaders load classes and resources, not record-managed binary files."
+    ],
+    "hint": "Think of records as concise nominal data carriers.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "EXT-0005",
+    "number": 185,
+    "bank": "extension",
+    "topicId": "inheritance",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the purpose of a sealed class in Java 17?",
+    "options": [
+      "To restrict which classes or interfaces may directly extend or implement it",
+      "To make every instance deeply immutable regardless of its fields",
+      "To prevent all methods from being overridden in every subclass",
+      "To allow a class to extend several unrelated superclasses"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A sealed type controls its direct permitted subtypes using permits (or same-file inference in applicable cases). It helps model closed type hierarchies.",
+    "optionExplanations": [
+      "Correct. A sealed type controls its direct permitted subtypes using permits (or same-file inference in applicable cases). It helps model closed type hierarchies.",
+      "Sealed does not imply deep immutability.",
+      "Permitted subclasses can still override methods unless other rules prevent it.",
+      "Java still allows only one direct superclass."
+    ],
+    "hint": "The key word is restriction of the permitted subtype set.",
+    "referenceId": "ref-inheritance"
+  },
+  {
+    "id": "EXT-0006",
+    "number": 186,
+    "bank": "extension",
+    "topicId": "enums-generics",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does the PECS guideline recommend for generic wildcards?",
+    "options": [
+      "Use extends when a parameter produces values for the caller and super when it consumes values from the caller",
+      "Use super for every producer and extends for every consumer",
+      "Avoid wildcards because they always disable compile-time type checking",
+      "Use an unbounded wildcard whenever a collection must accept arbitrary writes"
+    ],
+    "correctAnswer": 0,
+    "explanation": "PECS means Producer Extends, Consumer Super. A ? extends T source is useful for reading T values, while ? super T can accept T values for writing. Neither form is universally writable/readable in the same way.",
+    "optionExplanations": [
+      "Correct. PECS means Producer Extends, Consumer Super. A ? extends T source is useful for reading T values, while ? super T can accept T values for writing. Neither form is universally writable/readable in the same way.",
+      "This reverses the mnemonic.",
+      "Wildcards preserve type safety; they do not disable it.",
+      "An unbounded wildcard generally does not allow adding arbitrary non-null values."
+    ],
+    "hint": "Ask whether the generic parameter produces values or consumes them.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "EXT-0007",
+    "number": 187,
+    "bank": "extension",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a common reason to use Optional<T> as a method return type?",
+    "options": [
+      "To make the possible absence of a result explicit in the method’s return contract",
+      "To allow the method to return two unrelated objects at the same time",
+      "To guarantee that a value is never null anywhere in the application",
+      "To replace every collection and array in the Java language"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Optional represents either a present value or an empty result and can make absence explicit at an API boundary. It does not eliminate all nulls or replace collections.",
+    "optionExplanations": [
+      "Correct. Optional represents either a present value or an empty result and can make absence explicit at an API boundary. It does not eliminate all nulls or replace collections.",
+      "Optional contains at most one value, not a pair of unrelated results.",
+      "Other APIs and variables can still use null.",
+      "Collections and arrays remain important data structures."
+    ],
+    "hint": "Think about optional presence rather than multiple values or universal null elimination.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "EXT-0008",
+    "number": 188,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the main purpose of the Java Platform Module System introduced in Java 9?",
+    "options": [
+      "To define named modules with explicit dependencies and controlled package exposure",
+      "To replace all Java packages with operating-system processes",
+      "To guarantee that every class is loaded into a separate JVM",
+      "To make import declarations automatically download dependencies from Maven Central"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The module system adds explicit module boundaries, dependency declarations and exported packages. It complements packages and classpath-based applications.",
+    "optionExplanations": [
+      "Correct. The module system adds explicit module boundaries, dependency declarations and exported packages. It complements packages and classpath-based applications.",
+      "Modules are not operating-system processes.",
+      "Classes within a module still run in a JVM process.",
+      "Dependency downloads are a build-tool responsibility."
+    ],
+    "hint": "Look for stronger encapsulation and dependency declarations.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0009",
+    "number": 189,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the key difference between a JAR and a Java module?",
+    "options": [
+      "A JAR is an archive format; a module is a logical unit with defined dependencies and package boundaries",
+      "A JAR is a JVM instruction set; a module is a Java primitive type",
+      "A JAR can contain only one class, while a module can contain unlimited operating-system processes",
+      "A module is always a compressed file and a JAR is always a source-code directory"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A JAR packages files and classes. A module describes a named unit with dependencies and exposed packages; a modular JAR may include module-info.class.",
+    "optionExplanations": [
+      "Correct. A JAR packages files and classes. A module describes a named unit with dependencies and exposed packages; a modular JAR may include module-info.class.",
+      "Neither term describes an instruction set or primitive type.",
+      "A JAR can contain many classes and resources.",
+      "A module is a logical runtime unit and may be packaged in a JAR."
+    ],
+    "hint": "Separate physical archive packaging from logical module boundaries.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0010",
+    "number": 190,
+    "bank": "extension",
+    "topicId": "arrays",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why can Arrays.asList(array) be surprising when array is a String[]?",
+    "options": [
+      "It returns a fixed-size list backed by the array, so element replacement is visible but size-changing operations are unsupported",
+      "It always returns a deep copy that can grow and shrink independently",
+      "It converts every String into a character array and stores each character as an element",
+      "It returns an immutable List.of result regardless of the input array"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Arrays.asList creates a fixed-size list backed by the supplied array. set is supported and affects the array, while add/remove are unsupported.",
+    "optionExplanations": [
+      "Correct. Arrays.asList creates a fixed-size list backed by the supplied array. set is supported and affects the array, while add/remove are unsupported.",
+      "The list is backed by the array rather than an independent growable copy.",
+      "The elements remain String values; the method does not split them into characters.",
+      "Arrays.asList and List.of have different behaviours."
+    ],
+    "hint": "Distinguish a fixed-size view backed by an array from an independent growable list.",
+    "referenceId": "ref-arrays"
+  },
+  {
+    "id": "EXT-0011",
+    "number": 191,
+    "bank": "extension",
+    "topicId": "strings",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of String.intern()?",
+    "options": [
+      "It returns the canonical pooled representation for an equal string value",
+      "It permanently locks the string so no thread can read it",
+      "It converts the string into a primitive char value",
+      "It guarantees that every string comparison in the program uses == safely"
+    ],
+    "correctAnswer": 0,
+    "explanation": "intern returns a canonical representation from the string pool for equal content. It should not replace equals as the general content-comparison method.",
+    "optionExplanations": [
+      "Correct. intern returns a canonical representation from the string pool for equal content. It should not replace equals as the general content-comparison method.",
+      "Interning is unrelated to locking or synchronisation.",
+      "A String remains a reference type; intern does not produce a char.",
+      "Not all strings are automatically interned, and == is not a general content test."
+    ],
+    "hint": "Think canonicalisation of equal string values.",
+    "referenceId": "ref-strings"
+  },
+  {
+    "id": "EXT-0012",
+    "number": 192,
+    "bank": "extension",
+    "topicId": "methods-encapsulation",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a covariant return type in method overriding?",
+    "options": [
+      "An overriding method may return a subtype of the return type declared by the overridden method",
+      "An overriding method may return any unrelated type if the method name is unchanged",
+      "An overriding method may change a primitive return type from int to long",
+      "An overloaded method may omit its return type to inherit the parent return value"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Java permits an overriding reference-returning method to narrow its return type to a subtype. This is a covariant return type and preserves substitutability.",
+    "optionExplanations": [
+      "Correct. Java permits an overriding reference-returning method to narrow its return type to a subtype. This is a covariant return type and preserves substitutability.",
+      "The return type must be compatible, not arbitrary.",
+      "Primitive return types do not support covariant narrowing.",
+      "Every method declaration must have a return type or void; constructors are different."
+    ],
+    "hint": "Look for a more specific reference type, not an unrelated one.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "EXT-0013",
+    "number": 193,
+    "bank": "extension",
+    "topicId": "methods-encapsulation",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why should a public API generally avoid exposing a mutable internal collection directly?",
+    "options": [
+      "Callers could modify internal state without the class enforcing its invariants",
+      "A returned collection can never be iterated by external code",
+      "Java automatically serialises every returned collection into a database table",
+      "Public collections prevent the JVM from performing garbage collection"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Returning an internal mutable collection exposes the object’s representation. Callers can add, remove or replace elements unexpectedly. Defensive copies or unmodifiable views may be more appropriate depending on the API.",
+    "optionExplanations": [
+      "Correct. Returning an internal mutable collection exposes the object’s representation. Callers can add, remove or replace elements unexpectedly. Defensive copies or unmodifiable views may be more appropriate depending on the API.",
+      "External code can iterate a collection.",
+      "Returning a collection does not automatically persist it.",
+      "Garbage collection is not disabled by public collection access."
+    ],
+    "hint": "Consider what an external caller can mutate through the returned reference.",
+    "referenceId": "ref-methods"
+  },
+  {
+    "id": "EXT-0014",
+    "number": 194,
+    "bank": "extension",
+    "topicId": "exceptions",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of a suppressed exception?",
+    "options": [
+      "It preserves an additional failure that occurred while another exception was already being propagated",
+      "It permanently disables an exception class in the JVM",
+      "It converts a checked exception into a return value automatically",
+      "It prevents a finally block from executing"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Suppressed exceptions retain secondary failures, commonly from closing AutoCloseable resources when a primary exception is already in flight. They can be inspected through getSuppressed().",
+    "optionExplanations": [
+      "Correct. Suppressed exceptions retain secondary failures, commonly from closing AutoCloseable resources when a primary exception is already in flight. They can be inspected through getSuppressed().",
+      "Suppression preserves a secondary failure; it does not disable exception classes.",
+      "The caller still handles or propagates the primary exception.",
+      "Suppression does not control whether finally runs."
+    ],
+    "hint": "Think of a secondary failure that should not replace the primary one.",
+    "referenceId": "ref-exceptions"
+  },
+  {
+    "id": "EXT-0015",
+    "number": 195,
+    "bank": "extension",
+    "topicId": "functional",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a method reference in Java?",
+    "options": [
+      "A compact syntax that refers to an existing method or constructor where a functional interface target supplies the invocation shape",
+      "A reflection object that can invoke any private method without access checks",
+      "A variable that stores the source-code line number of a method",
+      "A special kind of annotation that changes method bytecode at compile time"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Method references such as String::trim or System.out::println are compact functional-interface implementations when a compatible target type is known. They do not inherently bypass access checks.",
+    "optionExplanations": [
+      "Correct. Method references such as String::trim or System.out::println are compact functional-interface implementations when a compatible target type is known. They do not inherently bypass access checks.",
+      "A method reference is not the same as a reflective Method object.",
+      "It does not store line-number metadata.",
+      "Method references are expressions, not annotations."
+    ],
+    "hint": "Think of it as shorthand for a lambda that delegates to an existing method.",
+    "referenceId": "ref-functional"
+  },
+  {
+    "id": "EXT-0016",
+    "number": 196,
+    "bank": "extension",
+    "topicId": "collections",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why must objects used as HashMap keys have a stable equals/hashCode relationship while stored in the map?",
+    "options": [
+      "Changing equality- or hash-relevant state can make an entry difficult to find in the bucket where it was placed",
+      "HashMap recomputes the entire hash table on every get call and ignores key equality",
+      "HashMap uses object identity only and never calls equals or hashCode",
+      "A key’s hash code must be globally unique across every Java process"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HashMap uses hashCode to select a bucket and equals to distinguish keys. Mutating fields that influence these methods after insertion can make lookup fail or behave unexpectedly.",
+    "optionExplanations": [
+      "Correct. HashMap uses hashCode to select a bucket and equals to distinguish keys. Mutating fields that influence these methods after insertion can make lookup fail or behave unexpectedly.",
+      "HashMap does not rebuild the whole table on every lookup.",
+      "HashMap uses both hashCode and equals for normal key semantics.",
+      "Hash codes are not required to be globally unique."
+    ],
+    "hint": "Consider what happens if a key’s hash changes after insertion.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "EXT-0017",
+    "number": 197,
+    "bank": "extension",
+    "topicId": "collections",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the primary difference between Collections.unmodifiableList(list) and List.copyOf(list)?",
+    "options": [
+      "unmodifiableList is an unmodifiable view of the supplied list, while copyOf creates an unmodifiable list snapshot of the elements",
+      "Both always return a mutable deep copy of every nested object",
+      "List.copyOf permits add and remove, while unmodifiableList blocks only sorting",
+      "unmodifiableList deep-clones every element, while copyOf keeps the original list mutable through the wrapper"
+    ],
+    "correctAnswer": 0,
+    "explanation": "An unmodifiable view reflects changes made through the underlying list reference. List.copyOf creates an unmodifiable list containing the input elements at the time of the call. Neither operation deep-copies mutable element objects.",
+    "optionExplanations": [
+      "Correct. An unmodifiable view reflects changes made through the underlying list reference. List.copyOf creates an unmodifiable list containing the input elements at the time of the call. Neither operation deep-copies mutable element objects.",
+      "Neither operation performs a deep copy of nested objects.",
+      "Both returned lists are unmodifiable.",
+      "The deep-copy and mutability descriptions are reversed or inaccurate."
+    ],
+    "hint": "Distinguish a live view from an unmodifiable snapshot of list membership.",
+    "referenceId": "ref-collections"
+  },
+  {
+    "id": "EXT-0018",
+    "number": 198,
+    "bank": "extension",
+    "topicId": "streams",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "Why is mutating shared external state inside a parallel stream operation risky?",
+    "options": [
+      "Multiple workers may update the same state concurrently, creating races and nondeterministic results",
+      "Parallel streams execute every lambda exactly once in source order on the main thread",
+      "A stream automatically synchronizes every variable captured by a lambda",
+      "The terminal operation disables all intermediate operations when shared state is detected"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Parallel pipelines may execute actions on multiple threads. Shared mutable state requires appropriate coordination; stateless operations and proper reductions are safer.",
+    "optionExplanations": [
+      "Correct. Parallel pipelines may execute actions on multiple threads. Shared mutable state requires appropriate coordination; stateless operations and proper reductions are safer.",
+      "Parallel execution does not guarantee one thread or encounter-order side effects.",
+      "Captured variables are not automatically synchronized.",
+      "The stream API does not detect and disable every unsafe side effect."
+    ],
+    "hint": "Ask whether two workers can mutate the same object at the same time.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "EXT-0019",
+    "number": 199,
+    "bank": "extension",
+    "topicId": "streams",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which statement about parallel streams is most accurate?",
+    "options": [
+      "They can improve throughput for suitable workloads, but overhead and ordering costs can make them slower",
+      "They are always faster than sequential streams regardless of input size",
+      "They guarantee deterministic side-effect order for every terminal operation",
+      "They remove the need for thread-safety in any object used by the pipeline"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Parallel streams can help with sufficiently large, decomposable workloads, but splitting, coordination, ordering and contention have costs. Correctness still depends on safe operations.",
+    "optionExplanations": [
+      "Correct. Parallel streams can help with sufficiently large, decomposable workloads, but splitting, coordination, ordering and contention have costs. Correctness still depends on safe operations.",
+      "Parallelism is not a universal speed guarantee.",
+      "Side-effect ordering is not generally guaranteed for parallel execution.",
+      "Shared state still needs safe coordination."
+    ],
+    "hint": "Performance depends on workload shape and pipeline semantics.",
+    "referenceId": "ref-streams"
+  },
+  {
+    "id": "EXT-0020",
+    "number": 200,
+    "bank": "extension",
+    "topicId": "datetime",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Why should a server store a globally meaningful event timestamp as Instant rather than LocalDateTime?",
+    "options": [
+      "Instant represents a point on the UTC timeline and is not ambiguous due to a missing time-zone offset",
+      "LocalDateTime automatically includes the server’s current time zone and UTC offset",
+      "Instant stores a calendar month but not a clock time",
+      "LocalDateTime can represent only dates before 1970"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Instant models a unique point on the UTC timeline. LocalDateTime has no zone or offset, so the same local wall time can correspond to different instants in different zones or around daylight-saving transitions.",
+    "optionExplanations": [
+      "Correct. Instant models a unique point on the UTC timeline. LocalDateTime has no zone or offset, so the same local wall time can correspond to different instants in different zones or around daylight-saving transitions.",
+      "LocalDateTime deliberately contains no zone/offset.",
+      "Instant represents a moment, not a calendar month.",
+      "LocalDateTime has no 1970 boundary."
+    ],
+    "hint": "Think about whether the value must identify one global moment.",
+    "referenceId": "ref-datetime"
+  },
+  {
+    "id": "EXT-0021",
+    "number": 201,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the purpose of the volatile keyword on a shared field?",
+    "options": [
+      "It provides visibility and ordering guarantees for reads and writes to that variable, but does not make compound updates atomic",
+      "It makes all operations on the object graph atomic and mutually exclusive",
+      "It prevents the field from being read by any thread except the writer",
+      "It automatically starts a dedicated thread whenever the field changes"
+    ],
+    "correctAnswer": 0,
+    "explanation": "volatile establishes visibility and happens-before guarantees for writes and subsequent reads of the same variable. It does not make compound operations such as count++ atomic.",
+    "optionExplanations": [
+      "Correct. volatile establishes visibility and happens-before guarantees for writes and subsequent reads of the same variable. It does not make compound operations such as count++ atomic.",
+      "volatile does not provide mutual exclusion for arbitrary operations.",
+      "Other threads can read a volatile field.",
+      "volatile does not create event-driven threads."
+    ],
+    "hint": "Separate visibility of a value from atomicity of a multi-step update.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0022",
+    "number": 202,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a deadlock?",
+    "options": [
+      "A situation where threads wait indefinitely for resources held by one another so none can proceed",
+      "A thread that is temporarily sleeping for a fixed number of milliseconds",
+      "A thread that completes its run method normally",
+      "A collection iterator that detects a structural modification"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Deadlock commonly arises from cyclic lock dependencies. Each thread holds a resource while waiting for another resource that cannot be released.",
+    "optionExplanations": [
+      "Correct. Deadlock commonly arises from cyclic lock dependencies. Each thread holds a resource while waiting for another resource that cannot be released.",
+      "Sleeping is a timed waiting state, not necessarily a deadlock.",
+      "Normal thread completion is termination, not deadlock.",
+      "ConcurrentModificationException is unrelated to lock cycles."
+    ],
+    "hint": "Look for a circular wait among threads and locks.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0023",
+    "number": 203,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "Which approach most directly reduces deadlock risk when multiple locks must be acquired?",
+    "options": [
+      "Use a consistent global lock acquisition order in every code path",
+      "Acquire locks in random order so no thread can predict another thread",
+      "Hold each lock permanently so that other threads cannot acquire it in a different order",
+      "Catch every RuntimeException and retry the lock acquisition without a limit"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Consistent lock ordering prevents cycles in the lock-wait graph when all code follows the same order. Other approaches include timeouts and reducing nested lock usage.",
+    "optionExplanations": [
+      "Correct. Consistent lock ordering prevents cycles in the lock-wait graph when all code follows the same order. Other approaches include timeouts and reducing nested lock usage.",
+      "Random order can create cycles more readily.",
+      "Permanent locks can block the application.",
+      "Unbounded retries can cause livelock and do not guarantee deadlock avoidance."
+    ],
+    "hint": "Prevent circular wait by enforcing an acquisition order.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0024",
+    "number": 204,
+    "bank": "extension",
+    "topicId": "reflection",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "What is the difference between Class.getMethods() and Class.getDeclaredMethods()?",
+    "options": [
+      "getMethods returns public methods including inherited public methods; getDeclaredMethods returns methods declared directly by the class at all access levels",
+      "getMethods returns private fields; getDeclaredMethods returns public constructors",
+      "Both return identical arrays but in different alphabetical orders",
+      "getDeclaredMethods returns only methods inherited from Object"
+    ],
+    "correctAnswer": 0,
+    "explanation": "The methods differ in both visibility and inheritance scope. getMethods returns public methods, including inherited ones; getDeclaredMethods returns methods declared in that class regardless of access, but not inherited methods.",
+    "optionExplanations": [
+      "Correct. The methods differ in both visibility and inheritance scope. getMethods returns public methods, including inherited ones; getDeclaredMethods returns methods declared in that class regardless of access, but not inherited methods.",
+      "These methods retrieve method metadata, not fields or constructors.",
+      "They differ in scope and visibility, not merely ordering.",
+      "Declared methods are those on the class itself, not only those inherited from Object."
+    ],
+    "hint": "Look at the words public and declared in the method names.",
+    "referenceId": "ref-reflection"
+  },
+  {
+    "id": "EXT-0025",
+    "number": 205,
+    "bank": "extension",
+    "topicId": "nodejs",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Which API is normally available in Node.js but not as a standard browser global?",
+    "options": [
+      "The Node.js process object, which exposes information and control related to the current process",
+      "The document object, which represents the browser page DOM",
+      "The window object, which represents a browser window",
+      "The location object, which exposes the current browser URL"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Node.js exposes process as a runtime global. document, window and browser location APIs are provided by browsers, not by the standard Node.js runtime.",
+    "optionExplanations": [
+      "Correct. Node.js exposes process as a runtime global. document, window and browser location APIs are provided by browsers, not by the standard Node.js runtime.",
+      "document is a browser DOM API, not a default Node global.",
+      "window is a browser global; Node.js does not provide the browser window.",
+      "location is associated with browser navigation APIs."
+    ],
+    "hint": "Identify the runtime environment-specific API.",
+    "referenceId": "ref-node"
+  },
+  {
+    "id": "EXT-0026",
+    "number": 206,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the typical purpose of Spring AOP?",
+    "options": [
+      "To modularise cross-cutting concerns such as logging, security checks or transaction boundaries around method execution",
+      "To replace the JVM garbage collector with an application-level object cache",
+      "To create HTML pages by compiling Java classes into CSS",
+      "To replace all application interfaces with database tables"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Aspect-oriented programming separates cross-cutting concerns from business logic. Spring AOP commonly applies advice at method-execution join points through proxies.",
+    "optionExplanations": [
+      "Correct. Aspect-oriented programming separates cross-cutting concerns from business logic. Spring AOP commonly applies advice at method-execution join points through proxies.",
+      "AOP does not replace garbage collection.",
+      "HTML and CSS generation is not the purpose of Spring AOP.",
+      "Interfaces and database tables are different abstractions."
+    ],
+    "hint": "Look for behaviour applied across many components, such as transactions or logging.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "EXT-0027",
+    "number": 207,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the main benefit of Spring constructor injection compared with field injection?",
+    "options": [
+      "Required dependencies are explicit, can be final, and are easy to provide in unit tests without container reflection",
+      "The component can be constructed without any dependencies even when they are required",
+      "The constructor is automatically invoked on every HTTP request",
+      "Constructor injection disables the Spring container and creates a global singleton"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Constructor injection makes dependencies visible in the type’s public construction contract. It supports final fields and straightforward unit testing with direct instantiation.",
+    "optionExplanations": [
+      "Correct. Constructor injection makes dependencies visible in the type’s public construction contract. It supports final fields and straightforward unit testing with direct instantiation.",
+      "Required dependencies are still needed; injection does not remove them.",
+      "A bean is normally created by the container according to its scope, not per request unless configured.",
+      "Constructor injection is a form of container-managed injection, not a container bypass."
+    ],
+    "hint": "Think about compile-time visibility and testability of required collaborators.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "EXT-0028",
+    "number": 208,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a Spring bean?",
+    "options": [
+      "An object managed by the Spring IoC container, including its creation and configured lifecycle",
+      "Any Java object allocated with new, even if Spring never manages or knows about it",
+      "A compiled .class file stored inside a JAR archive",
+      "A database row that must always have a primary key named bean_id"
+    ],
+    "correctAnswer": 0,
+    "explanation": "A Spring bean is an object instantiated, assembled and otherwise managed by the Spring container. Not every object in a Spring application is automatically a bean.",
+    "optionExplanations": [
+      "Correct. A Spring bean is an object instantiated, assembled and otherwise managed by the Spring container. Not every object in a Spring application is automatically a bean.",
+      "An arbitrary object is not a Spring bean unless managed by the container.",
+      "A class file is metadata/bytecode, not a managed object.",
+      "The term bean is not a database-row convention."
+    ],
+    "hint": "Focus on container-managed objects.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "EXT-0029",
+    "number": 209,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the purpose of @Transactional in Spring applications?",
+    "options": [
+      "To declare that a method or class should execute within transaction management rules configured by Spring",
+      "To guarantee that all method calls execute on a separate thread",
+      "To automatically convert every checked exception into a successful return value",
+      "To generate a database schema from every Java field without persistence configuration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "@Transactional marks transaction boundaries. Spring’s transaction infrastructure uses a configured transaction manager and typically proxy-based interception to begin, commit or roll back transactions according to rules.",
+    "optionExplanations": [
+      "Correct. @Transactional marks transaction boundaries. Spring’s transaction infrastructure uses a configured transaction manager and typically proxy-based interception to begin, commit or roll back transactions according to rules.",
+      "Transactions and thread creation are separate concerns.",
+      "Transactional handling does not convert exceptions into successful return values.",
+      "Schema generation depends on persistence configuration, not this annotation alone."
+    ],
+    "hint": "Think atomic commit/rollback boundaries around data operations.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "EXT-0030",
+    "number": 210,
+    "bank": "extension",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a prepared statement in JDBC primarily used for?",
+    "options": [
+      "To execute parameterised SQL while separating SQL structure from supplied values",
+      "To store a Java class in the JVM method area before it is loaded",
+      "To create a new operating-system process for every database row",
+      "To convert every SQL query into a Java Stream automatically"
+    ],
+    "correctAnswer": 0,
+    "explanation": "PreparedStatement represents a precompiled or parameterised SQL statement. Bound parameters are supplied separately, improving clarity and helping prevent SQL injection when used correctly.",
+    "optionExplanations": [
+      "Correct. PreparedStatement represents a precompiled or parameterised SQL statement. Bound parameters are supplied separately, improving clarity and helping prevent SQL injection when used correctly.",
+      "Prepared statements are a JDBC database access feature.",
+      "They do not manage JVM class metadata or processes.",
+      "JDBC does not automatically translate every query into a Stream."
+    ],
+    "hint": "The key distinction is binding values separately from SQL text.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "EXT-0031",
+    "number": 211,
+    "bank": "extension",
+    "topicId": "enums-generics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why is PreparedStatement generally safer than building SQL by concatenating untrusted user input?",
+    "options": [
+      "Bound parameters are treated as data values rather than executable SQL syntax",
+      "It encrypts the entire database connection using a fixed secret key",
+      "It prevents all database users from reading returned rows",
+      "It removes the need to validate data types and business rules"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Parameter binding keeps supplied values separate from SQL syntax, preventing input from changing the statement structure in common injection scenarios. Validation remains necessary for business rules.",
+    "optionExplanations": [
+      "Correct. Parameter binding keeps supplied values separate from SQL syntax, preventing input from changing the statement structure in common injection scenarios. Validation remains necessary for business rules.",
+      "PreparedStatement does not by itself guarantee transport encryption.",
+      "It does not change database authorisation or visibility.",
+      "Input validation and business rules are still important."
+    ],
+    "hint": "Look for separation between SQL code and user-supplied values.",
+    "referenceId": "ref-enums-generics"
+  },
+  {
+    "id": "EXT-0032",
+    "number": 212,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of java.nio.file.Path?",
+    "options": [
+      "To represent a filesystem path in a provider-independent way for file-system operations",
+      "To represent a Java thread’s execution path through bytecode instructions",
+      "To represent a network route between two IP addresses only",
+      "To represent a sequence of method calls stored in a stack trace"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Path represents a path in a filesystem and is used with the Files API for operations such as reading, writing, copying and checking attributes. It is not limited to one operating system path syntax.",
+    "optionExplanations": [
+      "Correct. Path represents a path in a filesystem and is used with the Files API for operations such as reading, writing, copying and checking attributes. It is not limited to one operating system path syntax.",
+      "Thread execution is not represented by java.nio.file.Path.",
+      "Network routing is not the class’s purpose.",
+      "Stack traces are represented by StackTraceElement and related APIs."
+    ],
+    "hint": "Think filesystem navigation and the java.nio.file package.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0033",
+    "number": 213,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a major advantage of try-with-resources when working with file or database resources?",
+    "options": [
+      "It ensures AutoCloseable resources are closed as control leaves the block, even when an exception occurs",
+      "It guarantees that every I/O operation succeeds without throwing an exception",
+      "It permanently caches every opened file descriptor to avoid repeated system calls",
+      "It converts checked I/O exceptions into unchecked exceptions automatically"
+    ],
+    "correctAnswer": 0,
+    "explanation": "try-with-resources gives deterministic resource cleanup for AutoCloseable resources. It does not guarantee successful I/O or change checked-exception rules.",
+    "optionExplanations": [
+      "Correct. try-with-resources gives deterministic resource cleanup for AutoCloseable resources. It does not guarantee successful I/O or change checked-exception rules.",
+      "I/O can still fail and throw exceptions.",
+      "Resources are closed rather than permanently cached.",
+      "Checked exceptions still need to be caught or declared."
+    ],
+    "hint": "Focus on deterministic cleanup rather than successful I/O.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0034",
+    "number": 214,
+    "bank": "extension",
+    "topicId": "basics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a Java annotation used for?",
+    "options": [
+      "To attach structured metadata to declarations for compilers, tools or runtime frameworks",
+      "To execute a method automatically every time a class is imported",
+      "To replace every access modifier with a runtime security policy",
+      "To define a new primitive type that can store arbitrary objects"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Annotations provide metadata that can be processed at source, compile or runtime. Their effect depends on annotation retention and the tool or framework that reads them.",
+    "optionExplanations": [
+      "Correct. Annotations provide metadata that can be processed at source, compile or runtime. Their effect depends on annotation retention and the tool or framework that reads them.",
+      "Importing a class does not automatically execute annotated methods.",
+      "Annotations do not replace Java access modifiers.",
+      "Annotations do not define primitive data types."
+    ],
+    "hint": "Think metadata that can be consumed by tools or frameworks.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "EXT-0035",
+    "number": 215,
+    "bank": "extension",
+    "topicId": "basics",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What does RetentionPolicy.RUNTIME allow for an annotation?",
+    "options": [
+      "The annotation is retained in class metadata and can be inspected through reflection at runtime",
+      "The annotation is removed before bytecode is generated",
+      "The annotation is stored only in source comments and ignored by the compiler",
+      "The annotation is automatically converted into a Spring bean"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RUNTIME retention makes the annotation available to runtime reflection. SOURCE retention is discarded by the compiler, while CLASS is retained in the class file but not necessarily exposed by runtime reflection.",
+    "optionExplanations": [
+      "Correct. RUNTIME retention makes the annotation available to runtime reflection. SOURCE retention is discarded by the compiler, while CLASS is retained in the class file but not necessarily exposed by runtime reflection.",
+      "RUNTIME annotations are not discarded before class-file generation.",
+      "Annotations are language metadata, not ordinary comments.",
+      "Retention does not automatically register the annotated class as a bean."
+    ],
+    "hint": "Compare SOURCE, CLASS and RUNTIME retention.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "EXT-0036",
+    "number": 216,
+    "bank": "extension",
+    "topicId": "basics",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the main role of a unit-testing framework such as JUnit?",
+    "options": [
+      "To organise and run automated tests that verify small units of application behaviour",
+      "To compile a Java application into a native operating-system kernel",
+      "To manage the JVM heap and schedule garbage collection cycles",
+      "To provide a database schema migration engine by itself"
+    ],
+    "correctAnswer": 0,
+    "explanation": "JUnit provides a programming model and runner/platform for automated tests. It can verify behaviour through assertions and lifecycle methods, but it does not replace the compiler or database migration tools.",
+    "optionExplanations": [
+      "Correct. JUnit provides a programming model and runner/platform for automated tests. It can verify behaviour through assertions and lifecycle methods, but it does not replace the compiler or database migration tools.",
+      "JUnit is not an operating-system kernel compiler.",
+      "Heap management remains a JVM responsibility.",
+      "Database migrations are usually managed by dedicated tools such as Flyway or Liquibase."
+    ],
+    "hint": "Think automated verification of expected behaviour.",
+    "referenceId": "ref-basics"
+  },
+  {
+    "id": "EXT-0037",
+    "number": 217,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is Maven’s primary role in a Java project?",
+    "options": [
+      "To manage project builds, dependencies, plugins and lifecycle phases through a declarative project model",
+      "To provide the Java runtime engine that executes bytecode",
+      "To replace Java packages with a global registry of object instances",
+      "To serve HTTP requests from Spring MVC controllers"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Maven is a build and dependency-management tool. Its POM describes project metadata, dependencies, plugins and build configuration; its lifecycle defines standard phases.",
+    "optionExplanations": [
+      "Correct. Maven is a build and dependency-management tool. Its POM describes project metadata, dependencies, plugins and build configuration; its lifecycle defines standard phases.",
+      "The JVM executes bytecode.",
+      "Packages remain a Java language namespace feature.",
+      "A web server/framework serves HTTP requests."
+    ],
+    "hint": "Look for dependency resolution and build lifecycle management.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0038",
+    "number": 218,
+    "bank": "extension",
+    "topicId": "packages",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is Gradle commonly used for in Java development?",
+    "options": [
+      "A flexible build automation system that declares tasks and manages dependencies",
+      "A JVM garbage collector that compacts the old generation",
+      "A Java primitive type that stores build timestamps",
+      "A browser runtime for executing JavaScript modules"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Gradle automates compilation, testing, packaging and other build tasks. Build logic can be written using Groovy or Kotlin DSLs.",
+    "optionExplanations": [
+      "Correct. Gradle automates compilation, testing, packaging and other build tasks. Build logic can be written using Groovy or Kotlin DSLs.",
+      "Garbage collectors are JVM components, not build tools.",
+      "Gradle is not a Java type.",
+      "Node.js and browsers execute JavaScript."
+    ],
+    "hint": "Think build tasks and dependency resolution.",
+    "referenceId": "ref-packages"
+  },
+  {
+    "id": "EXT-0039",
+    "number": 219,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the primary purpose of ExecutorService?",
+    "options": [
+      "To manage task execution using a pool or other execution policy and provide lifecycle controls",
+      "To define the inheritance rules for Java interfaces",
+      "To make every method in a class synchronized automatically",
+      "To parse Java source files into an abstract syntax tree"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ExecutorService separates task submission from thread management. It supports task execution, shutdown and Future-based tracking, reducing the need to manage raw Thread objects directly.",
+    "optionExplanations": [
+      "Correct. ExecutorService separates task submission from thread management. It supports task execution, shutdown and Future-based tracking, reducing the need to manage raw Thread objects directly.",
+      "Inheritance is handled by the Java type system.",
+      "ExecutorService does not synchronize every method.",
+      "Parsing source is a compiler/tooling task."
+    ],
+    "hint": "Think task submission and thread-pool lifecycle.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0040",
+    "number": 220,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the difference between Callable<V> and Runnable?",
+    "options": [
+      "Callable returns a result and may throw checked exceptions; Runnable returns no result",
+      "Runnable returns a result while Callable can only signal completion",
+      "Callable must extend Thread while Runnable must extend Object directly",
+      "They are identical except that Callable can be used only with GUI applications"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Callable<V> has call() that returns V and may throw Exception. Runnable has run() returning void. ExecutorService can submit either, with Callable submissions typically producing a Future result.",
+    "optionExplanations": [
+      "Correct. Callable<V> has call() that returns V and may throw Exception. Runnable has run() returning void. ExecutorService can submit either, with Callable submissions typically producing a Future result.",
+      "This reverses their return-value behaviour.",
+      "Neither interface requires extending Thread.",
+      "They are general task abstractions, not GUI-only."
+    ],
+    "hint": "Compare their single abstract method signatures.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0041",
+    "number": 221,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "expert",
+    "type": "concept",
+    "question": "What does Future.get() do when called before the associated task has completed?",
+    "options": [
+      "It waits for completion and then returns the result or throws an exception describing task failure",
+      "It immediately returns null without waiting for the task",
+      "It starts the task a second time to obtain a second result",
+      "It cancels the task and returns its thread identifier"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Future represents a pending or completed asynchronous result. get waits until the result is available, subject to interruption or execution failure.",
+    "optionExplanations": [
+      "Correct. Future represents a pending or completed asynchronous result. get waits until the result is available, subject to interruption or execution failure.",
+      "get does not return a default null just because work is pending.",
+      "Future.get does not restart the task.",
+      "Cancellation is a separate operation and Future does not return a thread ID."
+    ],
+    "hint": "Think of get as retrieving a result that may not be ready yet.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0042",
+    "number": 222,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the main benefit of AtomicInteger compared with an ordinary shared int for incrementing a counter?",
+    "options": [
+      "It provides atomic operations such as incrementAndGet without requiring the caller to use a synchronized block",
+      "It makes every operation on every field of the containing object atomic",
+      "It guarantees that increments are executed in a specific order across different JVM processes",
+      "It prevents the counter from ever overflowing its int range"
+    ],
+    "correctAnswer": 0,
+    "explanation": "AtomicInteger provides atomic read-modify-write operations using low-level concurrency primitives. It protects that variable’s operations, not arbitrary state, and it still has the int range.",
+    "optionExplanations": [
+      "Correct. AtomicInteger provides atomic read-modify-write operations using low-level concurrency primitives. It protects that variable’s operations, not arbitrary state, and it still has the int range.",
+      "AtomicInteger does not make unrelated object fields atomic.",
+      "Atomicity is within the relevant process/runtime memory model, not a cross-process ordering guarantee.",
+      "An int can still overflow according to integer arithmetic rules."
+    ],
+    "hint": "Focus on atomic compound updates to one variable.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0043",
+    "number": 223,
+    "bank": "extension",
+    "topicId": "concurrency",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "Why use ConcurrentHashMap in a multithreaded application?",
+    "options": [
+      "It supports concurrent retrievals and updates with thread-safe operations designed for concurrent access",
+      "It sorts keys lexicographically and forbids null values only to save memory",
+      "It makes all mutable objects stored as values automatically thread-safe",
+      "It guarantees that iteration observes one globally locked snapshot of every value"
+    ],
+    "correctAnswer": 0,
+    "explanation": "ConcurrentHashMap supports safe concurrent access and scalable updates. Its values may still be mutable and need their own coordination; iteration is weakly consistent rather than a global locked snapshot.",
+    "optionExplanations": [
+      "Correct. ConcurrentHashMap supports safe concurrent access and scalable updates. Its values may still be mutable and need their own coordination; iteration is weakly consistent rather than a global locked snapshot.",
+      "It does not promise sorted iteration.",
+      "Thread-safe map operations do not make arbitrary value objects thread-safe.",
+      "Its iterators do not represent a fully locked snapshot."
+    ],
+    "hint": "Separate map-level concurrency from the thread safety of stored values.",
+    "referenceId": "ref-concurrency"
+  },
+  {
+    "id": "EXT-0044",
+    "number": 224,
+    "bank": "extension",
+    "topicId": "jvm",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is a Java class loader responsible for?",
+    "options": [
+      "Loading class definitions into the JVM when they are needed and participating in class identity and delegation",
+      "Executing every method body directly as a database transaction",
+      "Converting Java objects to source files each time a method is called",
+      "Assigning a unique operating-system process to each Java class"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Class loaders locate and define classes. Class identity depends on both the binary name and the defining class loader, and delegation helps maintain platform class loading rules.",
+    "optionExplanations": [
+      "Correct. Class loaders locate and define classes. Class identity depends on both the binary name and the defining class loader, and delegation helps maintain platform class loading rules.",
+      "Class loading and transaction management are separate concerns.",
+      "The JVM executes methods; it does not decompile objects for every call.",
+      "Classes share a JVM process rather than receiving one process each."
+    ],
+    "hint": "Think discovery and definition of classes in the runtime.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "EXT-0045",
+    "number": 225,
+    "bank": "extension",
+    "topicId": "jvm",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is a common cause of a memory leak in a Java application despite automatic garbage collection?",
+    "options": [
+      "The application retains references to objects that are no longer logically needed, keeping them reachable",
+      "The garbage collector fails to detect every object created with new",
+      "Every String object is permanently stored in the string pool",
+      "The JVM automatically converts all local variables into static fields"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Garbage collection reclaims unreachable objects, not objects that an application has forgotten logically but still references through caches, listeners, collections or static fields.",
+    "optionExplanations": [
+      "Correct. Garbage collection reclaims unreachable objects, not objects that an application has forgotten logically but still references through caches, listeners, collections or static fields.",
+      "The collector uses reachability; it is not expected to reclaim reachable objects.",
+      "Not every String is interned permanently.",
+      "Local variables are not automatically converted into static fields."
+    ],
+    "hint": "Ask whether an unwanted object is still reachable from a GC root.",
+    "referenceId": "ref-jvm"
+  },
+  {
+    "id": "EXT-0046",
+    "number": 226,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "medium",
+    "type": "concept",
+    "question": "What is the purpose of @RestController in Spring MVC?",
+    "options": [
+      "It combines controller semantics with response-body handling so methods commonly return data directly for message conversion",
+      "It declares a class as a Java record that cannot have methods",
+      "It forces every endpoint to render a server-side JSP view",
+      "It configures a database transaction manager without any other settings"
+    ],
+    "correctAnswer": 0,
+    "explanation": "@RestController is a composed annotation equivalent to @Controller plus @ResponseBody. Return values are handled through HTTP message converters rather than resolved as view names by default.",
+    "optionExplanations": [
+      "Correct. @RestController is a composed annotation equivalent to @Controller plus @ResponseBody. Return values are handled through HTTP message converters rather than resolved as view names by default.",
+      "It does not make a class a record.",
+      "It commonly returns response bodies rather than requiring JSP views.",
+      "Transaction management is a separate concern."
+    ],
+    "hint": "Think HTTP response body rather than view-name resolution.",
+    "referenceId": "ref-spring"
+  },
+  {
+    "id": "EXT-0047",
+    "number": 227,
+    "bank": "extension",
+    "topicId": "spring",
+    "difficulty": "hard",
+    "type": "concept",
+    "question": "What is the key distinction between Spring Framework and Spring Data JPA?",
+    "options": [
+      "Spring Framework provides core application infrastructure; Spring Data JPA adds repository abstractions for JPA-based data access",
+      "Spring Data JPA is a Java compiler, while Spring Framework is a JVM implementation",
+      "Spring Framework manages only HTML templates, while Spring Data JPA manages Java threads",
+      "They are two names for the same Spring module and have identical responsibilities"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Spring Framework provides core IoC, AOP, web and other infrastructure. Spring Data JPA builds on JPA and Spring Data repository abstractions to reduce repetitive persistence code.",
+    "optionExplanations": [
+      "Correct. Spring Framework provides core IoC, AOP, web and other infrastructure. Spring Data JPA builds on JPA and Spring Data repository abstractions to reduce repetitive persistence code.",
+      "Neither is a Java compiler or JVM.",
+      "These responsibilities are incorrectly assigned.",
+      "They are related but distinct projects with different roles."
+    ],
+    "hint": "Separate core application infrastructure from the persistence abstraction layer.",
+    "referenceId": "ref-spring"
+  }
+]

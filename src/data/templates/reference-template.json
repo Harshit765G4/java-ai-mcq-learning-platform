@@ -1,0 +1,9 @@
+{
+  "id": "new-reference-id",
+  "title": "Study reference title",
+  "overview": "A short, accurate topic overview.",
+  "sections": [
+    { "heading": "Core concept", "body": "Definitions, rules, examples and common mistakes." }
+  ],
+  "code": "Optional Java 17 code sample"
+}

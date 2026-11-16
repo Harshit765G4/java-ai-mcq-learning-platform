@@ -1,0 +1,7 @@
+{
+  "id": "new-topic-id",
+  "session": "Session 1",
+  "name": "Topic title",
+  "referenceId": "new-reference-id",
+  "subtopics": ["Subtopic one", "Subtopic two"]
+}

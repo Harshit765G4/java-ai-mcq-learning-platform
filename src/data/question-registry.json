@@ -1,0 +1,692 @@
+{
+  "nextGlobalNumber": 228,
+  "banks": {
+    "core": {
+      "CORE-0001": {
+        "number": 1
+      },
+      "CORE-0002": {
+        "number": 2
+      },
+      "CORE-0003": {
+        "number": 3
+      },
+      "CORE-0004": {
+        "number": 4
+      },
+      "CORE-0005": {
+        "number": 5
+      },
+      "CORE-0006": {
+        "number": 6
+      },
+      "CORE-0007": {
+        "number": 7
+      },
+      "CORE-0008": {
+        "number": 8
+      },
+      "CORE-0009": {
+        "number": 9
+      },
+      "CORE-0010": {
+        "number": 10
+      },
+      "CORE-0011": {
+        "number": 11
+      },
+      "CORE-0012": {
+        "number": 12
+      },
+      "CORE-0013": {
+        "number": 13
+      },
+      "CORE-0014": {
+        "number": 14
+      },
+      "CORE-0015": {
+        "number": 15
+      },
+      "CORE-0016": {
+        "number": 16
+      },
+      "CORE-0017": {
+        "number": 17
+      },
+      "CORE-0018": {
+        "number": 18
+      },
+      "CORE-0019": {
+        "number": 19
+      },
+      "CORE-0020": {
+        "number": 20
+      },
+      "CORE-0021": {
+        "number": 21
+      },
+      "CORE-0022": {
+        "number": 22
+      },
+      "CORE-0023": {
+        "number": 23
+      },
+      "CORE-0024": {
+        "number": 24
+      },
+      "CORE-0025": {
+        "number": 25
+      },
+      "CORE-0026": {
+        "number": 26
+      },
+      "CORE-0027": {
+        "number": 27
+      },
+      "CORE-0028": {
+        "number": 28
+      },
+      "CORE-0029": {
+        "number": 29
+      },
+      "CORE-0030": {
+        "number": 30
+      },
+      "CORE-0031": {
+        "number": 31
+      },
+      "CORE-0032": {
+        "number": 32
+      },
+      "CORE-0033": {
+        "number": 33
+      },
+      "CORE-0034": {
+        "number": 34
+      },
+      "CORE-0035": {
+        "number": 35
+      },
+      "CORE-0036": {
+        "number": 36
+      },
+      "CORE-0037": {
+        "number": 37
+      },
+      "CORE-0038": {
+        "number": 38
+      },
+      "CORE-0039": {
+        "number": 39
+      },
+      "CORE-0040": {
+        "number": 40
+      },
+      "CORE-0041": {
+        "number": 41
+      },
+      "CORE-0042": {
+        "number": 42
+      },
+      "CORE-0043": {
+        "number": 43
+      },
+      "CORE-0044": {
+        "number": 44
+      },
+      "CORE-0045": {
+        "number": 45
+      },
+      "CORE-0046": {
+        "number": 46
+      },
+      "CORE-0047": {
+        "number": 47
+      },
+      "CORE-0048": {
+        "number": 48
+      },
+      "CORE-0049": {
+        "number": 49
+      },
+      "CORE-0050": {
+        "number": 50
+      },
+      "CORE-0051": {
+        "number": 51
+      },
+      "CORE-0052": {
+        "number": 52
+      },
+      "CORE-0053": {
+        "number": 53
+      },
+      "CORE-0054": {
+        "number": 54
+      },
+      "CORE-0055": {
+        "number": 55
+      },
+      "CORE-0056": {
+        "number": 56
+      },
+      "CORE-0057": {
+        "number": 57
+      },
+      "CORE-0058": {
+        "number": 58
+      },
+      "CORE-0059": {
+        "number": 59
+      },
+      "CORE-0060": {
+        "number": 60
+      },
+      "CORE-0061": {
+        "number": 61
+      },
+      "CORE-0062": {
+        "number": 62
+      },
+      "CORE-0063": {
+        "number": 63
+      },
+      "CORE-0064": {
+        "number": 64
+      },
+      "CORE-0065": {
+        "number": 65
+      },
+      "CORE-0066": {
+        "number": 66
+      },
+      "CORE-0067": {
+        "number": 67
+      },
+      "CORE-0068": {
+        "number": 68
+      },
+      "CORE-0069": {
+        "number": 69
+      },
+      "CORE-0070": {
+        "number": 70
+      },
+      "CORE-0071": {
+        "number": 71
+      },
+      "CORE-0072": {
+        "number": 72
+      },
+      "CORE-0073": {
+        "number": 73
+      },
+      "CORE-0074": {
+        "number": 74
+      },
+      "CORE-0075": {
+        "number": 75
+      },
+      "CORE-0076": {
+        "number": 76
+      },
+      "CORE-0077": {
+        "number": 77
+      },
+      "CORE-0078": {
+        "number": 78
+      },
+      "CORE-0079": {
+        "number": 79
+      },
+      "CORE-0080": {
+        "number": 80
+      },
+      "CORE-0081": {
+        "number": 81
+      },
+      "CORE-0082": {
+        "number": 82
+      },
+      "CORE-0083": {
+        "number": 83
+      },
+      "CORE-0084": {
+        "number": 84
+      },
+      "CORE-0085": {
+        "number": 85
+      },
+      "CORE-0086": {
+        "number": 86
+      },
+      "CORE-0087": {
+        "number": 87
+      },
+      "CORE-0088": {
+        "number": 88
+      },
+      "CORE-0089": {
+        "number": 89
+      },
+      "CORE-0090": {
+        "number": 90
+      },
+      "CORE-0091": {
+        "number": 91
+      },
+      "CORE-0092": {
+        "number": 92
+      },
+      "CORE-0093": {
+        "number": 93
+      },
+      "CORE-0094": {
+        "number": 94
+      },
+      "CORE-0095": {
+        "number": 95
+      },
+      "CORE-0096": {
+        "number": 96
+      },
+      "CORE-0097": {
+        "number": 97
+      },
+      "CORE-0098": {
+        "number": 98
+      },
+      "CORE-0099": {
+        "number": 99
+      },
+      "CORE-0100": {
+        "number": 100
+      },
+      "CORE-0101": {
+        "number": 101
+      },
+      "CORE-0102": {
+        "number": 102
+      },
+      "CORE-0103": {
+        "number": 103
+      },
+      "CORE-0104": {
+        "number": 104
+      },
+      "CORE-0105": {
+        "number": 105
+      },
+      "CORE-0106": {
+        "number": 106
+      },
+      "CORE-0107": {
+        "number": 107
+      },
+      "CORE-0108": {
+        "number": 108
+      },
+      "CORE-0109": {
+        "number": 109
+      },
+      "CORE-0110": {
+        "number": 110
+      },
+      "CORE-0111": {
+        "number": 111
+      },
+      "CORE-0112": {
+        "number": 112
+      },
+      "CORE-0113": {
+        "number": 113
+      },
+      "CORE-0114": {
+        "number": 114
+      },
+      "CORE-0115": {
+        "number": 115
+      },
+      "CORE-0116": {
+        "number": 116
+      },
+      "CORE-0117": {
+        "number": 117
+      },
+      "CORE-0118": {
+        "number": 118
+      },
+      "CORE-0119": {
+        "number": 119
+      },
+      "CORE-0120": {
+        "number": 120
+      },
+      "CORE-0121": {
+        "number": 121
+      },
+      "CORE-0122": {
+        "number": 122
+      },
+      "CORE-0123": {
+        "number": 123
+      },
+      "CORE-0124": {
+        "number": 124
+      },
+      "CORE-0125": {
+        "number": 125
+      },
+      "CORE-0126": {
+        "number": 126
+      },
+      "CORE-0127": {
+        "number": 127
+      },
+      "CORE-0128": {
+        "number": 128
+      },
+      "CORE-0129": {
+        "number": 129
+      },
+      "CORE-0130": {
+        "number": 130
+      }
+    },
+    "practical": {
+      "PRAC-0001": {
+        "number": 131
+      },
+      "PRAC-0002": {
+        "number": 132
+      },
+      "PRAC-0003": {
+        "number": 133
+      },
+      "PRAC-0004": {
+        "number": 134
+      },
+      "PRAC-0005": {
+        "number": 135
+      },
+      "PRAC-0006": {
+        "number": 136
+      },
+      "PRAC-0007": {
+        "number": 137
+      },
+      "PRAC-0008": {
+        "number": 138
+      },
+      "PRAC-0009": {
+        "number": 139
+      },
+      "PRAC-0010": {
+        "number": 140
+      },
+      "PRAC-0011": {
+        "number": 141
+      },
+      "PRAC-0012": {
+        "number": 142
+      },
+      "PRAC-0013": {
+        "number": 143
+      },
+      "PRAC-0014": {
+        "number": 144
+      },
+      "PRAC-0015": {
+        "number": 145
+      },
+      "PRAC-0016": {
+        "number": 146
+      },
+      "PRAC-0017": {
+        "number": 147
+      },
+      "PRAC-0018": {
+        "number": 148
+      },
+      "PRAC-0019": {
+        "number": 149
+      },
+      "PRAC-0020": {
+        "number": 150
+      },
+      "PRAC-0021": {
+        "number": 151
+      },
+      "PRAC-0022": {
+        "number": 152
+      },
+      "PRAC-0023": {
+        "number": 153
+      },
+      "PRAC-0024": {
+        "number": 154
+      },
+      "PRAC-0025": {
+        "number": 155
+      },
+      "PRAC-0026": {
+        "number": 156
+      },
+      "PRAC-0027": {
+        "number": 157
+      },
+      "PRAC-0028": {
+        "number": 158
+      },
+      "PRAC-0029": {
+        "number": 159
+      },
+      "PRAC-0030": {
+        "number": 160
+      },
+      "PRAC-0031": {
+        "number": 161
+      },
+      "PRAC-0032": {
+        "number": 162
+      },
+      "PRAC-0033": {
+        "number": 163
+      },
+      "PRAC-0034": {
+        "number": 164
+      },
+      "PRAC-0035": {
+        "number": 165
+      },
+      "PRAC-0036": {
+        "number": 166
+      },
+      "PRAC-0037": {
+        "number": 167
+      },
+      "PRAC-0038": {
+        "number": 168
+      },
+      "PRAC-0039": {
+        "number": 169
+      },
+      "PRAC-0040": {
+        "number": 170
+      },
+      "PRAC-0041": {
+        "number": 171
+      },
+      "PRAC-0042": {
+        "number": 172
+      },
+      "PRAC-0043": {
+        "number": 173
+      },
+      "PRAC-0044": {
+        "number": 174
+      },
+      "PRAC-0045": {
+        "number": 175
+      },
+      "PRAC-0046": {
+        "number": 176
+      },
+      "PRAC-0047": {
+        "number": 177
+      },
+      "PRAC-0048": {
+        "number": 178
+      },
+      "PRAC-0049": {
+        "number": 179
+      },
+      "PRAC-0050": {
+        "number": 180
+      }
+    },
+    "extension": {
+      "EXT-0001": {
+        "number": 181
+      },
+      "EXT-0002": {
+        "number": 182
+      },
+      "EXT-0003": {
+        "number": 183
+      },
+      "EXT-0004": {
+        "number": 184
+      },
+      "EXT-0005": {
+        "number": 185
+      },
+      "EXT-0006": {
+        "number": 186
+      },
+      "EXT-0007": {
+        "number": 187
+      },
+      "EXT-0008": {
+        "number": 188
+      },
+      "EXT-0009": {
+        "number": 189
+      },
+      "EXT-0010": {
+        "number": 190
+      },
+      "EXT-0011": {
+        "number": 191
+      },
+      "EXT-0012": {
+        "number": 192
+      },
+      "EXT-0013": {
+        "number": 193
+      },
+      "EXT-0014": {
+        "number": 194
+      },
+      "EXT-0015": {
+        "number": 195
+      },
+      "EXT-0016": {
+        "number": 196
+      },
+      "EXT-0017": {
+        "number": 197
+      },
+      "EXT-0018": {
+        "number": 198
+      },
+      "EXT-0019": {
+        "number": 199
+      },
+      "EXT-0020": {
+        "number": 200
+      },
+      "EXT-0021": {
+        "number": 201
+      },
+      "EXT-0022": {
+        "number": 202
+      },
+      "EXT-0023": {
+        "number": 203
+      },
+      "EXT-0024": {
+        "number": 204
+      },
+      "EXT-0025": {
+        "number": 205
+      },
+      "EXT-0026": {
+        "number": 206
+      },
+      "EXT-0027": {
+        "number": 207
+      },
+      "EXT-0028": {
+        "number": 208
+      },
+      "EXT-0029": {
+        "number": 209
+      },
+      "EXT-0030": {
+        "number": 210
+      },
+      "EXT-0031": {
+        "number": 211
+      },
+      "EXT-0032": {
+        "number": 212
+      },
+      "EXT-0033": {
+        "number": 213
+      },
+      "EXT-0034": {
+        "number": 214
+      },
+      "EXT-0035": {
+        "number": 215
+      },
+      "EXT-0036": {
+        "number": 216
+      },
+      "EXT-0037": {
+        "number": 217
+      },
+      "EXT-0038": {
+        "number": 218
+      },
+      "EXT-0039": {
+        "number": 219
+      },
+      "EXT-0040": {
+        "number": 220
+      },
+      "EXT-0041": {
+        "number": 221
+      },
+      "EXT-0042": {
+        "number": 222
+      },
+      "EXT-0043": {
+        "number": 223
+      },
+      "EXT-0044": {
+        "number": 224
+      },
+      "EXT-0045": {
+        "number": 225
+      },
+      "EXT-0046": {
+        "number": 226
+      },
+      "EXT-0047": {
+        "number": 227
+      }
+    }
+  }
+}
