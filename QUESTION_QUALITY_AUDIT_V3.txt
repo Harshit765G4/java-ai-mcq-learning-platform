@@ -1,0 +1,26 @@
+Version 3 question audit
+Total: 1000 | Subjects: {'python': 500, 'java': 500}
+Bank counts: {('python', 'core'): 300, ('python', 'code'): 100, ('python', 'extension'): 100, ('java', 'core'): 300, ('java', 'practical'): 100, ('java', 'extension'): 100}
+Topics: 64 | References: 67
+Structural errors: 0 | Review warnings: 88
+Target status: PASS
+WARN: C-002: concise option set; manually review
+WARN: C-004: concise option set; manually review
+WARN: C-007: concise option set; manually review
+WARN: C-008: concise option set; manually review
+WARN: C-011: concise option set; manually review
+WARN: C-012: concise option set; manually review
+WARN: C-018: concise option set; manually review
+WARN: C-033: concise option set; manually review
+WARN: C-034: concise option set; manually review
+WARN: C-036: concise option set; manually review
+WARN: C-038: concise option set; manually review
+WARN: C-040: concise option set; manually review
+WARN: C-042: concise option set; manually review
+WARN: C-047: concise option set; manually review
+WARN: C-048: concise option set; manually review
+WARN: C-052: concise option set; manually review
+WARN: C-054: concise option set; manually review
+WARN: C-055: concise option set; manually review
+WARN: C-056: concise option set; manually review
+WARN: C-057: concise option set; manually review

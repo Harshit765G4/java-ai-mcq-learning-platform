@@ -1,0 +1,530 @@
+{
+  "topics": [
+    {
+      "id": "environment",
+      "label": "Python Setup, Syntax & IDEs",
+      "subject": "python"
+    },
+    {
+      "id": "basics",
+      "label": "Data Types, Variables, Operators & I/O",
+      "subject": "python"
+    },
+    {
+      "id": "control",
+      "label": "Control Flow & Loops",
+      "subject": "python"
+    },
+    {
+      "id": "strings",
+      "label": "Pass, Strings & String Methods",
+      "subject": "python"
+    },
+    {
+      "id": "dictionaries",
+      "label": "Dictionaries",
+      "subject": "python"
+    },
+    {
+      "id": "lists",
+      "label": "Working with Lists",
+      "subject": "python"
+    },
+    {
+      "id": "functions",
+      "label": "Functions & Built-in Methods",
+      "subject": "python"
+    },
+    {
+      "id": "regex",
+      "label": "Regular Expressions",
+      "subject": "python"
+    },
+    {
+      "id": "tuples",
+      "label": "Working with Tuples",
+      "subject": "python"
+    },
+    {
+      "id": "oop",
+      "label": "Object-Oriented Python",
+      "subject": "python"
+    },
+    {
+      "id": "exceptions",
+      "label": "Exception Handling",
+      "subject": "python"
+    },
+    {
+      "id": "modules",
+      "label": "Libraries, Debugging & Logging",
+      "subject": "python"
+    },
+    {
+      "id": "numpy-scipy",
+      "label": "NumPy & SciPy",
+      "subject": "python"
+    },
+    {
+      "id": "pandas",
+      "label": "Pandas & Data Wrangling",
+      "subject": "python"
+    },
+    {
+      "id": "visualization",
+      "label": "Matplotlib, Seaborn, ggplot & Plotly",
+      "subject": "python"
+    },
+    {
+      "id": "databases",
+      "label": "Databases with Python",
+      "subject": "python"
+    },
+    {
+      "id": "web-frameworks",
+      "label": "Flask & Django",
+      "subject": "python"
+    },
+    {
+      "id": "web-scraping",
+      "label": "Requests, urllib & Scrapy",
+      "subject": "python"
+    },
+    {
+      "id": "integrated",
+      "label": "Integrated Python Concepts",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-comprehensions",
+      "label": "Comprehensions & Iteration (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-files",
+      "label": "Files, Context Managers & Serialization (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-quality",
+      "label": "Testing, Typing, Packaging & Code Quality (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-algorithms",
+      "label": "Algorithms, Complexity & Data Structures (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-concurrency",
+      "label": "Concurrency, Async & Runtime (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "beyond-security",
+      "label": "APIs, Security & Production Practices (Extension)",
+      "subject": "python"
+    },
+    {
+      "id": "java-jvm",
+      "label": "JVM Architecture & Java Overview",
+      "subject": "java",
+      "session": "Sessions 1–2"
+    },
+    {
+      "id": "java-basics",
+      "label": "Java Basics, Variables & Scope",
+      "subject": "java",
+      "session": "Sessions 1–2"
+    },
+    {
+      "id": "java-oop-foundations",
+      "label": "Object-Oriented Programming Concepts",
+      "subject": "java",
+      "session": "Sessions 1–2"
+    },
+    {
+      "id": "java-types-operators",
+      "label": "Data Types, Wrappers & Operators",
+      "subject": "java",
+      "session": "Sessions 1–2"
+    },
+    {
+      "id": "java-control-flow",
+      "label": "Control Statements",
+      "subject": "java",
+      "session": "Sessions 1–2"
+    },
+    {
+      "id": "java-packages",
+      "label": "Packages, Imports & Java Tools",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-arrays",
+      "label": "Arrays",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-strings",
+      "label": "String & StringBuilder",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-methods-encapsulation",
+      "label": "Methods, Constructors & Encapsulation",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-inheritance",
+      "label": "Inheritance, Abstract Classes & Interfaces",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-polymorphism",
+      "label": "Polymorphism, Casting & Overriding",
+      "subject": "java",
+      "session": "Sessions 3–4"
+    },
+    {
+      "id": "java-exceptions",
+      "label": "Exception Handling",
+      "subject": "java",
+      "session": "Session 5"
+    },
+    {
+      "id": "java-enums-generics",
+      "label": "Enums, Autoboxing, Generics & Collections Overview",
+      "subject": "java",
+      "session": "Session 6"
+    },
+    {
+      "id": "java-functional",
+      "label": "Functional Programming & Lambda Expressions",
+      "subject": "java",
+      "session": "Sessions 7–8"
+    },
+    {
+      "id": "java-collections",
+      "label": "Collection Framework & Operations",
+      "subject": "java",
+      "session": "Sessions 7–8"
+    },
+    {
+      "id": "java-streams",
+      "label": "Streams & Stream API",
+      "subject": "java",
+      "session": "Sessions 9–10"
+    },
+    {
+      "id": "java-datetime",
+      "label": "Java Date-Time API",
+      "subject": "java",
+      "session": "Sessions 9–10"
+    },
+    {
+      "id": "java-concurrency",
+      "label": "Java Concurrency & Threads",
+      "subject": "java",
+      "session": "Sessions 11–12"
+    },
+    {
+      "id": "java-reflection",
+      "label": "Reflection API",
+      "subject": "java",
+      "session": "Session 13–14"
+    },
+    {
+      "id": "java-nodejs",
+      "label": "Introduction to Node.js",
+      "subject": "java",
+      "session": "Session 14"
+    },
+    {
+      "id": "java-spring",
+      "label": "Introduction to Spring Framework",
+      "subject": "java",
+      "session": "Session 15"
+    },
+    {
+      "id": "jvm",
+      "name": "JVM Architecture & Java Overview",
+      "session": "Sessions 1–2",
+      "referenceId": "ref-jvm",
+      "subtopics": [
+        "JVM architecture and runtime areas",
+        "Java compilation and bytecode",
+        "JDK, JRE and JVM",
+        "JIT compilation and class loading",
+        "Java platform features and scope"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "oop-foundations",
+      "name": "Object-Oriented Programming Concepts",
+      "session": "Sessions 1–2",
+      "referenceId": "ref-oop",
+      "subtopics": [
+        "Classes and objects",
+        "State and behaviour",
+        "Encapsulation, inheritance, polymorphism and abstraction",
+        "Constructors and object creation"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "types-operators",
+      "name": "Data Types, Wrappers & Operators",
+      "session": "Sessions 1–2",
+      "referenceId": "ref-types",
+      "subtopics": [
+        "Primitive and reference types",
+        "Widening and narrowing conversions",
+        "Wrapper classes and autoboxing",
+        "Unary, binary and ternary operators",
+        "Arithmetic, relational, logical, bitwise and assignment operators"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "control-flow",
+      "name": "Control Statements",
+      "session": "Sessions 1–2",
+      "referenceId": "ref-control",
+      "subtopics": [
+        "if and if-else",
+        "switch statement and switch expression context",
+        "for, while and do-while loops",
+        "break and continue",
+        "Loop control and boundary conditions"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "packages",
+      "name": "Packages, Imports & Java Tools",
+      "session": "Sessions 3–4",
+      "referenceId": "ref-packages",
+      "subtopics": [
+        "Package declarations",
+        "Import statements and fully qualified names",
+        "Access across packages",
+        "javac, java, javadoc and jar tools"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "arrays",
+      "name": "Arrays",
+      "session": "Sessions 3–4",
+      "referenceId": "ref-arrays",
+      "subtopics": [
+        "Array declaration and creation",
+        "Indexing and bounds",
+        "Multidimensional arrays",
+        "Array copying and traversal",
+        "Arrays utility methods"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "methods-encapsulation",
+      "name": "Methods, Constructors & Encapsulation",
+      "session": "Sessions 3–4",
+      "referenceId": "ref-methods",
+      "subtopics": [
+        "Method declaration and return types",
+        "Pass-by-value semantics",
+        "Method overloading",
+        "Constructors and constructor chaining",
+        "Access modifiers",
+        "Immutable classes"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "inheritance",
+      "name": "Inheritance, Abstract Classes & Interfaces",
+      "session": "Sessions 3–4",
+      "referenceId": "ref-inheritance",
+      "subtopics": [
+        "extends and inheritance relationships",
+        "super and constructor order",
+        "Abstract classes and methods",
+        "Interfaces and implementation",
+        "Default and static interface methods"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "polymorphism",
+      "name": "Polymorphism, Casting & Overriding",
+      "session": "Sessions 3–4",
+      "referenceId": "ref-polymorphism",
+      "subtopics": [
+        "Reference versus object type",
+        "Dynamic method dispatch",
+        "Method overriding rules",
+        "Upcasting and downcasting",
+        "instanceof and ClassCastException"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "enums-generics",
+      "name": "Enums, Autoboxing, Generics & Collections Overview",
+      "session": "Session 6",
+      "referenceId": "ref-enums-generics",
+      "subtopics": [
+        "Enum declarations and values",
+        "Wrapper conversion and boxing",
+        "Generic types and type parameters",
+        "Type safety and type erasure overview",
+        "Collections framework overview"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "functional",
+      "name": "Functional Programming & Lambda Expressions",
+      "session": "Sessions 7–8",
+      "referenceId": "ref-functional",
+      "subtopics": [
+        "Functional programming overview",
+        "Functional interfaces",
+        "Predicate, Function, Consumer and Supplier",
+        "Lambda syntax and target typing",
+        "Method references",
+        "Effect on collection processing"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "collections",
+      "name": "Collection Framework & Operations",
+      "session": "Sessions 7–8",
+      "referenceId": "ref-collections",
+      "subtopics": [
+        "List, Set, Queue and Map",
+        "ArrayList and LinkedList",
+        "HashSet and TreeSet",
+        "HashMap and TreeMap",
+        "forEach, removeIf, replaceAll and sorting",
+        "Collection versus Collections"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "streams",
+      "name": "Streams & Stream API",
+      "session": "Sessions 9–10",
+      "referenceId": "ref-streams",
+      "subtopics": [
+        "Stream pipeline model",
+        "Intermediate and terminal operations",
+        "filter, map and flatMap",
+        "distinct, sorted and limit",
+        "reduce, collect, count and matching",
+        "Primitive streams and boxing"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "datetime",
+      "name": "Java Date-Time API",
+      "session": "Sessions 9–10",
+      "referenceId": "ref-datetime",
+      "subtopics": [
+        "LocalDate, LocalTime and LocalDateTime",
+        "Instant and time zones",
+        "Duration and Period",
+        "DateTimeFormatter",
+        "Immutable date-time values"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "concurrency",
+      "name": "Java Concurrency & Threads",
+      "session": "Sessions 11–12",
+      "referenceId": "ref-concurrency",
+      "subtopics": [
+        "Thread lifecycle and states",
+        "Thread class and Runnable",
+        "start versus run",
+        "Thread groups",
+        "Race conditions and visibility",
+        "synchronization and intrinsic locks",
+        "Deadlocks and thread safety"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "reflection",
+      "name": "Reflection API",
+      "session": "Session 13–14",
+      "referenceId": "ref-reflection",
+      "subtopics": [
+        "Class metadata",
+        "getClass and Class objects",
+        "Inspecting fields, methods and constructors",
+        "Superclass and implemented interfaces",
+        "Runtime access and encapsulation considerations",
+        "Framework use cases"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "nodejs",
+      "name": "Introduction to Node.js",
+      "session": "Session 14",
+      "referenceId": "ref-node",
+      "subtopics": [
+        "Node.js runtime overview",
+        "Node.js versus browser JavaScript",
+        "Node.js REPL",
+        "Event-driven runtime context",
+        "Distinguishing Node.js from Java"
+      ],
+      "subject": "java"
+    },
+    {
+      "id": "spring",
+      "name": "Introduction to Spring Framework",
+      "session": "Session 15",
+      "referenceId": "ref-spring",
+      "subtopics": [
+        "Spring Framework overview",
+        "Inversion of Control and dependency injection",
+        "Spring architecture",
+        "Spring MVC request flow",
+        "Spring modules overview"
+      ],
+      "subject": "java"
+    }
+  ],
+  "banks": [
+    {
+      "id": "core",
+      "label": "Core syllabus"
+    },
+    {
+      "id": "code",
+      "label": "Code practice"
+    },
+    {
+      "id": "practical",
+      "label": "Practical / code"
+    },
+    {
+      "id": "extension",
+      "label": "Beyond syllabus"
+    }
+  ]
+}

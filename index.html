@@ -1,14 +1,239 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f6fb" />
-    <meta name="description" content="A syllabus-aligned Java programming MCQ learning and practice platform for PGCP-AI." />
-    <title>Java for AI · Learning Studio</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <meta name="description" content="A 500-question Python + Java MCQ learning platform for PGCP-AI August 2026.">
+  <title>AI Programming Prep — Python & Java · PGCP-AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="data/meta.js"></script>
+  <script src="data/questions.js"></script>
+  <script src="data/references.js"></script>
+  <script src="assets/app.js" defer></script>
+</head>
+<body>
+  <div class="app-frame">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span>Py</span><i></i></div>
+        <div class="brand-copy">
+          <div class="brand-title">AI PROGRAMMING <span>PREP</span></div>
+          <div class="brand-subtitle">PGCP-AI · PYTHON + JAVA</div>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <button class="top-icon mobile-only" id="toggleNavigator" type="button" aria-label="Open question navigator" title="Question navigator">☷</button>
+        <div class="timer-widget" aria-label="Practice timer">
+          <div class="timer-glyph" aria-hidden="true">◷</div>
+          <div class="timer-readout">
+            <span class="micro-label">PRACTICE TIMER</span>
+            <strong id="timerValue">90:00</strong>
+          </div>
+          <select id="timerDuration" aria-label="Timer duration" title="Timer duration">
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45">45 min</option>
+            <option value="60">60 min</option>
+            <option value="90" selected>90 min</option>
+            <option value="120">120 min</option>
+          </select>
+          <button class="timer-action" id="timerToggle" type="button">Start</button>
+          <button class="timer-reset" id="timerReset" type="button" aria-label="Reset timer" title="Reset timer">↺</button>
+        </div>
+        <button class="top-button" id="focusToggle" type="button"><span aria-hidden="true">⛶</span> Focus mode</button>
+        <button class="top-button subtle" id="exportProgress" type="button" title="Download your practice progress"><span aria-hidden="true">⇩</span> Export</button>
+        <label class="top-button subtle import-button" for="importProgress" title="Import saved practice progress"><span aria-hidden="true">⇧</span> Import<input id="importProgress" type="file" accept="application/json,.json" hidden></label>
+      </div>
+    </header>
+
+    <section class="score-strip" aria-label="Practice score summary">
+      <div class="score-intro">
+        <span class="eyebrow">YOUR PRACTICE DASHBOARD</span>
+        <strong id="welcomeTitle">Ready when you are.</strong>
+        <span id="saveStatus" class="save-status"><span class="save-dot"></span> Progress saves in this browser</span>
+      </div>
+      <div class="score-metric">
+        <span class="metric-label">SCORE</span>
+        <strong><span id="scoreCorrect">0</span><i> / </i><span id="scoreAttempted">0</span></strong>
+        <small>correct / checked</small>
+      </div>
+      <div class="score-metric">
+        <span class="metric-label">ACCURACY</span>
+        <strong id="scoreAccuracy">—</strong>
+        <small>based on checked answers</small>
+      </div>
+      <div class="score-metric">
+        <span class="metric-label">COMPLETED</span>
+        <strong><span id="scoreCompleted">0</span><i> / </i><span id="scoreTotal">727</span></strong>
+        <small>questions checked</small>
+      </div>
+      <div class="score-progress" aria-label="Overall completion">
+        <div class="progress-track"><span id="overallProgress"></span></div>
+        <div class="progress-foot"><span>Overall progress</span><b id="overallProgressLabel">0%</b></div>
+      </div>
+    </section>
+
+    <div class="workspace" id="workspace">
+      <aside class="left-sidebar" id="leftSidebar" aria-label="Question selection and filters">
+        <div class="sidebar-topline">
+          <div>
+            <span class="eyebrow">PRACTICE SPACE</span>
+            <h2>Question bank</h2>
+          </div>
+          <button class="panel-close mobile-only" id="closeNavigator" type="button" aria-label="Close navigator">×</button>
+        </div>
+
+        <label class="field-label" for="candidateName">Candidate</label>
+        <input class="text-input candidate-input" id="candidateName" type="text" maxlength="50" placeholder="Enter your name">
+
+        <div class="filter-block subject-filter-block">
+          <label class="field-label" for="subjectFilter">Subject</label>
+          <select class="select-input" id="subjectFilter"><option value="python">Python</option><option value="java">Java</option><option value="all">Both subjects</option></select>
+        </div>
+        <div class="section-label-row">
+          <span class="field-label">Question sets</span>
+          <span class="count-total" id="bankTotal">727 total</span>
+        </div>
+        <div class="bank-switcher" id="bankSwitcher">
+          <button type="button" class="bank-button active" data-bank="all"><span class="bank-mark all-mark">◎</span><span>All questions</span><b data-count="all">500</b></button>
+          <button type="button" class="bank-button" data-bank="core"><span class="bank-mark core-mark">S</span><span>Syllabus MCQs</span><b data-count="core">300</b></button>
+          <button type="button" class="bank-button" data-bank="code"><span class="bank-mark code-mark">{ }</span><span>Python code</span><b data-count="code">100</b></button>
+          <button type="button" class="bank-button" data-bank="practical"><span class="bank-mark code-mark">J</span><span>Java practical</span><b data-count="practical">50</b></button>
+          <button type="button" class="bank-button" data-bank="extension"><span class="bank-mark ext-mark">＋</span><span>Beyond syllabus</span><b data-count="extension">100</b></button>
+        </div>
+
+        <div class="filter-block">
+          <label class="field-label" for="topicFilter">Filter by topic</label>
+          <select class="select-input" id="topicFilter">
+            <option value="all">All topics</option>
+          </select>
+        </div>
+        <div class="filter-grid">
+          <div>
+            <label class="field-label" for="difficultyFilter">Difficulty</label>
+            <select class="select-input" id="difficultyFilter">
+              <option value="all">All levels</option>
+              <option value="easy">Basic</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+          <div>
+            <label class="field-label" for="statusFilter">Question status</label>
+            <select class="select-input" id="statusFilter">
+              <option value="all">All questions</option>
+              <option value="unattempted">Not checked</option>
+              <option value="correct">Correct</option>
+              <option value="incorrect">Incorrect</option>
+              <option value="flagged">Flagged</option>
+            </select>
+          </div>
+        </div>
+        <label class="field-label" for="searchQuestions">Find a question</label>
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input class="text-input search-input" id="searchQuestions" type="search" placeholder="Search topic or keyword…">
+          <kbd> / </kbd>
+        </div>
+
+        <button class="top-button shuffle-button" id="shuffleQuestions" type="button" style="width:100%;justify-content:center;margin:12px 0">⇄ Shuffle current selection</button>
+        <div class="navigator-heading">
+          <div><span class="field-label">Question navigator</span><small id="navigatorCount">500 questions</small></div>
+          <span class="navigator-key"><i class="key-dot done"></i> Checked</span>
+        </div>
+        <div class="question-map" id="questionMap" aria-label="Question number navigation"></div>
+        <div class="navigator-footer">
+          <div class="nav-legend"><span class="legend-item"><i class="legend-dot untouched"></i> Not checked</span><span class="legend-item"><i class="legend-dot right"></i> Correct</span><span class="legend-item"><i class="legend-dot wrong"></i> Incorrect</span></div>
+          <button id="resetProgress" type="button" class="text-button danger-text">Reset progress</button>
+        </div>
+      </aside>
+
+      <main class="quiz-column" id="quizColumn">
+        <div class="quiz-toolbar">
+          <div class="crumbs"><span>Practice</span><i>/</i><strong id="crumbBank">All questions</strong></div>
+          <div class="toolbar-right">
+            <span id="filteredCount" class="filtered-count">500 questions</span>
+            <button class="outline-button small-button" id="nextUnattempted" type="button" title="Jump to the next unchecked question">Next unchecked <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+
+        <article class="question-card" id="questionCard" aria-live="polite">
+          <div class="question-meta-row">
+            <div class="question-number-wrap"><span class="question-number-label">QUESTION</span><strong id="questionNumber">001</strong><span id="questionPosition" class="position-in-filter">of 727</span></div>
+            <div class="question-badges"><span class="badge bank-badge" id="questionBankBadge">SYLLABUS</span><span class="badge difficulty-badge easy" id="questionDifficulty">BASIC</span></div>
+            <button class="flag-button" id="flagQuestion" type="button" aria-pressed="false"><span aria-hidden="true">⚑</span><span id="flagLabel">Flag for review</span></button>
+          </div>
+
+          <div class="question-topic" id="questionTopic">Python Setup, Syntax & IDEs</div>
+          <h1 class="question-prompt" id="questionPrompt">Loading your question bank…</h1>
+          <pre class="code-panel" id="questionCode" hidden><code id="questionCodeText"></code><button class="copy-code" id="copyCode" type="button" title="Copy code"><span aria-hidden="true">⧉</span> Copy</button></pre>
+
+          <div class="answer-instruction"><span class="instruction-icon">A</span><span>Select one option, then check your answer.</span><span id="selectionState" class="selection-state">No option selected</span></div>
+          <div class="options-list" id="optionsList" role="radiogroup" aria-label="Answer choices"></div>
+
+          <div class="answer-feedback" id="answerFeedback" hidden aria-live="polite"></div>
+
+          <div class="question-actions">
+            <button class="outline-button previous-button" id="previousQuestion" type="button"><span aria-hidden="true">←</span> Previous</button>
+            <div class="main-actions">
+              <button class="text-button" id="clearSelection" type="button">Clear selection</button>
+              <button class="primary-button" id="checkAnswer" type="button" disabled>Check answer <span aria-hidden="true">↗</span></button>
+              <button class="outline-button" id="retryQuestion" type="button" hidden>Try again ↻</button>
+            </div>
+            <button class="outline-button next-button" id="nextQuestion" type="button">Next <span aria-hidden="true">→</span></button>
+          </div>
+          <div id="emptyQuestionState" class="empty-state" hidden>
+            <strong>No questions match these filters.</strong>
+            <p>Try another topic, difficulty, status, or search term. You can clear all filters to return to the full bank.</p>
+            <button id="clearFilters" type="button">Clear filters</button>
+          </div>
+        </article>
+
+        <div class="under-card-row">
+          <div class="under-note"><span class="save-icon">✓</span><span>Your answers are saved automatically on this device.</span></div>
+          <div class="keyboard-hint"><kbd>←</kbd><kbd>→</kbd> navigate <span>·</span> <kbd>1</kbd>–<kbd>4</kbd> select</div>
+        </div>
+      </main>
+
+      <aside class="reference-panel" id="referencePanel" aria-label="Hints and study reference">
+        <div class="reference-header">
+          <div><span class="eyebrow">LEARNING SUPPORT</span><h2>Study panel</h2></div>
+          <button class="panel-close" id="closeReference" type="button" aria-label="Collapse study panel" title="Collapse panel">›</button>
+        </div>
+        <div class="reference-tabs" role="tablist" aria-label="Study panel tabs">
+          <button class="reference-tab active" id="hintTab" type="button" role="tab" aria-selected="true" data-tab="hint">Hint <span>✦</span></button>
+          <button class="reference-tab" id="referenceTab" type="button" role="tab" aria-selected="false" data-tab="reference">Reference <span>▤</span></button>
+        </div>
+        <div class="reference-content" id="referenceContent">
+          <section id="hintPane" class="hint-pane" role="tabpanel">
+            <div class="support-card hint-card">
+              <div class="support-icon hint-icon">✦</div>
+              <div class="support-card-title">Need a nudge?</div>
+              <p>Use a hint to guide your thinking without revealing the answer.</p>
+              <button id="revealHint" class="soft-button" type="button">Reveal hint <span aria-hidden="true">→</span></button>
+              <div id="hintText" class="hint-text" hidden></div>
+            </div>
+            <div class="support-card study-tip-card">
+              <div class="support-icon note-icon">↗</div>
+              <div class="support-card-title">Study tip</div>
+              <p>Try to explain why each of the other three options is incorrect. This makes MCQ revision more effective.</p>
+            </div>
+            <div class="support-footnote">Hints do not affect your score.</div>
+          </section>
+          <section id="referencePane" class="reference-pane" role="tabpanel" hidden></section>
+        </div>
+      </aside>
+    </div>
+
+    <button class="floating-reference-toggle" id="openReference" type="button"><span>▤</span> Study panel</button>
+    <div class="mobile-scrim" id="mobileScrim"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body>
 </html>

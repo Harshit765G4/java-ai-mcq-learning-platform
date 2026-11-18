@@ -1,0 +1,21 @@
+{
+  "id": "C-101",
+  "bank": "code",
+  "topicId": "numpy-scipy",
+  "topic": "NumPy & SciPy",
+  "difficulty": "hard",
+  "kind": "code",
+  "question": "State the exact behavior or output produced by this snippet. Mention any relevant type, shape, mutation, or exception detail in the options.",
+  "code": "import numpy as np\nvalues = np.array([1, 2, 3])\nprint(values * 2)",
+  "options": [
+    "A specific, technically correct interpretation of the code",
+    "A plausible alternative based on a common misconception",
+    "A second plausible alternative that tests a different rule",
+    "A third plausible alternative that remains in the same conceptual family"
+  ],
+  "answerIndex": 0,
+  "explanation": "Explain the execution step by step and why the correct interpretation follows. Contrast the most tempting distractor where useful.",
+  "hint": "Point to the key operator, method, rule, or intermediate value without revealing the answer.",
+  "referenceId": "numpy-scipy",
+  "number": 501
+}
