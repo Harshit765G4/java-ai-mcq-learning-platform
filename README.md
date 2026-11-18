@@ -1,4 +1,4 @@
-# AI Programming Prep V3
+# AI Programming Prep V3.1
 
 A static, responsive PGCP-AI practice platform for Python and Java.
 
@@ -7,6 +7,13 @@ A static, responsive PGCP-AI practice platform for Python and Java.
 - Python: 300 core, 100 code, 100 extension (500 total)
 - Java: 300 core, 100 practical, 100 extension (500 total)
 - Combined: 1,000 questions
+
+## V3.1 fixes
+
+- Corrected the difficulty values so the Basic filter matches the question data.
+- Updated the old 727-question / 50-Java-practical placeholders to the actual 1,000-question release counts.
+- Hides the Python-code bank while Java alone is selected, and hides Java-practical while Python alone is selected. Both banks remain visible when Both subjects is selected.
+- The app remains a static site; all of `index.html`, `assets/`, and `data/` must be deployed together.
 
 ## Run locally
 

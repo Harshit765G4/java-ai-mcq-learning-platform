@@ -4,7 +4,7 @@
     "bank": "core",
     "topicId": "environment",
     "topic": "Python Setup, Syntax & IDEs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which statement best describes Python as a programming language?",
     "options": [
@@ -50,7 +50,7 @@
     "bank": "core",
     "topicId": "environment",
     "topic": "Python Setup, Syntax & IDEs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which command asks the Python interpreter selected by the name `python` to display its version?",
     "options": [
@@ -73,7 +73,7 @@
     "bank": "core",
     "topicId": "environment",
     "topic": "Python Setup, Syntax & IDEs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A learner wants to enter one Python statement, see its result immediately, and then enter another statement without creating a file. Which environment is intended?",
     "options": [
@@ -165,7 +165,7 @@
     "bank": "core",
     "topicId": "environment",
     "topic": "Python Setup, Syntax & IDEs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A `.py` file has been saved successfully but no output appears. Which step is still required to execute it?",
     "options": [
@@ -234,7 +234,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which built-in type represents a whole number such as 42?",
     "options": [
@@ -280,7 +280,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which built-in type represents True and False values?",
     "options": [
@@ -326,7 +326,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which statement correctly assigns the value 10 to a variable named score?",
     "options": [
@@ -372,7 +372,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does the `input()` function return in Python 3?",
     "options": [
@@ -533,7 +533,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A variable should explicitly represent “no value has been supplied”. Which value is the intended sentinel?",
     "options": [
@@ -625,7 +625,7 @@
     "bank": "core",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the result type of `5 / 2` in Python 3, and why?",
     "options": [
@@ -694,7 +694,7 @@
     "bank": "core",
     "topicId": "control",
     "topic": "Control Flow & Loops",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which Python keyword starts a conditional suite that runs only when its expression is truthy?",
     "options": [
@@ -740,7 +740,7 @@
     "bank": "core",
     "topicId": "control",
     "topic": "Control Flow & Loops",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which loop is designed to visit each item supplied by an iterable such as a list, tuple, or string?",
     "options": [
@@ -763,7 +763,7 @@
     "bank": "core",
     "topicId": "control",
     "topic": "Control Flow & Loops",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the key difference between `break` and `continue` inside a loop?",
     "options": [
@@ -786,7 +786,7 @@
     "bank": "core",
     "topicId": "control",
     "topic": "Control Flow & Loops",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the primary purpose of a `while` loop?",
     "options": [
@@ -1154,7 +1154,7 @@
     "bank": "core",
     "topicId": "strings",
     "topic": "Pass, Strings & String Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which syntax creates a string literal in Python?",
     "options": [
@@ -1200,7 +1200,7 @@
     "bank": "core",
     "topicId": "strings",
     "topic": "Pass, Strings & String Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does string indexing with `s[0]` access?",
     "options": [
@@ -1315,7 +1315,7 @@
     "bank": "core",
     "topicId": "strings",
     "topic": "Pass, Strings & String Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A log parser should accept a line only when the text begins with the exact prefix `ERROR:`. Which string method expresses that test directly?",
     "options": [
@@ -1361,7 +1361,7 @@
     "bank": "core",
     "topicId": "strings",
     "topic": "Pass, Strings & String Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does `\"ha\" in \"hahaha\"` evaluate to?",
     "options": [
@@ -1568,7 +1568,7 @@
     "bank": "core",
     "topicId": "dictionaries",
     "topic": "Dictionaries",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which literal creates an empty dictionary, rather than an empty list, tuple, or set?",
     "options": [
@@ -1614,7 +1614,7 @@
     "bank": "core",
     "topicId": "dictionaries",
     "topic": "Dictionaries",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which expression retrieves the value for key `\"pen\"` and raises `KeyError` if that key is absent?",
     "options": [
@@ -1821,7 +1821,7 @@
     "bank": "core",
     "topicId": "dictionaries",
     "topic": "Dictionaries",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does `for key, value in d.items():` provide on each iteration?",
     "options": [
@@ -1844,7 +1844,7 @@
     "bank": "core",
     "topicId": "lists",
     "topic": "Working with Lists",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which literal creates a list containing 1, 2, and 3?",
     "options": [
@@ -1890,7 +1890,7 @@
     "bank": "core",
     "topicId": "lists",
     "topic": "Working with Lists",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which list method adds its argument as one new element at the end of the list?",
     "options": [
@@ -1959,7 +1959,7 @@
     "bank": "core",
     "topicId": "lists",
     "topic": "Working with Lists",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the effect of `values.insert(1, 99)` on a list?",
     "options": [
@@ -2143,7 +2143,7 @@
     "bank": "core",
     "topicId": "lists",
     "topic": "Working with Lists",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does `3 in [1, 2, 3, 4]` return?",
     "options": [
@@ -2258,7 +2258,7 @@
     "bank": "core",
     "topicId": "functions",
     "topic": "Functions & Built-in Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which keyword introduces a named function definition in Python?",
     "options": [
@@ -2281,7 +2281,7 @@
     "bank": "core",
     "topicId": "functions",
     "topic": "Functions & Built-in Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "When a Python function reaches its end without executing a `return` statement, what value is returned to the caller?",
     "options": [
@@ -2304,7 +2304,7 @@
     "bank": "core",
     "topicId": "functions",
     "topic": "Functions & Built-in Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does executing a `return expression` statement inside a function do?",
     "options": [
@@ -2764,7 +2764,7 @@
     "bank": "core",
     "topicId": "regex",
     "topic": "Regular Expressions",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which Python standard-library module provides regular-expression pattern matching and substitution?",
     "options": [
@@ -2948,7 +2948,7 @@
     "bank": "core",
     "topicId": "tuples",
     "topic": "Working with Tuples",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which expression creates a tuple containing exactly one integer, 7?",
     "options": [
@@ -2971,7 +2971,7 @@
     "bank": "core",
     "topicId": "tuples",
     "topic": "Working with Tuples",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which expression creates a tuple containing exactly one integer, 5?",
     "options": [
@@ -2994,7 +2994,7 @@
     "bank": "core",
     "topicId": "tuples",
     "topic": "Working with Tuples",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which statement best describes a tuple?",
     "options": [
@@ -3178,7 +3178,7 @@
     "bank": "core",
     "topicId": "oop",
     "topic": "Object-Oriented Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which keyword introduces a class definition, including its name and indented class body?",
     "options": [
@@ -3224,7 +3224,7 @@
     "bank": "core",
     "topicId": "oop",
     "topic": "Object-Oriented Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does `self` conventionally refer to in an instance method?",
     "options": [
@@ -3293,7 +3293,7 @@
     "bank": "core",
     "topicId": "oop",
     "topic": "Object-Oriented Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A method defined in a class needs the instance it was called on. What does Python bind as the first argument when it is accessed through an instance?",
     "options": [
@@ -3615,7 +3615,7 @@
     "bank": "core",
     "topicId": "oop",
     "topic": "Object-Oriented Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is method overriding?",
     "options": [
@@ -3822,7 +3822,7 @@
     "bank": "core",
     "topicId": "exceptions",
     "topic": "Exception Handling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which keywords are used for basic exception handling in Python?",
     "options": [
@@ -3983,7 +3983,7 @@
     "bank": "core",
     "topicId": "exceptions",
     "topic": "Exception Handling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which statement creates and raises a `ValueError` instance with a message?",
     "options": [
@@ -4144,7 +4144,7 @@
     "bank": "core",
     "topicId": "modules",
     "topic": "Libraries, Debugging & Logging",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Python, what is a module?",
     "options": [
@@ -4167,7 +4167,7 @@
     "bank": "core",
     "topicId": "modules",
     "topic": "Libraries, Debugging & Logging",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the effect of `import pandas as pd`?",
     "options": [
@@ -4259,7 +4259,7 @@
     "bank": "core",
     "topicId": "modules",
     "topic": "Libraries, Debugging & Logging",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the value of `__name__` in a Python module when that file is executed as the top-level script?",
     "options": [
@@ -4305,7 +4305,7 @@
     "bank": "core",
     "topicId": "modules",
     "topic": "Libraries, Debugging & Logging",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Python’s standard `logging` module, which of these two levels has the higher severity?",
     "options": [
@@ -4374,7 +4374,7 @@
     "bank": "core",
     "topicId": "numpy-scipy",
     "topic": "NumPy & SciPy",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the primary array object in NumPy?",
     "options": [
@@ -4420,7 +4420,7 @@
     "bank": "core",
     "topicId": "numpy-scipy",
     "topic": "NumPy & SciPy",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which NumPy function creates an array from a Python list?",
     "options": [
@@ -4443,7 +4443,7 @@
     "bank": "core",
     "topicId": "numpy-scipy",
     "topic": "NumPy & SciPy",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "An array has `shape == (4, 3, 2)`. What does `array.size` report?",
     "options": [
@@ -4926,7 +4926,7 @@
     "bank": "core",
     "topicId": "pandas",
     "topic": "Pandas & Data Wrangling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the core labeled one-dimensional data structure in Pandas?",
     "options": [
@@ -4949,7 +4949,7 @@
     "bank": "core",
     "topicId": "pandas",
     "topic": "Pandas & Data Wrangling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which Pandas structure represents a two-dimensional table with labeled rows and labeled columns?",
     "options": [
@@ -4972,7 +4972,7 @@
     "bank": "core",
     "topicId": "pandas",
     "topic": "Pandas & Data Wrangling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is a Pandas DataFrame?",
     "options": [
@@ -4995,7 +4995,7 @@
     "bank": "core",
     "topicId": "pandas",
     "topic": "Pandas & Data Wrangling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A CSV file has a header row and should be loaded into a Pandas DataFrame. Which call is idiomatic?",
     "options": [
@@ -5570,7 +5570,7 @@
     "bank": "core",
     "topicId": "visualization",
     "topic": "Matplotlib, Seaborn, ggplot & Plotly",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which Matplotlib function is commonly used to create a line plot?",
     "options": [
@@ -5616,7 +5616,7 @@
     "bank": "core",
     "topicId": "visualization",
     "topic": "Matplotlib, Seaborn, ggplot & Plotly",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A continuous numeric variable contains hundreds of observations. Which chart groups values into intervals to show their frequency distribution?",
     "options": [
@@ -5639,7 +5639,7 @@
     "bank": "core",
     "topicId": "visualization",
     "topic": "Matplotlib, Seaborn, ggplot & Plotly",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which chart groups a continuous numeric variable into intervals and displays the count or density of observations in each interval?",
     "options": [
@@ -5961,7 +5961,7 @@
     "bank": "core",
     "topicId": "visualization",
     "topic": "Matplotlib, Seaborn, ggplot & Plotly",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "A figure must be exported as a high-resolution PNG file. Which Matplotlib operation should be called with the destination path?",
     "options": [
@@ -5984,7 +5984,7 @@
     "bank": "core",
     "topicId": "databases",
     "topic": "Databases with Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does CRUD stand for in database operations?",
     "options": [
@@ -6007,7 +6007,7 @@
     "bank": "core",
     "topicId": "databases",
     "topic": "Databases with Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In the Python DB-API pattern, which object is generally used to execute SQL statements after obtaining a connection?",
     "options": [
@@ -6053,7 +6053,7 @@
     "bank": "core",
     "topicId": "databases",
     "topic": "Databases with Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "After `cursor.execute(\"SELECT name FROM users\")`, which DB-API cursor method retrieves the next single row?",
     "options": [
@@ -6237,7 +6237,7 @@
     "bank": "core",
     "topicId": "databases",
     "topic": "Databases with Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which Python standard-library module provides a lightweight file-based relational database commonly used in learning exercises?",
     "options": [
@@ -6260,7 +6260,7 @@
     "bank": "core",
     "topicId": "web-frameworks",
     "topic": "Flask & Django",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which description most accurately characterizes Flask?",
     "options": [
@@ -6375,7 +6375,7 @@
     "bank": "core",
     "topicId": "web-frameworks",
     "topic": "Flask & Django",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In a typical web application, what is the relationship between a request and a response?",
     "options": [
@@ -6444,7 +6444,7 @@
     "bank": "core",
     "topicId": "web-scraping",
     "topic": "Requests, urllib & Scrapy",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the common purpose of the third-party `requests` library?",
     "options": [
@@ -6582,7 +6582,7 @@
     "bank": "core",
     "topicId": "integrated",
     "topic": "Integrated Python Concepts",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which statement about Python comments is correct?",
     "options": [
@@ -6835,7 +6835,7 @@
     "bank": "core",
     "topicId": "integrated",
     "topic": "Integrated Python Concepts",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which built-in returns the number of items in common containers such as lists, tuples, strings, and dictionaries?",
     "options": [
@@ -6904,7 +6904,7 @@
     "bank": "code",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "With integer operands 8 and 3, which ordered pair is produced by floor division and modulo?",
     "options": [
@@ -6928,7 +6928,7 @@
     "bank": "code",
     "topicId": "basics",
     "topic": "Data Types, Variables, Operators & I/O",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Because the left operand is a string, how does Python evaluate multiplying it by 2?",
     "options": [
@@ -7120,7 +7120,7 @@
     "bank": "code",
     "topicId": "control",
     "topic": "Control Flow & Loops",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which sequence of values is printed as `range(3)` is iterated?",
     "options": [
@@ -7336,7 +7336,7 @@
     "bank": "code",
     "topicId": "strings",
     "topic": "Pass, Strings & String Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which two characters are selected by the positive index 0 and the negative index -1?",
     "options": [
@@ -7504,7 +7504,7 @@
     "bank": "code",
     "topicId": "lists",
     "topic": "Working with Lists",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Why does appending `[3, 4]` as one argument create a nested list rather than two new top-level elements?",
     "options": [
@@ -7672,7 +7672,7 @@
     "bank": "code",
     "topicId": "dictionaries",
     "topic": "Dictionaries",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which value is retrieved when the dictionary is indexed with the existing key \"b\"?",
     "options": [
@@ -7792,7 +7792,7 @@
     "bank": "code",
     "topicId": "functions",
     "topic": "Functions & Built-in Methods",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What value is returned by the function call with arguments 2 and 3?",
     "options": [
@@ -8008,7 +8008,7 @@
     "bank": "code",
     "topicId": "tuples",
     "topic": "Working with Tuples",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which element is retrieved from the tuple at index 1?",
     "options": [
@@ -8104,7 +8104,7 @@
     "bank": "code",
     "topicId": "oop",
     "topic": "Object-Oriented Python",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which string is returned by the instance method after a Dog object is created?",
     "options": [
@@ -8488,7 +8488,7 @@
     "bank": "code",
     "topicId": "numpy-scipy",
     "topic": "NumPy & SciPy",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What array values result from adding the scalar 2 to each element of the NumPy array?",
     "options": [
@@ -8752,7 +8752,7 @@
     "bank": "code",
     "topicId": "pandas",
     "topic": "Pandas & Data Wrangling",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which scalar value is selected by `iloc[1]` from this Series with its default integer index?",
     "options": [
@@ -9016,7 +9016,7 @@
     "bank": "code",
     "topicId": "visualization",
     "topic": "Matplotlib, Seaborn, ggplot & Plotly",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "Which type of chart is created when `plt.hist` receives a sequence of numeric observations?",
     "options": [
@@ -9304,7 +9304,7 @@
     "bank": "extension",
     "topicId": "beyond-comprehensions",
     "topic": "Comprehensions & Iteration (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is an iterable in Python?",
     "options": [
@@ -9764,7 +9764,7 @@
     "bank": "extension",
     "topicId": "beyond-files",
     "topic": "Files, Context Managers & Serialization (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the purpose of `with open(path) as file:`?",
     "options": [
@@ -9787,7 +9787,7 @@
     "bank": "extension",
     "topicId": "beyond-files",
     "topic": "Files, Context Managers & Serialization (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Why does `with open(path) as handle:` help manage file resources?",
     "options": [
@@ -10063,7 +10063,7 @@
     "bank": "extension",
     "topicId": "beyond-files",
     "topic": "Files, Context Managers & Serialization (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does `readline()` return when reading a text file?",
     "options": [
@@ -10132,7 +10132,7 @@
     "bank": "extension",
     "topicId": "beyond-quality",
     "topic": "Testing, Typing, Packaging & Code Quality (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What does a unit test primarily verify?",
     "options": [
@@ -10155,7 +10155,7 @@
     "bank": "extension",
     "topicId": "beyond-quality",
     "topic": "Testing, Typing, Packaging & Code Quality (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the key purpose of a unit test?",
     "options": [
@@ -10339,7 +10339,7 @@
     "bank": "extension",
     "topicId": "beyond-quality",
     "topic": "Testing, Typing, Packaging & Code Quality (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Why should a project use a virtual environment rather than installing every dependency globally?",
     "options": [
@@ -10500,7 +10500,7 @@
     "bank": "extension",
     "topicId": "beyond-algorithms",
     "topic": "Algorithms, Complexity & Data Structures (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is the usual average-case time complexity of looking up a key in a Python dictionary?",
     "options": [
@@ -10868,7 +10868,7 @@
     "bank": "extension",
     "topicId": "beyond-concurrency",
     "topic": "Concurrency, Async & Runtime (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which description best defines an operating-system process?",
     "options": [
@@ -11236,7 +11236,7 @@
     "bank": "extension",
     "topicId": "beyond-security",
     "topic": "APIs, Security & Production Practices (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "What is an API?",
     "options": [
@@ -11489,7 +11489,7 @@
     "bank": "extension",
     "topicId": "beyond-security",
     "topic": "APIs, Security & Production Practices (Extension)",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "Which practice is safest for an API key used by a deployed Python service?",
     "options": [
@@ -11604,7 +11604,7 @@
     "number": 1,
     "bank": "core",
     "topicId": "jvm",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "What does the Java compiler normally produce when it compiles a source file containing a class?",
     "options": [
@@ -11666,7 +11666,7 @@
     "number": 3,
     "bank": "core",
     "topicId": "jvm",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which statement most accurately distinguishes the JDK from the JVM?",
     "options": [
@@ -11759,7 +11759,7 @@
     "number": 6,
     "bank": "core",
     "topicId": "basics",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which variable must be definitely assigned before it is read inside a method?",
     "options": [
@@ -11852,7 +11852,7 @@
     "number": 9,
     "bank": "core",
     "topicId": "oop-foundations",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "In Java, what is the relationship between a class and an object?",
     "options": [
@@ -11914,7 +11914,7 @@
     "number": 11,
     "bank": "core",
     "topicId": "types-operators",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which set contains all eight Java primitive types?",
     "options": [
@@ -12100,7 +12100,7 @@
     "number": 17,
     "bank": "core",
     "topicId": "control-flow",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which loop guarantees that its body executes at least once?",
     "options": [
@@ -12193,7 +12193,7 @@
     "number": 20,
     "bank": "core",
     "topicId": "packages",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "What does an import declaration do in a Java source file?",
     "options": [
@@ -12255,7 +12255,7 @@
     "number": 22,
     "bank": "core",
     "topicId": "arrays",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "For an array whose length is 5, which index range is valid?",
     "options": [
@@ -12348,7 +12348,7 @@
     "number": 25,
     "bank": "core",
     "topicId": "strings",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Why does calling String.toUpperCase() not change the original String object?",
     "options": [
@@ -12441,7 +12441,7 @@
     "number": 28,
     "bank": "core",
     "topicId": "methods-encapsulation",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which statement about Java argument passing is correct?",
     "options": [
@@ -12751,7 +12751,7 @@
     "number": 38,
     "bank": "core",
     "topicId": "exceptions",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which category must generally be caught or declared by a Java method?",
     "options": [
@@ -12875,7 +12875,7 @@
     "number": 42,
     "bank": "core",
     "topicId": "enums-generics",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "What is the most appropriate use of an enum?",
     "options": [
@@ -12999,7 +12999,7 @@
     "number": 46,
     "bank": "core",
     "topicId": "functional",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which description best fits a Predicate<T> functional interface?",
     "options": [
@@ -13278,7 +13278,7 @@
     "number": 55,
     "bank": "core",
     "topicId": "datetime",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which java.time type represents a calendar date without a time or time zone?",
     "options": [
@@ -13340,7 +13340,7 @@
     "number": 57,
     "bank": "core",
     "topicId": "concurrency",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "What is the practical difference between calling Thread.start() and calling the same object’s run() method directly?",
     "options": [
@@ -13495,7 +13495,7 @@
     "number": 62,
     "bank": "core",
     "topicId": "nodejs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Which statement correctly distinguishes Node.js from Java?",
     "options": [
@@ -13557,7 +13557,7 @@
     "number": 64,
     "bank": "core",
     "topicId": "spring",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "What does Inversion of Control mean in the context of the Spring Framework?",
     "options": [
@@ -14611,7 +14611,7 @@
     "number": 98,
     "bank": "core",
     "topicId": "basics",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "concept",
     "question": "Why is an instance field of type boolean false before the constructor assigns another value?",
     "options": [
@@ -15684,7 +15684,7 @@
     "subjectLabel": "Java",
     "topicId": "jvm",
     "topic": "jvm",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains metaspace role in the context of jvm?",
     "options": [
@@ -15753,7 +15753,7 @@
     "subjectLabel": "Java",
     "topicId": "jvm",
     "topic": "jvm",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains bytecode portability in the context of jvm?",
     "options": [
@@ -15868,7 +15868,7 @@
     "subjectLabel": "Java",
     "topicId": "oop-foundations",
     "topic": "oop-foundations",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains composition versus inheritance in the context of oop-foundations?",
     "options": [
@@ -15937,7 +15937,7 @@
     "subjectLabel": "Java",
     "topicId": "oop-foundations",
     "topic": "oop-foundations",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains class versus instance in the context of oop-foundations?",
     "options": [
@@ -16029,7 +16029,7 @@
     "subjectLabel": "Java",
     "topicId": "types-operators",
     "topic": "types-operators",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains short-circuit evaluation in the context of types-operators?",
     "options": [
@@ -16098,7 +16098,7 @@
     "subjectLabel": "Java",
     "topicId": "types-operators",
     "topic": "types-operators",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains wrapper comparison in the context of types-operators?",
     "options": [
@@ -16213,7 +16213,7 @@
     "subjectLabel": "Java",
     "topicId": "packages",
     "topic": "packages",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains static imports in the context of packages?",
     "options": [
@@ -16282,7 +16282,7 @@
     "subjectLabel": "Java",
     "topicId": "packages",
     "topic": "packages",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains split packages caution in the context of packages?",
     "options": [
@@ -16351,7 +16351,7 @@
     "subjectLabel": "Java",
     "topicId": "arrays",
     "topic": "arrays",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains multidimensional arrays in the context of arrays?",
     "options": [
@@ -16420,7 +16420,7 @@
     "subjectLabel": "Java",
     "topicId": "arrays",
     "topic": "arrays",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains varargs relation in the context of arrays?",
     "options": [
@@ -16489,7 +16489,7 @@
     "subjectLabel": "Java",
     "topicId": "inheritance",
     "topic": "inheritance",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains abstract method implementation in the context of inheritance?",
     "options": [
@@ -16558,7 +16558,7 @@
     "subjectLabel": "Java",
     "topicId": "inheritance",
     "topic": "inheritance",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains field hiding in the context of inheritance?",
     "options": [
@@ -16627,7 +16627,7 @@
     "subjectLabel": "Java",
     "topicId": "polymorphism",
     "topic": "polymorphism",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains downcast runtime check in the context of polymorphism?",
     "options": [
@@ -16696,7 +16696,7 @@
     "subjectLabel": "Java",
     "topicId": "polymorphism",
     "topic": "polymorphism",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains static method hiding in the context of polymorphism?",
     "options": [
@@ -16765,7 +16765,7 @@
     "subjectLabel": "Java",
     "topicId": "enums-generics",
     "topic": "enums-generics",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains autoboxing cache caveat in the context of enums-generics?",
     "options": [
@@ -16834,7 +16834,7 @@
     "subjectLabel": "Java",
     "topicId": "enums-generics",
     "topic": "enums-generics",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains type erasure in the context of enums-generics?",
     "options": [
@@ -16926,7 +16926,7 @@
     "subjectLabel": "Java",
     "topicId": "functional",
     "topic": "functional",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains method reference in the context of functional?",
     "options": [
@@ -16995,7 +16995,7 @@
     "subjectLabel": "Java",
     "topicId": "functional",
     "topic": "functional",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains Supplier laziness in the context of functional?",
     "options": [
@@ -17064,7 +17064,7 @@
     "subjectLabel": "Java",
     "topicId": "collections",
     "topic": "collections",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains Map key equality in the context of collections?",
     "options": [
@@ -17133,7 +17133,7 @@
     "subjectLabel": "Java",
     "topicId": "collections",
     "topic": "collections",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains ArrayList insertion tradeoff in the context of collections?",
     "options": [
@@ -17225,7 +17225,7 @@
     "subjectLabel": "Java",
     "topicId": "streams",
     "topic": "streams",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains terminal operation in the context of streams?",
     "options": [
@@ -17294,7 +17294,7 @@
     "subjectLabel": "Java",
     "topicId": "streams",
     "topic": "streams",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains parallel ordering in the context of streams?",
     "options": [
@@ -17386,7 +17386,7 @@
     "subjectLabel": "Java",
     "topicId": "datetime",
     "topic": "datetime",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains ZoneId conversion in the context of datetime?",
     "options": [
@@ -17501,7 +17501,7 @@
     "subjectLabel": "Java",
     "topicId": "concurrency",
     "topic": "concurrency",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains synchronized monitor in the context of concurrency?",
     "options": [
@@ -17570,7 +17570,7 @@
     "subjectLabel": "Java",
     "topicId": "concurrency",
     "topic": "concurrency",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains deadlock conditions in the context of concurrency?",
     "options": [
@@ -17685,7 +17685,7 @@
     "subjectLabel": "Java",
     "topicId": "reflection",
     "topic": "reflection",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains annotation inspection in the context of reflection?",
     "options": [
@@ -17754,7 +17754,7 @@
     "subjectLabel": "Java",
     "topicId": "reflection",
     "topic": "reflection",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains framework dependency injection in the context of reflection?",
     "options": [
@@ -17823,7 +17823,7 @@
     "subjectLabel": "Java",
     "topicId": "nodejs",
     "topic": "nodejs",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains REPL evaluation in the context of nodejs?",
     "options": [
@@ -17938,7 +17938,7 @@
     "subjectLabel": "Java",
     "topicId": "spring",
     "topic": "spring",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains bean scope in the context of spring?",
     "options": [
@@ -18007,7 +18007,7 @@
     "subjectLabel": "Java",
     "topicId": "spring",
     "topic": "spring",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "concept",
     "question": "In Java, which statement best explains controller mapping in the context of spring?",
     "options": [
@@ -19640,7 +19640,7 @@
     "number": 304,
     "bank": "practical",
     "topicId": "control-flow",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "code",
     "question": "What is the output of the loop?",
     "code": "for (int i = 0; i < 3; i++) {\n    System.out.print(i + \" \");\n}",
@@ -19736,7 +19736,7 @@
     "number": 307,
     "bank": "practical",
     "topicId": "arrays",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "code",
     "question": "What does this code print?",
     "code": "int[] values = new int[1];\nSystem.out.println(values[0]);",
@@ -19896,7 +19896,7 @@
     "number": 312,
     "bank": "practical",
     "topicId": "strings",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "type": "code",
     "question": "What is printed by the StringBuilder code?",
     "code": "StringBuilder text = new StringBuilder(\"Java\");\ntext.append(\" 17\");\nSystem.out.println(text);",
@@ -21196,7 +21196,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 6, focused on StringBuilder b = new StringBuilder(\"AI\")).",
     "code": "StringBuilder b = new StringBuilder(\"AI\"); b.append(\" Java\"); System.out.println(b);",
@@ -21292,7 +21292,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 6, focused on List<Integer> xs = List.of(1,2,3)).",
     "code": "List<Integer> xs = List.of(1,2,3); System.out.println(xs.stream().filter(x -> x > 1).count());",
@@ -21388,7 +21388,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 7, focused on int value = 9).",
     "code": "int value = 9; System.out.println(value * 2);",
@@ -21484,7 +21484,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 7, focused on int n = 2).",
     "code": "int n = 2; do { n++; } while (n < 2); System.out.println(n);",
@@ -21580,7 +21580,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 7, focused on String s = null).",
     "code": "String s = null; System.out.println(s.length());",
@@ -21676,7 +21676,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 8, focused on StringBuilder b = new StringBuilder(\"AI\")).",
     "code": "StringBuilder b = new StringBuilder(\"AI\"); b.append(\" Java\"); System.out.println(b);",
@@ -21772,7 +21772,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 8, focused on List<Integer> xs = List.of(1,2,3)).",
     "code": "List<Integer> xs = List.of(1,2,3); System.out.println(xs.stream().filter(x -> x > 1).count());",
@@ -21868,7 +21868,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 9, focused on int value = 11).",
     "code": "int value = 11; System.out.println(value * 2);",
@@ -21964,7 +21964,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 9, focused on int n = 2).",
     "code": "int n = 2; do { n++; } while (n < 2); System.out.println(n);",
@@ -22060,7 +22060,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 9, focused on String s = null).",
     "code": "String s = null; System.out.println(s.length());",
@@ -22156,7 +22156,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 10, focused on StringBuilder b = new StringBuilder(\"AI\")).",
     "code": "StringBuilder b = new StringBuilder(\"AI\"); b.append(\" Java\"); System.out.println(b);",
@@ -22252,7 +22252,7 @@
     "subjectLabel": "Java",
     "topicId": "basics",
     "topic": "Java code tracing and runtime behaviour",
-    "difficulty": "basic",
+    "difficulty": "easy",
     "kind": "code",
     "question": "What is printed by this code? (case 10, focused on List<Integer> xs = List.of(1,2,3)).",
     "code": "List<Integer> xs = List.of(1,2,3); System.out.println(xs.stream().filter(x -> x > 1).count());",

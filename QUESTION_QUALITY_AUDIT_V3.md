@@ -10,6 +10,8 @@
 
 ## Validation
 
+The V3.1 browser release also normalizes the 148 `basic` difficulty records to the `easy` key used by the UI, so the Basic filter now matches the stored questions.
+
 Run `python scripts/validate_v3.py` to check required fields, four distinct options, answer indexes, IDs, subject/global numbering, topic mappings, reference mappings, and code snippets.
 
 The current structural validation reports zero errors. It emits short-option warnings, mainly for exact code outputs and concise values. Structural validation is not a substitute for manually reviewing every answer and running every code sample on Java 17 / the relevant Python version.

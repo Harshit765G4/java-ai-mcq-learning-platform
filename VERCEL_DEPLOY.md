@@ -22,7 +22,12 @@ This project is a static HTML, CSS, and JavaScript application. It does not need
 
 5. Sign in to Vercel and choose **Add New → Project**.
 6. Import the GitHub repository you just created and continue to Configure Project.
-7. Use these settings:
+7. **Important: set Root Directory to the exact folder containing `index.html`.**
+   - If the repository root directly contains `index.html`, use `./`.
+   - If your repository looks like `advanced-python-quiz/index.html`, set Root Directory to `advanced-python-quiz` (not `./`).
+   - `assets/` and `data/` must be siblings of `index.html` inside that same root.
+
+8. Use these settings:
 
    | Vercel setting | Value |
    |---|---|
@@ -32,7 +37,7 @@ This project is a static HTML, CSS, and JavaScript application. It does not need
    | Output Directory | `.` (project root); if Vercel pre-fills a value, verify it serves the root `index.html` |
    | Install Command | Leave empty |
 
-8. Click **Deploy**. When deployment completes, open the generated `*.vercel.app` URL.
+9. Click **Deploy**. When deployment completes, open the generated `*.vercel.app` URL.
 
 Vercel's static-site configuration for projects without a build step uses the `Other` framework preset and serves files from the project root when there is no `public/` directory.
 
@@ -83,3 +88,11 @@ After deployment, verify:
 7. Refreshing the browser retains progress in the same browser profile.
 
 If the page loads without styling or questions, check that the deployed root contains the `assets/` and `data/` folders and that the Vercel Root Directory points to the folder containing `index.html`.
+
+
+## If the page opens but controls do not work
+
+- First confirm these URLs load from your deployed domain with HTTP 200: `/assets/app.js`, `/data/questions.js`, `/data/meta.js`, and `/data/references.js`.
+- If any return 404, the Vercel Root Directory is pointing at the wrong folder or the ZIP was uploaded with an extra outer folder.
+- If the files return 200, hard-refresh the page with `Ctrl+Shift+R`, then open browser Developer Tools → Console and check for a red JavaScript error.
+- The question panel should replace “Loading your question bank…” with a question after the page loads. If that text stays, the data scripts are not loading or the app script is not running.

@@ -324,7 +324,11 @@
     renderNav();
     renderQuestion();
     $('candidateName').value = state.candidate;
-    $('bankSwitcher').querySelectorAll('[data-bank]').forEach((button) => button.classList.toggle('active', button.dataset.bank === state.bank));
+    $('bankSwitcher').querySelectorAll('[data-bank]').forEach((button) => {
+      button.classList.toggle('active', button.dataset.bank === state.bank);
+      button.hidden = (state.subject === 'python' && button.dataset.bank === 'practical') ||
+        (state.subject === 'java' && button.dataset.bank === 'code');
+    });
     $('topicFilter').value = state.topic;
     $('difficultyFilter').value = state.difficulty;
     $('statusFilter').value = state.status;
