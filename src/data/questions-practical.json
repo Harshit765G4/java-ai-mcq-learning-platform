@@ -9,18 +9,18 @@
     "question": "What is printed by the following Java 17 code?",
     "code": "int a = 5;\nSystem.out.println(a++ + ++a);",
     "options": [
-      "12",
-      "11",
+      "10",
       "13",
-      "10"
+      "11",
+      "12"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The first operand a++ evaluates to 5 and then increments a to 6. The second operand ++a increments it to 7 and evaluates to 7. The sum is 12.",
     "optionExplanations": [
-      "Correct. The first operand a++ evaluates to 5 and then increments a to 6. The second operand ++a increments it to 7 and evaluates to 7. The sum is 12.",
-      "11 would result from adding 5 and 6, but the second operand is pre-incremented.",
+      "10 ignores the incremented value of the second operand.",
       "13 treats the second operand as 8, which requires an extra increment.",
-      "10 ignores the incremented value of the second operand."
+      "11 would result from adding 5 and 6, but the second operand is pre-incremented.",
+      "Correct. The first operand a++ evaluates to 5 and then increments a to 6. The second operand ++a increments it to 7 and evaluates to 7. The sum is 12."
     ],
     "hint": "Trace the post-increment and pre-increment separately.",
     "referenceId": "ref-types"
@@ -36,16 +36,16 @@
     "code": "int total = 15;\ndouble result = total / 2;\nSystem.out.println(result);",
     "options": [
       "7.0",
-      "8.0",
       "7.5",
+      "8.0",
       "An ArithmeticException is thrown"
     ],
     "correctAnswer": 0,
     "explanation": "Both operands are int, so 15 / 2 uses integer division and yields 7. The result is then widened to double for assignment, so printing the value displays 7.0; this question’s options use the numeric value form.",
     "optionExplanations": [
       "Correct. Both operands are int, so 15 / 2 uses integer division and yields 7. The result is then widened to double for assignment, so printing the value displays 7.0; this question’s options use the numeric value form.",
-      "8 is rounding to the nearest integer, which integer division does not do.",
       "7.5 would require floating-point division.",
+      "8 is rounding to the nearest integer, which integer division does not do.",
       "A nonzero integer divisor does not cause ArithmeticException."
     ],
     "hint": "Determine the arithmetic type before considering the result variable.",
@@ -61,16 +61,16 @@
     "question": "What happens when this code executes?",
     "code": "Integer boxed = null;\nint value = boxed;\nSystem.out.println(value);",
     "options": [
-      "It throws NullPointerException during unboxing of boxed",
       "It prints 0 because null wrappers unbox to their primitive default value",
+      "It throws NullPointerException during unboxing of boxed",
       "It prints null because int can hold a null value",
       "It fails to compile because Java never permits Integer-to-int conversion"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "The expression boxed.intValue() is effectively performed by unboxing. Because boxed is null, the conversion throws NullPointerException before value can be assigned.",
     "optionExplanations": [
-      "Correct. The expression boxed.intValue() is effectively performed by unboxing. Because boxed is null, the conversion throws NullPointerException before value can be assigned.",
       "A null wrapper is not a primitive default value.",
+      "Correct. The expression boxed.intValue() is effectively performed by unboxing. Because boxed is null, the conversion throws NullPointerException before value can be assigned.",
       "Primitive int cannot contain null.",
       "Java supports automatic unboxing when the wrapper is non-null."
     ],
@@ -87,18 +87,18 @@
     "question": "What is the output of the loop?",
     "code": "for (int i = 0; i < 3; i++) {\n    System.out.print(i + \" \");\n}",
     "options": [
-      "0 1 2 ",
-      "1 2 3 ",
       "0 1 2 3 ",
-      "The loop never executes"
+      "The loop never executes",
+      "0 1 2 ",
+      "1 2 3 "
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "The loop begins with i = 0, tests i < 3, prints the current value and increments. It prints 0, 1 and 2, then stops when i becomes 3.",
     "optionExplanations": [
-      "Correct. The loop begins with i = 0, tests i < 3, prints the current value and increments. It prints 0, 1 and 2, then stops when i becomes 3.",
-      "The loop starts at zero, not one.",
       "The condition excludes 3.",
-      "The initial condition 0 < 3 is true."
+      "The initial condition 0 < 3 is true.",
+      "Correct. The loop begins with i = 0, tests i < 3, prints the current value and increments. It prints 0, 1 and 2, then stops when i becomes 3.",
+      "The loop starts at zero, not one."
     ],
     "hint": "Track the initial value, condition and update in order.",
     "referenceId": "ref-control"
@@ -113,18 +113,18 @@
     "question": "What is printed by this do-while loop?",
     "code": "int n = 0;\ndo {\n    n++;\n} while (n < 0);\nSystem.out.println(n);",
     "options": [
-      "1",
-      "0",
+      "It loops forever",
       "Nothing is printed",
-      "It loops forever"
+      "0",
+      "1"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "A do-while loop executes its body before checking the condition. It increments n from 0 to 1 and prints 1; then n < 0 is false.",
     "optionExplanations": [
-      "Correct. A do-while loop executes its body before checking the condition. It increments n from 0 to 1 and prints 1; then n < 0 is false.",
-      "The body changes n before printing it.",
+      "The condition becomes false after the first execution.",
       "The body is executed once even though the condition is false afterward.",
-      "The condition becomes false after the first execution."
+      "The body changes n before printing it.",
+      "Correct. A do-while loop executes its body before checking the condition. It increments n from 0 to 1 and prints 1; then n < 0 is false."
     ],
     "hint": "Remember that do-while checks at the end.",
     "referenceId": "ref-control"
@@ -139,18 +139,18 @@
     "question": "What output does the following loop produce?",
     "code": "for (int i = 1; i <= 3; i++) {\n    if (i == 2) continue;\n    System.out.print(i + \" \");\n}",
     "options": [
-      "1 3 ",
-      "1 2 3 ",
       "2 ",
-      "1 3 4 "
+      "1 3 4 ",
+      "1 3 ",
+      "1 2 3 "
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "When i equals 2, continue skips the print statement for that iteration. The loop prints 1, then skips 2, then prints 3.",
     "optionExplanations": [
-      "Correct. When i equals 2, continue skips the print statement for that iteration. The loop prints 1, then skips 2, then prints 3.",
-      "The iteration with i = 2 is explicitly skipped.",
       "2 is the value that is skipped, not printed.",
-      "The loop terminates at i = 3, so it cannot print 4."
+      "The loop terminates at i = 3, so it cannot print 4.",
+      "Correct. When i equals 2, continue skips the print statement for that iteration. The loop prints 1, then skips 2, then prints 3.",
+      "The iteration with i = 2 is explicitly skipped."
     ],
     "hint": "Find which statement continue skips and where control resumes.",
     "referenceId": "ref-control"
@@ -166,17 +166,17 @@
     "code": "int[] values = new int[1];\nSystem.out.println(values[0]);",
     "options": [
       "0",
+      "It throws NullPointerException",
       "null",
-      "1",
-      "It throws NullPointerException"
+      "1"
     ],
     "correctAnswer": 0,
     "explanation": "A newly allocated int array initialises each element to the primitive default value 0. The array length is one, so values[0] is valid.",
     "optionExplanations": [
       "Correct. A newly allocated int array initialises each element to the primitive default value 0. The array length is one, so values[0] is valid.",
+      "Reading a valid newly allocated int element does not throw NullPointerException.",
       "null is the default for reference array elements, not int elements.",
-      "The length field is 1, but the element value is 0.",
-      "Reading a valid newly allocated int element does not throw NullPointerException."
+      "The length field is 1, but the element value is 0."
     ],
     "hint": "Recall the default value for an int array element.",
     "referenceId": "ref-arrays"
@@ -191,18 +191,18 @@
     "question": "What happens when the following statement executes?",
     "code": "int[] data = new int[1];\nSystem.out.println(data[1]);",
     "options": [
-      "ArrayIndexOutOfBoundsException is thrown because the only valid index is 0",
       "The value 0 is printed because arrays wrap invalid indexes",
-      "The array automatically expands to include index 1",
-      "The code fails to compile because the array length is not final"
+      "ArrayIndexOutOfBoundsException is thrown because the only valid index is 0",
+      "The code fails to compile because the array length is not final",
+      "The array automatically expands to include index 1"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "An array created with length one has valid index range 0..0. Accessing index 1 is outside the array and throws ArrayIndexOutOfBoundsException at runtime.",
     "optionExplanations": [
-      "Correct. An array created with length one has valid index range 0..0. Accessing index 1 is outside the array and throws ArrayIndexOutOfBoundsException at runtime.",
       "Java does not wrap array indexes.",
-      "Java arrays have fixed length after creation.",
-      "Array length being fixed does not make the code a compile-time error here."
+      "Correct. An array created with length one has valid index range 0..0. Accessing index 1 is outside the array and throws ArrayIndexOutOfBoundsException at runtime.",
+      "Array length being fixed does not make the code a compile-time error here.",
+      "Java arrays have fixed length after creation."
     ],
     "hint": "For length n, the last valid index is n - 1.",
     "referenceId": "ref-arrays"
@@ -218,17 +218,17 @@
     "code": "int[][] data = new int[2][];\ndata[0] = new int[2];\ndata[1] = new int[1];\nSystem.out.println(data[0].length);",
     "options": [
       "2",
-      "3",
+      "NullPointerException",
       "1",
-      "NullPointerException"
+      "3"
     ],
     "correctAnswer": 0,
     "explanation": "The outer array contains two row references. The first row has length 2 and the second row has length 1. data[0].length therefore prints 2.",
     "optionExplanations": [
       "Correct. The outer array contains two row references. The first row has length 2 and the second row has length 1. data[0].length therefore prints 2.",
-      "The outer array length is 2, but that is not the expression being printed.",
+      "The first row is initialised and non-null.",
       "The second row has length 1; the first row has length 2.",
-      "The first row is initialised and non-null."
+      "The outer array length is 2, but that is not the expression being printed."
     ],
     "hint": "Read the selected row index before counting its elements.",
     "referenceId": "ref-arrays"
@@ -243,18 +243,18 @@
     "question": "What value does the reference-identity comparison produce for these String variables?",
     "code": "String first = new String(\"Java\");\nString second = \"Java\";\nSystem.out.println(first == second);",
     "options": [
-      "false",
-      "true",
       "Java",
-      "A compilation error occurs"
+      "true",
+      "A compilation error occurs",
+      "false"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "new String creates a distinct String object. The literal may refer to a pooled object, so the two references are not identical even though their contents are equal.",
     "optionExplanations": [
-      "Correct. new String creates a distinct String object. The literal may refer to a pooled object, so the two references are not identical even though their contents are equal.",
-      "Content equality does not imply reference identity.",
       "The result of == is false for these separately created objects.",
-      "The expression prints a boolean, not the String contents."
+      "Content equality does not imply reference identity.",
+      "The expression prints a boolean, not the String contents.",
+      "Correct. new String creates a distinct String object. The literal may refer to a pooled object, so the two references are not identical even though their contents are equal."
     ],
     "hint": "Ask whether == compares content or object identity.",
     "referenceId": "ref-strings"
@@ -269,18 +269,18 @@
     "question": "What is printed after these statements?",
     "code": "String word = \"Java\";\nword.toUpperCase();\nSystem.out.println(word);",
     "options": [
+      "An empty string",
       "Java",
-      "JAVA",
       "java",
-      "An empty string"
+      "JAVA"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "String is immutable. toUpperCase returns a new String, but its result is ignored. The original variable continues to refer to \"Java\".",
     "optionExplanations": [
+      "toUpperCase does not convert the original object in place.",
       "Correct. String is immutable. toUpperCase returns a new String, but its result is ignored. The original variable continues to refer to \"Java\".",
-      "The transformed result is not assigned back to the variable.",
       "The original string remains unchanged.",
-      "toUpperCase does not convert the original object in place."
+      "The transformed result is not assigned back to the variable."
     ],
     "hint": "Check whether the method result is stored or used.",
     "referenceId": "ref-strings"
@@ -295,17 +295,17 @@
     "question": "What is printed by the StringBuilder code?",
     "code": "StringBuilder text = new StringBuilder(\"Java\");\ntext.append(\" 17\");\nSystem.out.println(text);",
     "options": [
-      "Java 17",
       "Java",
       "17 Java",
+      "Java 17",
       "A new StringBuilder is created after each append"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "append mutates the same StringBuilder. The second append adds a space followed by 17, so toString produces \"Java 17\".",
     "optionExplanations": [
-      "Correct. append mutates the same StringBuilder. The second append adds a space followed by 17, so toString produces \"Java 17\".",
       "The second append is executed before conversion to String.",
       "The builder is mutable; it does not retain only the first append.",
+      "Correct. append mutates the same StringBuilder. The second append adds a space followed by 17, so toString produces \"Java 17\".",
       "append does not automatically create a new builder object."
     ],
     "hint": "Follow the mutation sequence on the same builder.",
@@ -323,16 +323,16 @@
     "options": [
       "4",
       "9",
-      "0",
-      "The caller variable becomes null"
+      "The caller variable becomes null",
+      "0"
     ],
     "correctAnswer": 0,
     "explanation": "Java passes the reference value by value. The method parameter is reassigned to a new Box, but that does not change the caller’s variable. The original Box still contains 4.",
     "optionExplanations": [
       "Correct. Java passes the reference value by value. The method parameter is reassigned to a new Box, but that does not change the caller’s variable. The original Box still contains 4.",
       "The caller reference is not reassigned, so the original object remains visible.",
-      "The new Box is created only in the method parameter after reassignment.",
-      "The caller variable is not modified to null."
+      "The caller variable is not modified to null.",
+      "The new Box is created only in the method parameter after reassignment."
     ],
     "hint": "Track the caller’s reference separately from the method parameter.",
     "referenceId": "ref-methods"
@@ -347,17 +347,17 @@
     "question": "Which overload is selected by this invocation?",
     "code": "static void show(int x) { System.out.println(\"int\"); }\nstatic void show(long x) { System.out.println(\"long\"); }\nstatic void show(double x) { System.out.println(\"double\"); }\nshow(5);",
     "options": [
-      "The method with an int parameter, because an exact primitive match is available",
-      "The method with a long parameter, because long is always preferred over int",
       "The method with a double parameter, because double has the widest numeric range",
+      "The method with a long parameter, because long is always preferred over int",
+      "The method with an int parameter, because an exact primitive match is available",
       "The call is ambiguous because all three methods accept numeric values"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "The argument expression is an int literal. The int overload is an exact match and is preferred over widening conversions to long or double.",
     "optionExplanations": [
-      "Correct. The argument expression is an int literal. The int overload is an exact match and is preferred over widening conversions to long or double.",
-      "A widening conversion is unnecessary when an exact match exists.",
       "A wider numeric type is not automatically preferred.",
+      "A widening conversion is unnecessary when an exact match exists.",
+      "Correct. The argument expression is an int literal. The int overload is an exact match and is preferred over widening conversions to long or double.",
       "The exact match removes the ambiguity."
     ],
     "hint": "Check whether one overload matches the argument type exactly.",
@@ -373,18 +373,18 @@
     "question": "What is printed when run() is invoked through the Base reference?",
     "code": "class Base { void run() { System.out.println(\"Base\"); } }\nclass Derived extends Base { @Override void run() { System.out.println(\"Derived\"); } }\nBase item = new Derived();\nitem.run();",
     "options": [
-      "Derived",
-      "Base",
       "Object",
-      "The method call is rejected at compile time"
+      "The method call is rejected at compile time",
+      "Base",
+      "Derived"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The declared type Base makes run() available at compile time. Because run() is overridden, runtime dynamic dispatch invokes Derived.run() for the actual Derived object.",
     "optionExplanations": [
-      "Correct. The declared type Base makes run() available at compile time. Because run() is overridden, runtime dynamic dispatch invokes Derived.run() for the actual Derived object.",
-      "The Base implementation is overridden by the runtime class.",
       "Object does not provide this application-specific run method.",
-      "The Base reference can call a method declared in Base."
+      "The Base reference can call a method declared in Base.",
+      "The Base implementation is overridden by the runtime class.",
+      "Correct. The declared type Base makes run() available at compile time. Because run() is overridden, runtime dynamic dispatch invokes Derived.run() for the actual Derived object."
     ],
     "hint": "Resolve member availability at compile time, then dispatch the override at runtime.",
     "referenceId": "ref-inheritance"
@@ -399,18 +399,18 @@
     "question": "What is printed by the field and method accesses?",
     "code": "class Base { String name = \"Base field\"; void show() { System.out.println(\"Base method\"); } }\nclass Derived extends Base { String name = \"Derived field\"; @Override void show() { System.out.println(\"Derived method\"); } }\nBase item = new Derived();\nSystem.out.println(item.name);\nitem.show();",
     "options": [
+      "Derived field, Base method",
       "Base field, Derived method",
-      "Derived field, Derived method",
       "Base field, Base method",
-      "Derived field, Base method"
+      "Derived field, Derived method"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Field access is resolved using the declared reference type Base, so item.name refers to Base.name. The overridden instance method is dynamically dispatched to Derived.show().",
     "optionExplanations": [
+      "Both results are not chosen solely from the declared type.",
       "Correct. Field access is resolved using the declared reference type Base, so item.name refers to Base.name. The overridden instance method is dynamically dispatched to Derived.show().",
-      "The field is hidden rather than overridden, so Derived.name is not selected through Base.",
       "The method call is dynamically dispatched, but the field is not.",
-      "Both results are not chosen solely from the declared type."
+      "The field is hidden rather than overridden, so Derived.name is not selected through Base."
     ],
     "hint": "Remember the field-hiding versus method-overriding distinction.",
     "referenceId": "ref-polymorphism"
@@ -425,18 +425,18 @@
     "question": "Which catch block handles the exception from this statement?",
     "code": "try { throw new java.io.FileNotFoundException(); }\ncatch (java.io.IOException e) { System.out.println(\"IO\"); }\ncatch (RuntimeException e) { System.out.println(\"Runtime\"); }",
     "options": [
-      "The IOException catch block",
-      "The RuntimeException catch block",
+      "No catch block can handle IOException",
       "The NullPointerException catch block",
-      "No catch block can handle IOException"
+      "The IOException catch block",
+      "The RuntimeException catch block"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "FileNotFoundException extends IOException, so the IOException catch handles it. The runtime and null-pointer handlers are unrelated branches.",
     "optionExplanations": [
-      "Correct. FileNotFoundException extends IOException, so the IOException catch handles it. The runtime and null-pointer handlers are unrelated branches.",
-      "IOException is the matching superclass for FileNotFoundException.",
+      "FileNotFoundException does not extend NullPointerException.",
       "FileNotFoundException does not extend RuntimeException.",
-      "FileNotFoundException does not extend NullPointerException."
+      "Correct. FileNotFoundException extends IOException, so the IOException catch handles it. The runtime and null-pointer handlers are unrelated branches.",
+      "IOException is the matching superclass for FileNotFoundException."
     ],
     "hint": "Follow the exception inheritance hierarchy.",
     "referenceId": "ref-exceptions"
@@ -452,17 +452,17 @@
     "code": "static int value() {\n    try { return 1; }\n    finally { return 2; }\n}\nint result = value();",
     "options": [
       "2",
+      "The method always throws because finally cannot complete normally",
       "1",
-      "3",
-      "The method always throws because finally cannot complete normally"
+      "3"
     ],
     "correctAnswer": 0,
     "explanation": "The try block returns 1, but the finally block executes before the method completes and returns 2. A return in finally overrides the earlier return; this pattern is legal but strongly discouraged.",
     "optionExplanations": [
       "Correct. The try block returns 1, but the finally block executes before the method completes and returns 2. A return in finally overrides the earlier return; this pattern is legal but strongly discouraged.",
+      "The method completes with the finally return rather than throwing.",
       "The finally return replaces the earlier pending return value.",
-      "The finally block does not return 1.",
-      "The method completes with the finally return rather than throwing."
+      "The finally block does not return 1."
     ],
     "hint": "A return statement in finally can replace a pending return from try.",
     "referenceId": "ref-exceptions"
@@ -477,17 +477,17 @@
     "question": "What is printed when the resource is closed successfully?",
     "code": "class Resource implements AutoCloseable {\n    public void close() { System.out.println(\"closed\"); }\n}\ntry (Resource r = new Resource()) { }",
     "options": [
+      "Nothing; close is never invoked automatically",
       "closed",
       "open",
-      "Nothing; close is never invoked automatically",
       "The code does not compile because AutoCloseable cannot be used with try"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "try-with-resources automatically invokes close() on a resource implementing AutoCloseable when control leaves the block. The resource is closed even when the block exits normally.",
     "optionExplanations": [
+      "The close method is invoked automatically.",
       "Correct. try-with-resources automatically invokes close() on a resource implementing AutoCloseable when control leaves the block. The resource is closed even when the block exits normally.",
       "The open method has no print statement, and close prints closed.",
-      "The close method is invoked automatically.",
       "AutoCloseable is specifically supported by try-with-resources."
     ],
     "hint": "Look for the implicit close call at the end of the try block.",
@@ -503,18 +503,18 @@
     "question": "What is printed by this enum expression?",
     "code": "enum State { NEW, READY, DONE }\nSystem.out.println(State.READY.name());",
     "options": [
-      "READY",
-      "1",
+      "The enum constant name is its ordinal number",
       "ready",
-      "The enum constant name is its ordinal number"
+      "1",
+      "READY"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Enum.name() returns the exact declared constant identifier. ordinal() would return its zero-based position, but that method is not called.",
     "optionExplanations": [
-      "Correct. Enum.name() returns the exact declared constant identifier. ordinal() would return its zero-based position, but that method is not called.",
-      "The output is the name rather than a numeric position.",
+      "Enum names preserve the declared identifier casing.",
       "No ordinal expression is used.",
-      "Enum names preserve the declared identifier casing."
+      "The output is the name rather than a numeric position.",
+      "Correct. Enum.name() returns the exact declared constant identifier. ordinal() would return its zero-based position, but that method is not called."
     ],
     "hint": "Identify which enum method is invoked.",
     "referenceId": "ref-enums-generics"
@@ -529,17 +529,17 @@
     "question": "What values are printed by the filter operation?",
     "code": "List<Integer> values = List.of(1, 2, 3, 4, 5, 6);\nList<Integer> result = values.stream().filter(n -> n > 3).toList();\nSystem.out.println(result);",
     "options": [
+      "[2, 4, 6]",
       "[4, 5, 6]",
       "[1, 2, 3]",
-      "[2, 4, 6]",
       "[1, 3, 5]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "filter keeps elements for which the predicate is true. The predicate n > 3 retains 4, 5 and 6 in encounter order.",
     "optionExplanations": [
+      "This would correspond to a different even-number predicate.",
       "Correct. filter keeps elements for which the predicate is true. The predicate n > 3 retains 4, 5 and 6 in encounter order.",
       "These are the values that fail the predicate.",
-      "This would correspond to a different even-number predicate.",
       "These are odd values and do not satisfy the condition."
     ],
     "hint": "A filter removes elements; it does not transform them.",
@@ -555,18 +555,18 @@
     "question": "What does this lambda expression return for input 7?",
     "code": "Function<Integer, Integer> twice = n -> n * 2;\nSystem.out.println(twice.apply(7));",
     "options": [
-      "14",
       "7",
       "49",
-      "true"
+      "true",
+      "14"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "Function<Integer,Integer> represents a transformation. The lambda multiplies its input by two, so applying it to 7 returns 14.",
     "optionExplanations": [
-      "Correct. Function<Integer,Integer> represents a transformation. The lambda multiplies its input by two, so applying it to 7 returns 14.",
       "The lambda does not return the unchanged input.",
       "The multiplication is by two, not by seven.",
-      "The result type is Integer, not boolean."
+      "The result type is Integer, not boolean.",
+      "Correct. Function<Integer,Integer> represents a transformation. The lambda multiplies its input by two, so applying it to 7 returns 14."
     ],
     "hint": "Read the expression after the arrow as the function body.",
     "referenceId": "ref-functional"
@@ -581,18 +581,18 @@
     "question": "What is the size of the HashSet after these additions?",
     "code": "Set<String> colours = new HashSet<>();\ncolours.add(\"red\");\ncolours.add(\"blue\");\ncolours.add(new String(\"red\"));\nSystem.out.println(colours.size());",
     "options": [
-      "2",
-      "3",
+      "HashSet preserves all three insertions as separate elements",
       "1",
-      "HashSet preserves all three insertions as separate elements"
+      "2",
+      "3"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "HashSet enforces uniqueness according to equals and hashCode. The two equal String values represent one set element, so the set contains \"red\" and \"blue\".",
     "optionExplanations": [
-      "Correct. HashSet enforces uniqueness according to equals and hashCode. The two equal String values represent one set element, so the set contains \"red\" and \"blue\".",
-      "The duplicate \"red\" is not stored twice.",
+      "Set semantics prevent duplicate equal values.",
       "The set contains two distinct values, not one.",
-      "Set semantics prevent duplicate equal values."
+      "Correct. HashSet enforces uniqueness according to equals and hashCode. The two equal String values represent one set element, so the set contains \"red\" and \"blue\".",
+      "The duplicate \"red\" is not stored twice."
     ],
     "hint": "Count distinct values according to equality, not add calls.",
     "referenceId": "ref-collections"
@@ -608,17 +608,17 @@
     "code": "List<Integer> values = new ArrayList<>(List.of(1, 2, 3));\nIterator<Integer> it = values.iterator();\nwhile (it.hasNext()) {\n    if (it.next() == 2) it.remove();\n}\nSystem.out.println(values);",
     "options": [
       "The iterator removes 2 safely and iteration can continue",
+      "The code does not compile because Iterator has no remove method",
       "The list always throws ConcurrentModificationException on every iterator removal",
-      "The loop removes 1 and 3 because remove() deletes the next element",
-      "The code does not compile because Iterator has no remove method"
+      "The loop removes 1 and 3 because remove() deletes the next element"
     ],
     "correctAnswer": 0,
     "explanation": "Iterator.remove() is the supported way to remove the current element during iteration for a modifiable collection. It updates the iterator’s expected modification state.",
     "optionExplanations": [
       "Correct. Iterator.remove() is the supported way to remove the current element during iteration for a modifiable collection. It updates the iterator’s expected modification state.",
+      "remove() removes the last element returned by next(), not the next element.",
       "Using the iterator’s own remove method is supported.",
-      "The iterator is specifically designed to support its remove operation where allowed.",
-      "remove() removes the last element returned by next(), not the next element."
+      "The iterator is specifically designed to support its remove operation where allowed."
     ],
     "hint": "Distinguish iterator.remove from list.remove performed outside the iterator.",
     "referenceId": "ref-collections"
@@ -633,18 +633,18 @@
     "question": "How many elements reach the terminal count operation?",
     "code": "long count = Stream.of(1, 2, 3, 4)\n    .filter(n -> n % 2 == 0)\n    .map(n -> n * 2)\n    .count();\nSystem.out.println(count);",
     "options": [
-      "2",
-      "3",
       "4",
-      "0, because filter is lazy"
+      "0, because filter is lazy",
+      "2",
+      "3"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "The pipeline keeps even values (2 and 4), then map doubles them. count is terminal and triggers evaluation. Two elements reach count.",
     "optionExplanations": [
-      "Correct. The pipeline keeps even values (2 and 4), then map doubles them. count is terminal and triggers evaluation. Two elements reach count.",
-      "Only the two even elements pass filter.",
       "Three source elements exist, but one is filtered out.",
-      "Four is the last mapped value, not the number of elements."
+      "Four is the last mapped value, not the number of elements.",
+      "Correct. The pipeline keeps even values (2 and 4), then map doubles them. count is terminal and triggers evaluation. Two elements reach count.",
+      "Only the two even elements pass filter."
     ],
     "hint": "Count elements after filter, not before it.",
     "referenceId": "ref-streams"
@@ -659,16 +659,16 @@
     "question": "What is the result of flatMap for the given list of lists?",
     "code": "List<List<String>> groups = List.of(List.of(\"a\", \"b\"), List.of(\"c\"));\nList<String> all = groups.stream().flatMap(List::stream).toList();\nSystem.out.println(all);",
     "options": [
-      "[a, b, c]",
       "[[a, b], [c]]",
+      "[a, b, c]",
       "[a, c]",
       "A stream containing two Stream objects"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "flatMap converts each inner list to a stream and flattens the nested streams into one sequence containing a, b and c.",
     "optionExplanations": [
-      "Correct. flatMap converts each inner list to a stream and flattens the nested streams into one sequence containing a, b and c.",
       "This is the original nested structure, which flatMap removes.",
+      "Correct. flatMap converts each inner list to a stream and flattens the nested streams into one sequence containing a, b and c.",
       "The value b is not filtered out by the pipeline.",
       "flatMap produces the elements, not the stream objects themselves."
     ],
@@ -685,18 +685,18 @@
     "question": "What is printed by this stream pipeline?",
     "code": "int total = Stream.of(2, 3, 5).reduce(0, Integer::sum);\nSystem.out.println(total);",
     "options": [
-      "10",
       "6",
       "4",
-      "The stream throws an exception because reduce cannot add integers"
+      "The stream throws an exception because reduce cannot add integers",
+      "10"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The stream values are 2, 3 and 5. The reduction adds them, producing 10. The identity value 0 is the starting accumulator.",
     "optionExplanations": [
-      "Correct. The stream values are 2, 3 and 5. The reduction adds them, producing 10. The identity value 0 is the starting accumulator.",
       "6 omits the value 5.",
       "4 omits the value 3 or miscalculates the total.",
-      "Integer addition is a standard reduction operation."
+      "Integer addition is a standard reduction operation.",
+      "Correct. The stream values are 2, 3 and 5. The reduction adds them, producing 10. The identity value 0 is the starting accumulator."
     ],
     "hint": "Add every stream element to the identity value.",
     "referenceId": "ref-streams"
@@ -712,17 +712,17 @@
     "code": "LocalDate date = LocalDate.of(2024, 2, 29);\nSystem.out.println(date.plusDays(1));",
     "options": [
       "2024-03-01",
-      "2024-02-29",
       "2024-03-02",
-      "The expression throws because February has no 29th day in a leap year"
+      "The expression throws because February has no 29th day in a leap year",
+      "2024-02-29"
     ],
     "correctAnswer": 0,
     "explanation": "2024 is a leap year, so February 29 exists. Adding one day to LocalDate.of(2024, 2, 29) produces March 1, 2024. LocalDate is immutable, and plusDays returns the new date.",
     "optionExplanations": [
       "Correct. 2024 is a leap year, so February 29 exists. Adding one day to LocalDate.of(2024, 2, 29) produces March 1, 2024. LocalDate is immutable, and plusDays returns the new date.",
-      "This is the starting date, not the result after plusDays(1).",
       "One day after February 29 is March 1.",
-      "February 29 is valid in a leap year."
+      "February 29 is valid in a leap year.",
+      "This is the starting date, not the result after plusDays(1)."
     ],
     "hint": "Check leap-year validity, then add one day.",
     "referenceId": "ref-datetime"
@@ -737,16 +737,16 @@
     "question": "What is the output of calling run() directly on this object?",
     "code": "Thread task = new Thread(() -> System.out.println(Thread.currentThread().getName()));\ntask.run();",
     "options": [
-      "main",
       "worker",
+      "main",
       "main and worker on separate threads",
       "The JVM rejects direct invocation of run()"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Calling run() directly is a normal method invocation, so it executes on the current main thread. A new thread is created only by calling start().",
     "optionExplanations": [
-      "Correct. Calling run() directly is a normal method invocation, so it executes on the current main thread. A new thread is created only by calling start().",
       "The run method body executes, but not on a new worker thread.",
+      "Correct. Calling run() directly is a normal method invocation, so it executes on the current main thread. A new thread is created only by calling start().",
       "Only the current thread name is printed.",
       "Direct method invocation is legal."
     ],
@@ -763,17 +763,17 @@
     "question": "What is the most likely concurrency defect if two threads execute count++ repeatedly on the same unsynchronised shared int?",
     "code": "class Counter { int count; void increment() { count++; } }",
     "options": [
-      "Lost updates can occur because increment is a read-modify-write sequence",
       "The counter is guaranteed to increase by exactly the total number of increments",
       "The JVM automatically converts the field to AtomicInteger when multiple threads access it",
+      "Lost updates can occur because increment is a read-modify-write sequence",
       "Every increment creates a separate copy of the shared object"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "count++ is not an atomic operation. Two threads can read the same old value and then both write the same incremented value, losing one update.",
     "optionExplanations": [
-      "Correct. count++ is not an atomic operation. Two threads can read the same old value and then both write the same incremented value, losing one update.",
       "Without coordination, updates can be lost.",
       "The JVM does not implicitly provide atomicity for compound increments.",
+      "Correct. count++ is not an atomic operation. Two threads can read the same old value and then both write the same incremented value, losing one update.",
       "Primitive field access does not create a separate object per increment."
     ],
     "hint": "Break count++ into read, add and write steps.",
@@ -790,17 +790,17 @@
     "code": "Integer left = 127;\nInteger right = 127;\nSystem.out.println(left == right);",
     "options": [
       "true, because boxing uses cached Integer instances for this value",
-      "false, because every boxing operation must allocate a different Integer object",
       "127, because == returns the numeric value of the left wrapper",
-      "A NullPointerException is thrown during comparison"
+      "A NullPointerException is thrown during comparison",
+      "false, because every boxing operation must allocate a different Integer object"
     ],
     "correctAnswer": 0,
     "explanation": "Java requires boxing conversions for certain small integral values to reuse cached wrapper instances; 127 is within the required Integer cache range. Therefore these references are identical in this case. For larger values, reference identity should not be used for numeric comparison.",
     "optionExplanations": [
       "Correct. Java requires boxing conversions for certain small integral values to reuse cached wrapper instances; 127 is within the required Integer cache range. Therefore these references are identical in this case. For larger values, reference identity should not be used for numeric comparison.",
-      "The language specifies caching for this range, so the references are identical here.",
       "Boxing does not require a fresh instance for each conversion.",
-      "== between references yields a boolean identity result."
+      "== between references yields a boolean identity result.",
+      "The language specifies caching for this range, so the references are identical here."
     ],
     "hint": "This value lies inside the mandatory Integer boxing cache range.",
     "referenceId": "ref-types"
@@ -815,18 +815,18 @@
     "question": "What does the following expression print?",
     "code": "static boolean check() { System.out.print(\"called\"); return true; }\nSystem.out.println(false && check());",
     "options": [
-      "false",
-      "true",
+      "A compile-time error occurs because booleans cannot use bitwise operators",
       "1",
-      "A compile-time error occurs because booleans cannot use bitwise operators"
+      "true",
+      "false"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The left side of && is false, so Java short-circuits and does not evaluate the right side. The value remains false and the method call is skipped.",
     "optionExplanations": [
-      "Correct. The left side of && is false, so Java short-circuits and does not evaluate the right side. The value remains false and the method call is skipped.",
-      "The method call is not evaluated, so it cannot change the result.",
+      "The expression is valid boolean syntax.",
       "The left operand is false, which determines the result of &&.",
-      "The expression is valid boolean syntax."
+      "The method call is not evaluated, so it cannot change the result.",
+      "Correct. The left side of && is false, so Java short-circuits and does not evaluate the right side. The value remains false and the method call is skipped."
     ],
     "hint": "The left operand of && already determines the overall result.",
     "referenceId": "ref-types"
@@ -842,17 +842,17 @@
     "code": "int n = 2;\nswitch (n) {\n  case 1: System.out.print(\"A\");\n  case 2: System.out.print(\"B\");\n  case 3: System.out.print(\"C\");\n  default: System.out.print(\"D\");\n}",
     "options": [
       "BCD",
-      "B",
+      "ABCD",
       "BC",
-      "ABCD"
+      "B"
     ],
     "correctAnswer": 0,
     "explanation": "Execution starts at case 2 and falls through the subsequent case sections because there is no break between them. It prints B, C and D.",
     "optionExplanations": [
       "Correct. Execution starts at case 2 and falls through the subsequent case sections because there is no break between them. It prints B, C and D.",
-      "A belongs to case 1, which is not selected.",
+      "The default section is reached after fall-through and prints D.",
       "There is no break after case 2 or 3, so later cases also execute.",
-      "The default section is reached after fall-through and prints D."
+      "A belongs to case 1, which is not selected."
     ],
     "hint": "A colon-style switch can continue into following labels when no transfer exits it.",
     "referenceId": "ref-control"
@@ -867,18 +867,18 @@
     "question": "What is the content of copied after Arrays.copyOf runs?",
     "code": "int[] original = {4, 8};\nint[] copied = Arrays.copyOf(original, 4);\nSystem.out.println(Arrays.toString(copied));",
     "options": [
-      "[4, 8, 0, 0]",
-      "[4, 8]",
+      "The copy operation throws because the new length is larger",
       "[4, 8, 8, 8]",
-      "The copy operation throws because the new length is larger"
+      "[4, 8, 0, 0]",
+      "[4, 8]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "Arrays.copyOf creates a new array of the requested length. Existing elements are copied, and new int elements receive the default value 0.",
     "optionExplanations": [
-      "Correct. Arrays.copyOf creates a new array of the requested length. Existing elements are copied, and new int elements receive the default value 0.",
-      "The requested length is 4, so the new array has two additional slots.",
+      "New primitive elements are default-initialised rather than copied from the last slot.",
       "copyOf supports creating an array with a different length.",
-      "New primitive elements are default-initialised rather than copied from the last slot."
+      "Correct. Arrays.copyOf creates a new array of the requested length. Existing elements are copied, and new int elements receive the default value 0.",
+      "The requested length is 4, so the new array has two additional slots."
     ],
     "hint": "Compare the original length with the requested destination length.",
     "referenceId": "ref-arrays"
@@ -893,18 +893,18 @@
     "question": "What is printed after modifying copy[0]?",
     "code": "int[] original = {1, 2};\nint[] copy = original.clone();\ncopy[0] = 9;\nSystem.out.println(original[0] + \" \" + copy[0]);",
     "options": [
+      "The assignment is rejected because array clone is immutable",
       "1 9",
       "9 9",
-      "1 2",
-      "The assignment is rejected because array clone is immutable"
+      "1 2"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "clone creates a new array object. The primitive elements are copied, so changing copy[0] does not change original[0]. This is a shallow copy, which is sufficient to separate primitive elements.",
     "optionExplanations": [
+      "The copy is mutable and its primitive slot can be assigned.",
       "Correct. clone creates a new array object. The primitive elements are copied, so changing copy[0] does not change original[0]. This is a shallow copy, which is sufficient to separate primitive elements.",
       "The original retains its initial first element.",
-      "Only the copy is modified.",
-      "The copy is mutable and its primitive slot can be assigned."
+      "Only the copy is modified."
     ],
     "hint": "An array clone is a distinct array object even though it copies element values.",
     "referenceId": "ref-arrays"
@@ -919,18 +919,18 @@
     "question": "Which line is printed first during construction of a Child object?",
     "code": "class Parent { Parent() { System.out.println(\"parent\"); } }\nclass Child extends Parent { Child() { System.out.println(\"child\"); } }\nnew Child();",
     "options": [
-      "parent",
       "child",
       "main",
-      "The program does not compile because constructors are not inherited"
+      "The program does not compile because constructors are not inherited",
+      "parent"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "A Child constructor implicitly invokes super() first when no explicit constructor invocation appears. The Parent constructor therefore runs before the Child constructor body.",
     "optionExplanations": [
-      "Correct. A Child constructor implicitly invokes super() first when no explicit constructor invocation appears. The Parent constructor therefore runs before the Child constructor body.",
       "The superclass constructor executes before the subclass constructor body.",
       "The main method initiates construction, but its print statement is not shown.",
-      "Constructors are not inherited, but a subclass constructor still invokes a superclass constructor."
+      "Constructors are not inherited, but a subclass constructor still invokes a superclass constructor.",
+      "Correct. A Child constructor implicitly invokes super() first when no explicit constructor invocation appears. The Parent constructor therefore runs before the Child constructor body."
     ],
     "hint": "Follow the implicit super() call before the subclass constructor body.",
     "referenceId": "ref-methods"
@@ -945,18 +945,18 @@
     "question": "Which output occurs for the call made through reference a?",
     "code": "class A { static void say() { System.out.println(\"A\"); } }\nclass B extends A { static void say() { System.out.println(\"B\"); } }\nA a = new B();\na.say();",
     "options": [
-      "A",
       "B",
-      "The call is dispatched to B at runtime",
-      "The code fails because static methods cannot be hidden"
+      "A",
+      "The code fails because static methods cannot be hidden",
+      "The call is dispatched to B at runtime"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "The method is static, so the selected method is based on the compile-time reference type. The reference is declared as A, so A.say() is invoked even though the object is B.",
     "optionExplanations": [
-      "Correct. The method is static, so the selected method is based on the compile-time reference type. The reference is declared as A, so A.say() is invoked even though the object is B.",
       "This is the compile-time reference type’s static method.",
-      "B.say hides A.say but does not override it dynamically.",
-      "Static method hiding is legal in Java."
+      "Correct. The method is static, so the selected method is based on the compile-time reference type. The reference is declared as A, so A.say() is invoked even though the object is B.",
+      "Static method hiding is legal in Java.",
+      "B.say hides A.say but does not override it dynamically."
     ],
     "hint": "Static methods are not dynamically dispatched like overridden instance methods.",
     "referenceId": "ref-methods"
@@ -973,16 +973,16 @@
     "options": [
       "derived",
       "base",
-      "false",
-      "ClassCastException is thrown before the if block"
+      "ClassCastException is thrown before the if block",
+      "false"
     ],
     "correctAnswer": 0,
     "explanation": "The object is actually a Derived instance, so the instanceof test is true and the downcast is valid. The cast reference can invoke the Derived implementation.",
     "optionExplanations": [
       "Correct. The object is actually a Derived instance, so the instanceof test is true and the downcast is valid. The cast reference can invoke the Derived implementation.",
       "The runtime object is not merely a Base instance.",
-      "The instanceof test evaluates to true.",
-      "The cast is valid for this runtime object."
+      "The cast is valid for this runtime object.",
+      "The instanceof test evaluates to true."
     ],
     "hint": "Check the actual object created by new before evaluating instanceof.",
     "referenceId": "ref-polymorphism"
@@ -997,18 +997,18 @@
     "question": "What is the result of calling pick(null) when the class declares pick(String) and pick(Integer)?",
     "code": "static void pick(String value) { }\nstatic void pick(Integer value) { }\npick(null);",
     "options": [
-      "The call is ambiguous at compile time because null matches both unrelated reference types",
-      "The String overload is always selected because String is more common",
       "The Integer overload is always selected because it is a wrapper type",
-      "A NullPointerException is thrown while the compiler selects the overload"
+      "The String overload is always selected because String is more common",
+      "A NullPointerException is thrown while the compiler selects the overload",
+      "The call is ambiguous at compile time because null matches both unrelated reference types"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The null literal can be converted to either String or Integer. Neither type is more specific than the other, so overload resolution cannot choose one and the call is ambiguous.",
     "optionExplanations": [
-      "Correct. The null literal can be converted to either String or Integer. Neither type is more specific than the other, so overload resolution cannot choose one and the call is ambiguous.",
-      "No rule makes String universally preferred over Integer.",
       "Integer is not a subtype of String and vice versa.",
-      "Ambiguity is detected at compile time, before execution."
+      "No rule makes String universally preferred over Integer.",
+      "Ambiguity is detected at compile time, before execution.",
+      "Correct. The null literal can be converted to either String or Integer. Neither type is more specific than the other, so overload resolution cannot choose one and the call is ambiguous."
     ],
     "hint": "The two parameter types are unrelated reference types.",
     "referenceId": "ref-polymorphism"
@@ -1023,18 +1023,18 @@
     "question": "What happens when this pair of catch clauses appears in the same try statement?",
     "code": "try { work(); }\ncatch (Exception e) { handleAll(e); }\ncatch (IOException e) { handleIo(e); }",
     "options": [
-      "Compilation fails because the later IOException catch is unreachable after the broader Exception catch",
+      "Both catch blocks execute for every thrown IOException",
       "The first catch handles only checked exceptions and the second catches runtime exceptions",
-      "The compiler automatically swaps the catch clauses into a legal order",
-      "Both catch blocks execute for every thrown IOException"
+      "Compilation fails because the later IOException catch is unreachable after the broader Exception catch",
+      "The compiler automatically swaps the catch clauses into a legal order"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "IOException extends Exception. Once the first catch handles Exception, the later IOException clause can never be selected and is therefore unreachable. Specific catches must precede broader superclass catches.",
     "optionExplanations": [
-      "Correct. IOException extends Exception. Once the first catch handles Exception, the later IOException clause can never be selected and is therefore unreachable. Specific catches must precede broader superclass catches.",
+      "Only one matching catch clause is selected.",
       "Exception is broader than IOException.",
-      "The compiler does not reorder catch clauses.",
-      "Only one matching catch clause is selected."
+      "Correct. IOException extends Exception. Once the first catch handles Exception, the later IOException clause can never be selected and is therefore unreachable. Specific catches must precede broader superclass catches.",
+      "The compiler does not reorder catch clauses."
     ],
     "hint": "Check the inheritance direction: IOException is a subtype of Exception.",
     "referenceId": "ref-exceptions"
@@ -1049,17 +1049,17 @@
     "question": "What does this try-with-resources block do when it exits normally?",
     "code": "try (A first = new A(); B second = new B()) {\n    work();\n}",
     "options": [
+      "It leaves resources open unless close() is called manually",
       "It closes the resources automatically in reverse declaration order",
       "It closes the resources in the same order in which they were declared",
-      "It leaves resources open unless close() is called manually",
       "It closes only the last declared resource and ignores earlier resources"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "Java closes AutoCloseable resources automatically when the block exits. If multiple resources are declared, they are closed in reverse order of declaration.",
     "optionExplanations": [
+      "Manual close is not required for resources in the header.",
       "Correct. Java closes AutoCloseable resources automatically when the block exits. If multiple resources are declared, they are closed in reverse order of declaration.",
       "The language specifies reverse-order closing.",
-      "Manual close is not required for resources in the header.",
       "All declared resources are closed."
     ],
     "hint": "Think of stack-like unwinding: the most recently declared resource closes first.",
@@ -1075,18 +1075,18 @@
     "question": "What is the result of composing these Function objects?",
     "code": "Function<Integer, Integer> addOne = n -> n + 1;\nFunction<Integer, Integer> doubleIt = n -> n * 2;\nSystem.out.println(addOne.andThen(doubleIt).apply(5));",
     "options": [
-      "12",
       "9",
-      "10",
-      "21"
+      "21",
+      "12",
+      "10"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "andThen applies the first function and then the next one. The input 5 is increased by 1 to 6, then multiplied by 2 to produce 12.",
     "optionExplanations": [
-      "Correct. andThen applies the first function and then the next one. The input 5 is increased by 1 to 6, then multiplied by 2 to produce 12.",
       "The second function is applied after the first, not before it.",
-      "The first function changes 5 to 6; the second maps 6 to 12.",
-      "21 reverses or changes the arithmetic order."
+      "21 reverses or changes the arithmetic order.",
+      "Correct. andThen applies the first function and then the next one. The input 5 is increased by 1 to 6, then multiplied by 2 to produce 12.",
+      "The first function changes 5 to 6; the second maps 6 to 12."
     ],
     "hint": "Read andThen from left to right.",
     "referenceId": "ref-functional"
@@ -1101,18 +1101,18 @@
     "question": "What list remains after removeIf executes?",
     "code": "List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5));\nnumbers.removeIf(n -> n % 2 == 0);\nSystem.out.println(numbers);",
     "options": [
-      "[1, 3, 5]",
+      "[]",
       "[2, 4]",
       "[1, 2, 3, 4, 5]",
-      "[]"
+      "[1, 3, 5]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "removeIf removes every element for which the supplied predicate is true. The predicate n % 2 == 0 removes even values, leaving 1, 3 and 5.",
     "optionExplanations": [
-      "Correct. removeIf removes every element for which the supplied predicate is true. The predicate n % 2 == 0 removes even values, leaving 1, 3 and 5.",
+      "The list is modified by removeIf.",
       "This is the set of elements removed, not the remaining list.",
       "The even values satisfy the removal predicate.",
-      "The list is modified by removeIf."
+      "Correct. removeIf removes every element for which the supplied predicate is true. The predicate n % 2 == 0 removes even values, leaving 1, 3 and 5."
     ],
     "hint": "Read the predicate from the perspective of removal.",
     "referenceId": "ref-collections"
@@ -1128,17 +1128,17 @@
     "code": "Map<String, Integer> scores = new HashMap<>();\nscores.put(\"a\", 10);\nscores.put(\"b\", 20);\nSystem.out.println(scores.get(\"b\"));",
     "options": [
       "the value associated with key \"b\", namely 20",
+      "the number of entries currently stored in the map",
       "the second key in insertion order, namely \"b\"",
-      "null, because HashMap does not support String keys",
-      "the number of entries currently stored in the map"
+      "null, because HashMap does not support String keys"
     ],
     "correctAnswer": 0,
     "explanation": "Map.get(key) returns the value mapped to the specified key. In this example, key \"b\" maps to integer 20. HashMap supports String keys.",
     "optionExplanations": [
       "Correct. Map.get(key) returns the value mapped to the specified key. In this example, key \"b\" maps to integer 20. HashMap supports String keys.",
+      "size() returns the number of mappings.",
       "get returns the mapped value rather than the key.",
-      "HashMap supports arbitrary non-null object keys, including String.",
-      "size() returns the number of mappings."
+      "HashMap supports arbitrary non-null object keys, including String."
     ],
     "hint": "Look at the method name and the mapping represented by the key.",
     "referenceId": "ref-collections"
@@ -1153,16 +1153,16 @@
     "question": "What is the result after sorted().limit(2) is applied to the stream?",
     "code": "List<Integer> result = Stream.of(3, 1, 2).sorted().limit(2).toList();\nSystem.out.println(result);",
     "options": [
-      "[1, 2]",
       "[3, 1]",
+      "[1, 2]",
       "[1, 2, 3]",
       "[2, 3]"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "explanation": "sorted uses natural ascending order for these integers, producing 1, 2, 3. limit(2) keeps the first two values, so the result is [1, 2].",
     "optionExplanations": [
-      "Correct. sorted uses natural ascending order for these integers, producing 1, 2, 3. limit(2) keeps the first two values, so the result is [1, 2].",
       "This is the original encounter order before sorting.",
+      "Correct. sorted uses natural ascending order for these integers, producing 1, 2, 3. limit(2) keeps the first two values, so the result is [1, 2].",
       "limit(2) restricts output to two elements.",
       "The smallest two values are 1 and 2."
     ],
@@ -1180,17 +1180,17 @@
     "code": "int sum = List.of(\"1\", \"2\", \"3\", \"4\").stream()\n    .mapToInt(Integer::parseInt)\n    .sum();\nSystem.out.println(sum);",
     "options": [
       "10",
+      "It returns a Stream<Integer> rather than a number",
       "4",
-      "24",
-      "It returns a Stream<Integer> rather than a number"
+      "24"
     ],
     "correctAnswer": 0,
     "explanation": "mapToInt converts each element to an int stream. sum is a terminal reduction and adds 1 + 2 + 3 + 4 to produce 10.",
     "optionExplanations": [
       "Correct. mapToInt converts each element to an int stream. sum is a terminal reduction and adds 1 + 2 + 3 + 4 to produce 10.",
+      "sum returns a primitive int rather than another stream.",
       "4 is the number of elements, not the sum.",
-      "24 is not the sum of the stream values.",
-      "sum returns a primitive int rather than another stream."
+      "24 is not the sum of the stream values."
     ],
     "hint": "Add the mapped primitive values, not the number of elements.",
     "referenceId": "ref-streams"
@@ -1205,18 +1205,18 @@
     "question": "What does the expression Period.between(start, end).getDays() return for these dates?",
     "code": "LocalDate start = LocalDate.of(2024, 1, 31);\nLocalDate end = LocalDate.of(2024, 3, 1);\nSystem.out.println(Period.between(start, end).getDays());",
     "options": [
-      "1, the day component of the calendar period between the dates",
+      "A value in seconds because Period stores time-of-day",
       "29, the total number of elapsed days between the dates",
       "30, because every month is treated as 30 days",
-      "A value in seconds because Period stores time-of-day"
+      "1, the day component of the calendar period between the dates"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "The period from 2024-01-31 to 2024-03-01 is represented as one month and one day according to calendar period decomposition. getDays returns the day component, 1, not the total elapsed day count.",
     "optionExplanations": [
-      "Correct. The period from 2024-01-31 to 2024-03-01 is represented as one month and one day according to calendar period decomposition. getDays returns the day component, 1, not the total elapsed day count.",
+      "Period is date-based, not seconds-based.",
       "The method returns the days component, not total days.",
       "Calendar months do not have a fixed 30-day length.",
-      "Period is date-based, not seconds-based."
+      "Correct. The period from 2024-01-31 to 2024-03-01 is represented as one month and one day according to calendar period decomposition. getDays returns the day component, 1, not the total elapsed day count."
     ],
     "hint": "getDays returns the component of the Period, not its total duration.",
     "referenceId": "ref-datetime"
@@ -1231,18 +1231,18 @@
     "question": "What exception results if start() is invoked a second time on the same Thread instance after its first start?",
     "code": "Thread worker = new Thread(() -> { });\nworker.start();\nworker.join();\nworker.start();",
     "options": [
-      "IllegalThreadStateException",
       "InterruptedException",
-      "ConcurrentModificationException",
-      "ClassCastException"
+      "ClassCastException",
+      "IllegalThreadStateException",
+      "ConcurrentModificationException"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "A Thread object can be started only once. Calling start again after it has been started or terminated throws IllegalThreadStateException.",
     "optionExplanations": [
-      "Correct. A Thread object can be started only once. Calling start again after it has been started or terminated throws IllegalThreadStateException.",
       "InterruptedException relates to interruptible waiting methods.",
-      "ConcurrentModificationException relates to fail-fast collection iteration.",
-      "ClassCastException relates to invalid runtime reference casts."
+      "ClassCastException relates to invalid runtime reference casts.",
+      "Correct. A Thread object can be started only once. Calling start again after it has been started or terminated throws IllegalThreadStateException.",
+      "ConcurrentModificationException relates to fail-fast collection iteration."
     ],
     "hint": "A Thread instance has a one-time NEW-to-started lifecycle.",
     "referenceId": "ref-concurrency"
@@ -1257,18 +1257,18 @@
     "question": "What happens when the main thread calls worker.join() after starting worker?",
     "code": "Thread worker = new Thread(() -> doWork());\nworker.start();\nworker.join();\nSystem.out.println(\"main continues\");",
     "options": [
-      "The main thread waits until worker terminates, then continues",
+      "Both threads are permanently blocked from acquiring monitors",
       "The worker waits until the main thread terminates",
       "The worker starts again after the main thread has joined it",
-      "Both threads are permanently blocked from acquiring monitors"
+      "The main thread waits until worker terminates, then continues"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 3,
     "explanation": "join is invoked on the target Thread object. The calling thread waits for that target thread to terminate, subject to a possible timeout for timed join.",
     "optionExplanations": [
-      "Correct. join is invoked on the target Thread object. The calling thread waits for that target thread to terminate, subject to a possible timeout for timed join.",
+      "join does not lock every monitor.",
       "The caller, main, waits for worker.",
       "join does not restart a thread.",
-      "join does not lock every monitor."
+      "Correct. join is invoked on the target Thread object. The calling thread waits for that target thread to terminate, subject to a possible timeout for timed join."
     ],
     "hint": "Identify which thread invokes join and which thread is the target.",
     "referenceId": "ref-concurrency"
@@ -1283,18 +1283,18 @@
     "question": "Which name is returned by getSimpleName for the declared class CustomerRecord?",
     "code": "class CustomerRecord { }\nSystem.out.println(CustomerRecord.class.getSimpleName());",
     "options": [
-      "CustomerRecord",
-      "com.example.CustomerRecord",
+      "The fully qualified JVM descriptor",
       "CustomerRecord.class",
-      "The fully qualified JVM descriptor"
+      "CustomerRecord",
+      "com.example.CustomerRecord"
     ],
-    "correctAnswer": 0,
+    "correctAnswer": 2,
     "explanation": "getSimpleName returns the simple source-level name without the package. getName returns the binary name, usually including the package.",
     "optionExplanations": [
-      "Correct. getSimpleName returns the simple source-level name without the package. getName returns the binary name, usually including the package.",
-      "The package is omitted by getSimpleName.",
+      "A class literal syntax is not a returned class name.",
       "The fully qualified name is closer to getName for a top-level class.",
-      "A class literal syntax is not a returned class name."
+      "Correct. getSimpleName returns the simple source-level name without the package. getName returns the binary name, usually including the package.",
+      "The package is omitted by getSimpleName."
     ],
     "hint": "Distinguish simple name from binary or fully qualified name.",
     "referenceId": "ref-reflection"

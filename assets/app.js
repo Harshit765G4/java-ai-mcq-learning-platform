@@ -4,8 +4,9 @@
   const QUESTIONS = Array.isArray(window.QUIZ_QUESTIONS) ? window.QUIZ_QUESTIONS : [];
   const META = window.QUIZ_META || { topics: [], banks: [] };
   const REFERENCES = window.QUIZ_REFERENCES || {};
-  const STORAGE_KEY = 'pgcpai_combined_quiz_v3';
+  const STORAGE_KEY = 'pgcpai_combined_quiz_v4';
   const LEGACY_STORAGE_KEY = 'pgcpai_python_quiz_v2';
+  const PREVIOUS_STORAGE_KEY = 'pgcpai_combined_quiz_v3'; // answer order changed in v4: keep name/timer only
   const APP_VERSION = 3;
   const $ = (id) => document.getElementById(id);
   const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
@@ -89,7 +90,7 @@
   }
 
   const savedCurrentVersion = safeParse(localStorageSafeGet(STORAGE_KEY));
-  const savedLegacyVersion = safeParse(localStorageSafeGet(LEGACY_STORAGE_KEY));
+  const savedLegacyVersion = safeParse(localStorageSafeGet(PREVIOUS_STORAGE_KEY)) || safeParse(localStorageSafeGet(LEGACY_STORAGE_KEY));
   // Question wording, distractors, and answer keys have been substantially revised.
   // Carry over identity and timer preferences only; old selections/results could
   // otherwise be scored against a different option order under the same stable ID.
